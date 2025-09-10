@@ -85,3 +85,5 @@ Como cliente, quero receber meu comprovante de pagamento por e-mail ou QR Code.
 - Melhor experiência do cliente
 
 Este projeto não é apenas um sistema de gestão, mas também uma iniciativa alinhada aos princípios de sustentabilidade e inovação tecnológica.
+
+![print](https://github.com/RayssaRR/ChefOS/blob/1f424b65245a386f62580ef0be811d6dfde3c379/Screenshot%20from%202025-09-10%2019-45-22.png)
