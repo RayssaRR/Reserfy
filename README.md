@@ -1,53 +1,33 @@
- Sistema Inteligente de Gestão para Restaurantes
+# Sistema Inteligente de Gestão para Restaurantes
  
 Em conformidade com a ODS 12 – Consumo e Produção Responsáveis da ONU
 
 O projeto tem como objetivo desenvolver um sistema inteligente de gestão para restaurantes, com foco em:
 
-Eficiência operacional
-
-Combate ao desperdício de alimentos
-
-Digitalização de processos
-
-Práticas sustentáveis
+- Eficiência operacional
+- Combate ao desperdício de alimentos
+- Digitalização de processos
+- Práticas sustentáveis
 
 Contribui diretamente para os seguintes pontos da ODS 12:
+- 12.3: Reduzir pela metade o desperdício de alimentos até 2030
+- 12.5: Reduzir significativamente a geração de resíduos
+- 12.6: Incentivar empresas a adotar práticas sustentáveis
 
-12.3: Reduzir pela metade o desperdício de alimentos até 2030
+### Funcionalidades Principais
 
-12.5: Reduzir significativamente a geração de resíduos
+- Registro Digital de Pedidos → Garçom cadastra pedidos diretamente no sistema, enviados à cozinha.
+- Tela de Cozinha em Tempo Real → Pedidos organizados, atualizados e acompanhados pelo cozinheiro.
+- Controle de Validade de Ingredientes → Cadastro e alertas automáticos de vencimento.
+- Atualização Automática de Estoque → Abate automático dos insumos conforme pedidos.
+- Emissão de Comprovante Digital → Nota e pagamento via e-mail ou QR Code.
+- Registro de Descarte de Alimentos → Monitoramento de desperdício e exportação de relatórios.
+- Cardápio Digital via QR Code → Cardápio atualizado acessível no celular.
+- Divisão de Conta → Divisão de valores por pessoa ou item.
+- Relatório de Sustentabilidade → Relatórios semanais/mensais sobre consumo e desperdício.
+- Avaliação de Pratos e Atendimento → Feedback direto dos clientes para melhoria contínua.
 
-12.6: Incentivar empresas a adotar práticas sustentáveis
-
- Funcionalidades Principais
-  Must Have
-
-Registro Digital de Pedidos → Garçom cadastra pedidos diretamente no sistema, enviados à cozinha.
-
-Tela de Cozinha em Tempo Real → Pedidos organizados, atualizados e acompanhados pelo cozinheiro.
-
-Controle de Validade de Ingredientes → Cadastro e alertas automáticos de vencimento.
-
-Atualização Automática de Estoque → Abate automático dos insumos conforme pedidos.
-
-Emissão de Comprovante Digital → Nota e pagamento via e-mail ou QR Code.
-
- Should Have
-
-Registro de Descarte de Alimentos → Monitoramento de desperdício e exportação de relatórios.
-
-Cardápio Digital via QR Code → Cardápio atualizado acessível no celular.
-
-Divisão de Conta → Divisão de valores por pessoa ou item.
-
- Could Have
-
-Relatório de Sustentabilidade → Relatórios semanais/mensais sobre consumo e desperdício.
-
-Avaliação de Pratos e Atendimento → Feedback direto dos clientes para melhoria contínua.
-
- Histórias de Usuário
+### Histórias de Usuário
 
  História 1 – Registro Digital de Pedidos
 Como garçom, quero registrar o pedido do cliente digitalmente para que vá direto à cozinha sem erros ou papel.
@@ -79,7 +59,7 @@ Como cliente, quero dividir a conta por pessoa ou item para facilitar o pagament
  História 10 – Emissão de Comprovante Digital
 Como cliente, quero receber meu comprovante de pagamento por e-mail ou QR Code.
 
- Equipe do Projeto
+### Equipe do Projeto
  
 | Nome                  | Papel                | Responsabilidades principais                           |
 | --------------------- | -------------------- | ------------------------------------------------------ |
@@ -91,17 +71,17 @@ Como cliente, quero receber meu comprovante de pagamento por e-mail ou QR Code.
 | Rayssa Santana        | Full Stack Developer | Integrações e suporte transversal                      |
 
 
- Tecnologias
+### Tecnologias
 
-Front-End: React.js / TailwindCSS
-Back-End: Django 
-Banco de Dados: PostgreSQL 
+- Front-End: React.js / TailwindCSS
+- Back-End: Django 
+- Banco de Dados: PostgreSQL 
 
- Impacto Esperado
+### Impacto Esperado
 
- Menos desperdício de alimentos
- Processos mais rápidos e digitais
- Maior sustentabilidade
- Melhor experiência do cliente
+- Menos desperdício de alimentos
+- Processos mais rápidos e digitais
+- Maior sustentabilidade
+- Melhor experiência do cliente
 
- Este projeto não é apenas um sistema de gestão, mas também uma iniciativa alinhada aos princípios de sustentabilidade e inovação tecnológica.
+Este projeto não é apenas um sistema de gestão, mas também uma iniciativa alinhada aos princípios de sustentabilidade e inovação tecnológica.
