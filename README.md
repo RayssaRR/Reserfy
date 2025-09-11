@@ -1,6 +1,8 @@
 # Sistema Inteligente de Gestão para Restaurantes
- 
-Em conformidade com a ODS 12 – Consumo e Produção Responsáveis da ONU
+
+O Sistema Inteligente de Gestão para Restaurantes é uma solução voltada para eficiência, sustentabilidade e digitalização de processos, alinhada à ODS 12 – Consumo e Produção Responsáveis. Ele ajuda a reduzir desperdício de alimentos, controlar estoque, gerenciar pedidos em tempo real e registrar descartes de forma organizada.
+
+Com funcionalidades para cozinha, garçons e gerenciamento de fornecedores, o sistema integra toda a equipe, agilizando operações e promovendo práticas sustentáveis. Desenvolvido com React.js, TailwindCSS, Django e PostgreSQL, oferece processos digitais mais rápidos, melhor experiência ao cliente e maior responsabilidade ambiental.
 
 O projeto tem como objetivo desenvolver um sistema inteligente de gestão para restaurantes, com foco em:
 
