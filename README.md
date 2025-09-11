@@ -16,48 +16,48 @@ Contribui diretamente para os seguintes pontos da ODS 12:
 
 ### Funcionalidades Principais
 
-- Registro Digital de Pedidos → Garçom cadastra pedidos diretamente no sistema, enviados à cozinha.
-- Tela de Cozinha em Tempo Real → Pedidos organizados, atualizados e acompanhados pelo cozinheiro.
-- Controle de Validade de Ingredientes → Cadastro e alertas automáticos de vencimento.
-- Atualização Automática de Estoque → Abate automático dos insumos conforme pedidos.
-- Emissão de Comprovante Digital → Nota e pagamento via e-mail ou QR Code.
-- Registro de Descarte de Alimentos → Monitoramento de desperdício e exportação de relatórios.
-- Cardápio Digital via QR Code → Cardápio atualizado acessível no celular.
-- Divisão de Conta → Divisão de valores por pessoa ou item.
-- Relatório de Sustentabilidade → Relatórios semanais/mensais sobre consumo e desperdício.
-- Avaliação de Pratos e Atendimento → Feedback direto dos clientes para melhoria contínua.
+- Registro Digital de Pedidos nas Mesas → O sistema deve mostrar apenas os itens disponíveis em estoque para que o garçom não registre pedidos que não podem ser atendidos.
+- Tela de Cozinha com Pedidos em Tempo Real → A interface deve atualizar automaticamente e destacar novos pedidos para facilitar a organização e agilidade na cozinha.
+- Verificar Estoque → O sistema deve permitir o cadastro dos níveis mínimos e datas de validade para gerar alertas automáticos e relatórios de vencidos.
+- Registro de Descarte de Alimentos → O sistema deve permitir registro por tipo e motivo do descarte, além de apresentar dashboards e exportação de dados para análise.
+- Criação de Pratos → O sistema deve garantir que apenas ingredientes cadastrados e disponíveis possam ser usados para criar novos pratos.
+- Alterar Pratos → O sistema deve permitir edição dos pratos, incluindo troca ou ajuste de ingredientes, respeitando a disponibilidade no estoque.
+- Cancelar/Alterar Pedidos que Não Estejam em Andamento → O sistema deve permitir cancelamento e alteração apenas de pedidos que não tenham sido iniciados na cozinha.
+- Gerenciamento de Fornecedores Atualizados → O sistema deve permitir a gestão completa do cadastro de fornecedores, incluindo dados de contato, histórico e categorias de produtos fornecidos.
+- Gerenciamento de pedidos → O cozinheiro poderá alterar o status do pedido para aceitar, pronto e cancelado.
+- Notificação de Pedidos para Garçom → O sistema deve alertar o garçom em tempo real assim que o cozinheiro marcar o pedido como “pronto”.
 
 ### Histórias de Usuário
 
- História 1 – Registro Digital de Pedidos
-Como garçom, quero registrar o pedido do cliente digitalmente para que vá direto à cozinha sem erros ou papel.
+ História 1 – Registro Digital de Pedidos nas Mesas
+ Eu, como garçom, quero registrar os pedidos de acordo com a disponibilidade de ingredientes no estoque.
 
- História 2 – Tela de Cozinha em Tempo Real
-Como cozinheiro, quero visualizar os pedidos em ordem para preparar os pratos organizadamente.
+ História 2 – Tela de Cozinha com Pedidos em Tempo Real
+ Eu, como cozinheiro, quero visualizar e priorizar os pedidos conforme a ordem de chegada e receber notificações de novos pedidos.
 
- História 3 – Controle de Validade de Ingredientes
-Como administrador, quero cadastrar insumos com validade para receber alertas sobre vencimentos.
+ História 3 – Verificar Estoque
+ Eu, como estoquista, quero consultar e alterar os níveis de insumos e receber alertas para fazer reposição antes de acabar.
 
  História 4 – Registro de Descarte de Alimentos
-Como gerente, quero registrar sobras e descartes para monitorar e reduzir desperdício.
+ Eu, como auxiliar, quero registrar as sobras e descartes de alimentos para monitorar e reduzir o desperdício.
 
- História 5 – Cardápio Digital via QR Code
-Como cliente, quero acessar o cardápio atualizado no celular sem papel.
+ História 5 – Criação de Pratos
+ Eu, como cozinheiro, quero adicionar novos pratos utilizando ingredientes disponíveis no estoque.
 
- História 6 – Atualização Automática do Estoque
-Como sistema, quero abater ingredientes do estoque automaticamente após vendas.
+ História 6 – Alterar Pratos
+ Eu, como cozinheiro, quero alterar pratos existentes para atualizar o cardápio conforme a disponibilidade e feedback dos clientes.
 
- História 7 – Relatório de Sustentabilidade
-Como gerente, quero relatórios de desperdício e consumo para decisões sustentáveis.
+ História 7 – Cancelar/Alterar Pedidos que Não Estejam em Andamento
+ Eu, como garçom, quero cancelar ou alterar pedidos que ainda não estejam em preparo para evitar desperdício e erros.
 
- História 8 – Avaliação de Pratos e Atendimento
-Como cliente, quero avaliar o prato e atendimento para ajudar na melhoria contínua.
+ História 8 – Gerenciamento de Fornecedores Atualizados
+ Eu, como gerente, quero adicionar, alterar e remover fornecedores para manter o cadastro atualizado e garantir abastecimento.
 
- História 9 – Divisão de Conta
-Como cliente, quero dividir a conta por pessoa ou item para facilitar o pagamento.
+ História 9 – Gerenciamento de pedidos
+ Eu, como cozinheiro, quero cancelar ou aceitar os pedidos.
 
- História 10 – Emissão de Comprovante Digital
-Como cliente, quero receber meu comprovante de pagamento por e-mail ou QR Code.
+ História 10 – Notificação de Pedidos para Garçom
+ Eu, como garçom, quero receber notificações quando o pedido estiver pronto.
 
 ### Equipe do Projeto
  
