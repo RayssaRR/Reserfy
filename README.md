@@ -86,4 +86,4 @@ Contribui diretamente para os seguintes pontos da ODS 12:
 
 Este projeto não é apenas um sistema de gestão, mas também uma iniciativa alinhada aos princípios de sustentabilidade e inovação tecnológica.
 
-![print](https://github.com/RayssaRR/ChefOS/blob/1f424b65245a386f62580ef0be811d6dfde3c379/Screenshot%20from%202025-09-10%2019-45-22.png)
+![print](https://github.com/RayssaRR/ChefOS/blob/219c2f04474ca80b7fb89a91f2fa497c1fcf478b/Screenshot%20from%202025-09-10%2021-40-42.png)
