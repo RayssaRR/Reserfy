@@ -54,4 +54,6 @@ A aplicação tem foco em melhorar o cuidado com a saúde individual, reduzir ri
 - Apoio na identificação precoce de efeitos adversos
 - Gerenciamento responsável do estoque pessoal de medicamentos
 
-![print](https://github.com/RayssaRR/ChefOS/blob/219c2f04474ca80b7fb89a91f2fa497c1fcf478b/Screenshot%20from%202025-09-10%2021-40-42.png)
+>>>
+
+![print]()
