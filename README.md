@@ -56,4 +56,4 @@ A aplicação tem foco em melhorar o cuidado com a saúde individual, reduzir ri
 
 >>>
 
-![print]()
+![print](<img width="1919" height="864" alt="image" src="https://github.com/user-attachments/assets/1415d6b7-b110-4ba1-a26b-3a5cdec69104" />)
