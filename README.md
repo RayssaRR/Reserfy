@@ -20,14 +20,14 @@ A aplicação tem foco em melhorar o cuidado com a saúde individual, reduzir ri
 
 ### Funcionalidades Principais
 
-- **Cadastro de Pacientes e Medicamentos** > Registro completo de pacientes e medicamentos utilizados, com dosagens, frequência e datas de início/fim do tratamento.
-- **Cadastro e Edição de Bulas Digitais** > Farmacêuticos podem cadastrar, editar e remover bulas completas com informações oficiais.
-- **Busca e Filtro de Medicamentos** > Pesquisa inteligente por nome, fabricante ou princípio ativo, com filtros por categoria.
-- **Leitura em Voz Alta de Bulas (Acessibilidade)** > Leitura automatizada via API nativa do navegador, com suporte a múltiplos idiomas.
-- **Registro de Sintomas e Efeitos Colaterais** > Registro manual ou por lista de sintomas apresentados, com associação ao medicamento e alertas de gravidade.
-- **Cruzamento de Sintomas com Bulas** > O sistema compara os sintomas registrados com os efeitos colaterais esperados do medicamento.
-- **Gestão de Estoque Pessoal de Medicamentos** > Controle de quantidades, alertas automáticos de reposição e validade dos medicamentos.
-- **Notificações e Lembretes** > Alertas de horário para medicação, validade de remédios e necessidade de compra.
+- **Cadastro de Pacientes e Medicamentos** → Registro completo de pacientes e medicamentos utilizados, com dosagens, frequência e datas de início/fim do tratamento.
+- **Cadastro e Edição de Bulas Digitais** → Farmacêuticos podem cadastrar, editar e remover bulas completas com informações oficiais.
+- **Busca e Filtro de Medicamentos** → Pesquisa inteligente por nome, fabricante ou princípio ativo, com filtros por categoria.
+- **Leitura em Voz Alta de Bulas (Acessibilidade)** → Leitura automatizada via API nativa do navegador, com suporte a múltiplos idiomas.
+- **Registro de Sintomas e Efeitos Colaterais** → Registro manual ou por lista de sintomas apresentados, com associação ao medicamento e alertas de gravidade.
+- **Cruzamento de Sintomas com Bulas** → O sistema compara os sintomas registrados com os efeitos colaterais esperados do medicamento.
+- **Gestão de Estoque Pessoal de Medicamentos** → Controle de quantidades, alertas automáticos de reposição e validade dos medicamentos.
+- **Notificações e Lembretes** → Alertas de horário para medicação, validade de remédios e necessidade de compra.
 
 ### Equipe do Projeto
  
