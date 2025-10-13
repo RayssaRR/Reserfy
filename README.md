@@ -1,59 +1,95 @@
-### Sistema de Gestão de Medicamentos e Saúde Pessoal
+# Sistema de Controle de Recursos Internos
 
-O Sistema de Gestão de Medicamentos e Saúde Pessoal é uma solução tecnológica voltada ao acompanhamento de tratamentos médicos, à acessibilidade à informação farmacêutica e à gestão eficiente do uso de medicamentos. Alinhado ao Objetivo de Desenvolvimento Sustentável 3 (ODS 3) – Assegurar uma vida saudável e promover o bem-estar para todos, o projeto promove práticas seguras, acessíveis e baseadas em dados no contexto da automedicação e saúde preventiva.
+Facilite a gestão de recursos compartilhados da empresa — como salas de reunião, carros corporativos, notebooks e equipamentos de TI — evitando conflitos de reserva, otimizando o uso e garantindo transparência no acesso.
 
-A aplicação tem foco em melhorar o cuidado com a saúde individual, reduzir riscos de automedicação inadequada, oferecer suporte à gestão de estoque de medicamentos pessoais e facilitar o acesso a informações confiáveis sobre bulas e efeitos colaterais.
+## Sumário
 
-### O projeto tem como objetivo desenvolver um sistema inteligente de gestão de para farmácias, com foco em:
+- [Descrição do Projeto](#descrição-do-projeto)  
+- [Funcionalidades](#funcionalidades)  
+- [Fluxo de Uso](#fluxo-de-uso)  
+- [Equipe e Responsabilidades](#equipe-e-responsabilidades)  
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)  
+- [Como Executar o Projeto](#como-executar-o-projeto)  
+- [Estrutura de Endpoints](#estrutura-de-endpoints)  
+- [Funcionalidades Extras (Opcional)](#funcionalidades-extras-opcional)  
+- [Benefícios](#benefícios)  
+- [Contribuição](#contribuição)  
+- [Licença](#licença)
 
-- Promover o uso consciente e seguro de medicamentos
-- Fornecer acesso digital e acessível às bulas de medicamentos
-- Acompanhar estoques pessoais de medicamentos e alertas de reposição
-- Apoiar o paciente no reconhecimento de efeitos colaterais
-- Notificar usuários sobre horários de medicação e vencimentos
-- Aumentar a acessibilidade por meio de leitura em voz alta das bulas
+---
 
-### Contribui diretamente para os seguintes pontos da ODS 3:
+## Descrição do Projeto
 
-- 3.8: Atingir a cobertura universal de saúde, incluindo acesso a medicamentos essenciais seguros e eficazes
-- 3.7: Garantir acesso universal à informação sobre saúde reprodutiva e medicamentosa
+O **Sistema de Controle de Recursos Internos** tem como objetivo centralizar e organizar a reserva de recursos da empresa.  
+A plataforma permite que funcionários verifiquem a disponibilidade de salas, equipamentos e veículos, realizem reservas e que gestores acompanhem estatísticas e histórico de uso.
 
-### Funcionalidades Principais
+---
 
-- **Cadastro de Pacientes e Medicamentos** → Registro completo de pacientes e medicamentos utilizados, com dosagens, frequência e datas de início/fim do tratamento.
-- **Cadastro e Edição de Bulas Digitais** → Farmacêuticos podem cadastrar, editar e remover bulas completas com informações oficiais.
-- **Busca e Filtro de Medicamentos** → Pesquisa inteligente por nome, fabricante ou princípio ativo, com filtros por categoria.
-- **Leitura em Voz Alta de Bulas (Acessibilidade)** → Leitura automatizada via API nativa do navegador, com suporte a múltiplos idiomas.
-- **Registro de Sintomas e Efeitos Colaterais** → Registro manual ou por lista de sintomas apresentados, com associação ao medicamento e alertas de gravidade.
-- **Cruzamento de Sintomas com Bulas** → O sistema compara os sintomas registrados com os efeitos colaterais esperados do medicamento.
-- **Gestão de Estoque Pessoal de Medicamentos** → Controle de quantidades, alertas automáticos de reposição e validade dos medicamentos.
-- **Notificações e Lembretes** → Alertas de horário para medicação, validade de remédios e necessidade de compra.
+## Funcionalidades
 
-### Equipe do Projeto
- 
-| Nome                  | Papel                | Responsabilidades principais                           |
-| --------------------- | -------------------- | ------------------------------------------------------ |
-| Emanoel Henrick       | Product Owner (PO)   | Priorizar backlog, coleta requisitos, visão do produto |
-| Felipe Lopes          | UX/UI Designer       | Criação das interfaces e protótipos interativos        |
-| Jennifer Zeferino     | Front-End Developer  | Desenvolvimento das interfaces responsivas             |
-| José Leandro          | Back-End Developer   | Lógica de negócio, banco de dados e APIs               |
-| Raiele Leite          | QA / Testes          | Planejamento e execução de testes                      |
-| Rayssa Santana        | Full Stack Developer | Integrações e suporte transversal                      |
+### CRUD de Recursos
+- Cadastrar novos recursos (salas, carros, notebooks, etc.).
+- Editar informações (capacidade, placa, modelo, etc.).
+- Ativar ou desativar recursos conforme disponibilidade.
 
-### Tecnologias
+### CRUD de Reservas
+- Criar reservas informando recurso, data/hora e responsável.
+- Editar ou cancelar reservas existentes.
+- Validação automática para evitar conflitos de horário.
 
-- **Front-End:** Angula
-- **Back-End:** Spring Boot
-- **Banco de dados:** PostgreSQL
+### Visualização de Agenda
+- Exibição de reservas em formato agenda semanal/mensal.
+- Filtros por tipo de recurso.
+- Lista detalhada de reservas por recurso.
 
-### Impacto Esperado
+### Relatórios e Estatísticas (opcional)
+- Tempo médio de uso por recurso.
+- Recursos mais demandados.
+- Horários de pico de uso.
 
-- Redução de erros relacionados ao uso incorreto de medicamentos
-- Maior adesão aos tratamentos por meio de lembretes e notificações
-- Inclusão digital e acessibilidade a pacientes com baixa visão ou dificuldade de leitura
-- Apoio na identificação precoce de efeitos adversos
-- Gerenciamento responsável do estoque pessoal de medicamentos
+---
 
->>>
+## Fluxo de Uso
 
-![print](https://github.com/user-attachments/assets/fc8e1adc-8583-402c-bb16-ad5ff8a21c24)
+1. O funcionário acessa a página de Salas de Reunião.  
+2. Verifica que a sala desejada está livre no horário.  
+3. Cria uma reserva → o sistema valida → reserva confirmada.  
+4. Outro funcionário tenta reservar no mesmo horário → sistema bloqueia e sugere alternativas.  
+5. O RH acessa estatísticas e identifica recursos subutilizados, otimizando seu uso.
+
+---
+
+## Equipe e Responsabilidades
+
+| Nome                 | Papel                  | Responsabilidades principais                                    |
+|-----------------------|-------------------------|------------------------------------------------------------------|
+| Product Owner (PO)    | -                       | Priorizar backlog, coletar requisitos, visão do produto          |
+| Felipe Lopes          | UX/UI Designer          | Criação das interfaces e protótipos interativos                  |
+| Jennifer Zeferino     | Front-End Developer     | Desenvolvimento das interfaces responsivas                       |
+| José Leandro          | Back-End Developer      | Lógica de negócio, banco de dados e APIs                          |
+| Raiele Leite          | QA / Testes             | Planejamento e execução de testes                                |
+| Rayssa Santana        | Full Stack Developer    | Integrações e suporte transversal                                |
+
+---
+
+## Tecnologias Utilizadas
+
+### Backend
+- Spring Boot
+- PostgreSQL ou MySQL
+- Endpoints REST:
+  - `/recursos`
+  - `/reservas`
+  - `/usuarios`
+
+### Frontend
+- Angular
+- Componentes:
+  - Página inicial com menu
+  - Lista de Recursos
+  - Formulário de Reserva
+  - Agenda de Reservas (Calendário)
+  - Detalhe do Recurso + reservas associadas
+
+Este projeto está sob a licença MIT.  
+Sinta-se livre para usar, modificar e distribuir.
