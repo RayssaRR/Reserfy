@@ -91,5 +91,9 @@ A plataforma permite que funcionários verifiquem a disponibilidade de salas, eq
   - Agenda de Reservas (Calendário)
   - Detalhe do Recurso + reservas associadas
 
+
+    <img width="1908" height="910" alt="image" src="https://github.com/user-attachments/assets/2eb3708d-19f4-4bdf-9573-da2c45fb0c6c" />
+
+
 Este projeto está sob a licença MIT.  
 Sinta-se livre para usar, modificar e distribuir.
