@@ -42,7 +42,7 @@ A plataforma permite que funcionários verifiquem a disponibilidade de salas, eq
 - Filtros por tipo de recurso.
 - Lista detalhada de reservas por recurso.
 
-### Relatórios e Estatísticas (opcional)
+### Relatórios e Estatísticas 
 - Tempo médio de uso por recurso.
 - Recursos mais demandados.
 - Horários de pico de uso.
