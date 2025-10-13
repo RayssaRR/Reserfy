@@ -1,6 +1,6 @@
 # Sistema de Controle de Recursos Internos
 
-Facilite a gestão de recursos compartilhados da empresa — como salas de reunião, carros corporativos, notebooks e equipamentos de TI — evitando conflitos de reserva, otimizando o uso e garantindo transparência no acesso.
+Facilite a gestão de recursos compartilhados da empresa — como salas de reunião, carros corporativos, notebooks e equipamentos de TI, evitando conflitos de reserva, otimizando o uso e garantindo transparência no acesso.
 
 ## Sumário
 
