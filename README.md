@@ -154,6 +154,15 @@ Os testes incluem **unitários**, **de integração** e **de interface**, garant
 
 A demonstração é acompanhada de feedback do PO e validação dos critérios de aceite.  
 
+
+
+https://github.com/user-attachments/assets/73f15c5d-cf6c-44e2-9f57-f09905edbe76
+
+https://github.com/user-attachments/assets/71ca7085-39d4-4202-b235-abf4abab6b77
+
+
+
+
 ---
 
 ## 9️⃣ Fluxo Completo do Projeto  
