@@ -34,6 +34,10 @@ O sistema abrange funcionalidades essenciais voltadas ao controle completo do ci
 Utilização de **boards Kanban/Scrum**, **GitHub Projects**, **Trello** e versionamento via **Git/GitHub**.  
 🔗 [GITHUB](https://github.com/RayssaRR/Reserfy)  
 
+<img width="717" height="498" alt="PrintTrello" src="https://github.com/user-attachments/assets/869c3ba3-cf79-4980-a37c-cb0dbd8bd1ce" />
+
+🔗 [TRELLO](https://trello.com/b/9leuU1jk/projetos-2)
+
 ---
 
 ## 2️⃣ Cartões de Gestão Ágil  
@@ -107,7 +111,11 @@ O fluxo representa a jornada do usuário e do administrador dentro do sistema:
 9. **Administrador agenda manutenções preventivas**, bloqueando reservas durante o período.  
 10. **Agenda visual** mostra em tempo real a disponibilidade de cada recurso.  
 11. **Sugestões automáticas de alternativas** são exibidas para recursos indisponíveis.  
-12. **Histórico completo de uso** e incidentes pode ser consultado para auditoria e planejamento.  
+12. **Histórico completo de uso** e incidentes pode ser consultado para auditoria e planejamento.
+
+<img width="8678" height="6547" alt="PrintFigma" src="https://github.com/user-attachments/assets/f158077d-6c58-4098-8b83-a6a2368564d8" />
+
+🔗 [FIGMA](https://www.figma.com/design/LznJPWhEptMYSr51bsEMAL/FDS?node-id=0-1&p=f&t=qVT9gyhbwtBuq4MD-0)
 
 ---
 
