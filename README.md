@@ -113,8 +113,8 @@ O fluxo representa a jornada do usuário e do administrador dentro do sistema:
 11. **Sugestões automáticas de alternativas** são exibidas para recursos indisponíveis.  
 12. **Histórico completo de uso** e incidentes pode ser consultado para auditoria e planejamento.
 
-<img width="8678" height="6547" alt="PrintFigma" src="https://github.com/user-attachments/assets/f158077d-6c58-4098-8b83-a6a2368564d8" />
 
+<img width="8922" height="7866" alt="Figma" src="https://github.com/user-attachments/assets/d9bf6e3a-08f4-441c-b0fe-50557cfe773d" />
 🔗 [FIGMA](https://www.figma.com/design/LznJPWhEptMYSr51bsEMAL/FDS?node-id=0-1&p=f&t=qVT9gyhbwtBuq4MD-0)
 
 ---
