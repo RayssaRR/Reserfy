@@ -16,7 +16,7 @@ public class AdministradorService {
 	
 	public String save(Administrador administrador) {
 		this.administradorRepository.save(administrador);
-		return "Administrador Salvo !";
+		return "Administrador Cadastrado !";
 	}
 	
 	public String update(Administrador administrador, long id) {

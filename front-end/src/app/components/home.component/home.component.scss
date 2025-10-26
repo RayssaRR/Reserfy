@@ -1,0 +1,59 @@
+@import '../../styles/variables';
+
+
+*{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 6rem;
+
+}
+
+h2{
+    text-align: center;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.buttons{
+    display: flex;
+    gap: 50px;
+}
+
+.button{
+    color: $dark-green;
+    border: 2px solid $light-green;
+    font-family: $inter;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+#button-cadastro{
+    background-color: $light-green;
+
+}
+
+#button-login{
+    background-color: $white;
+}
+
+p{  
+    margin-top: 150px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.cards-container {
+  display: flex;
+  gap: 40px;
+}
