@@ -27,7 +27,7 @@ public class UserService {
         User savedAdmin = userRepository.findByEmail(adminEmail);
         if (savedAdmin.getEmail() == null) throw new RuntimeException("Administrador não encontrado");
 
-        user.setRoleFlag("ROLE_USER");
+        user.setRoleFlag("USER");
         user.setAdminResponsavel(savedAdmin);
         savedAdmin.addManagedUser(user);
 
@@ -46,7 +46,7 @@ public class UserService {
         
         
         admin.setAdminResponsavel(null);
-        admin.setRoleFlag("ROLE_ADMIN");
+        admin.setRoleFlag("ADMIN");
         
         return userRepository.save(admin);
     }
@@ -66,7 +66,7 @@ public class UserService {
             throw new RuntimeException("Usuário não encontrado");
         }
 
-        BeanUtils.copyProperties(user, userFound, "id", "email");
+        BeanUtils.copyProperties(user, userFound, "id", "email", "cpf");
 
         return userRepository.save(userFound);
     }

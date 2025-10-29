@@ -1,7 +1,5 @@
 package app.back_end.controller;
 
-//import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,20 +47,4 @@ public class UserController {
 		}	
 	}
     
-    /*
-
-    @GetMapping
-    public List<User> listUsers() {
-        return userService.listUsers();
-    }
-
-    @GetMapping("/admins")
-    public List<User> listAdmins() {
-        return userService.listAdmins();
-    }
-
-    @GetMapping("/admin/{adminId}/users")
-    public List<User> listUsersByAdmin(@PathVariable Long adminId) {
-        return userService.listUsersByAdmin(adminId);
-    }*/
 }
