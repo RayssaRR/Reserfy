@@ -1,0 +1,137 @@
+@use '../../../styles/variables' as vars;
+
+
+.container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 100px;
+}
+
+.container-text{
+    text-align: center;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+
+.container-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:15px;
+    background-color: vars.$white;
+    border-radius: 10px;
+    border: 1px solid #{vars.$success-light};
+    min-width: 570px;
+    width: 40vw;
+    padding: 50px;
+    box-shadow:  2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.label-input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+input{
+    border: 1px solid #{vars.$stroke};
+    border-radius: 8px;
+    padding: 1%;
+}
+
+.label-input label{
+    font-size: 1.2rem;
+}
+
+#p-select-perfil{
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-self: flex-start;
+}
+
+.half-input{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+#content-senha{
+    align-self: flex-end;
+}
+
+#content-senha p{
+    font-size: 1rem;
+}
+
+button{
+    background-color: vars.$success-light;
+    color: vars.$success-dark;
+    border: 2px solid #{vars.$success-light};
+    border-radius: 10px;
+    width: 100%;
+    padding: 8px 0;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+button:hover{
+    background-color: vars.$white;
+}
+
+.form-radio{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.radio{
+    display: none;
+}
+
+.input-radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 5px 20px;
+    border: 1px solid #{vars.$stroke};
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.input-radio:has(input[type="radio"]:checked) {
+    background-color: vars.$success-light; 
+    border-color: vars.$success-dark;
+    border: 1px solid #{vars.$success-light};
+}
+
+#entrar{
+    align-self: flex-end;
+    font-size: 1rem;
+}
+
+#entrar a{
+    font-weight: bold;
+}

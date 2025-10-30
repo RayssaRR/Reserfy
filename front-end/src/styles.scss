@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'app/styles/variables';
 
+@use 'mdb-angular-ui-kit/assets/scss/mdb.scss' as mdb;
+@use 'app/styles/variables' as vars;
 
-body{
-    background-color: $background-color;
-    color: $text-color;
-    font-family: $inter;
+body {
+  background-color: vars.$background-color;
+  color: vars.$text-color;
+  margin: 0;
+  padding: 0;
 }
+
+
+
