@@ -1,24 +1,25 @@
 <div class="container">
-    <div class="container-text">
-        <h1>Bem-vindo de volta</h1>
-        <p>Acesse sua conta para gerenciar seus recursos</p>
+  <app-logo></app-logo>
+  <div class="container-text">
+    <h1>Bem-vindo de volta</h1>
+    <p>Acesse sua conta para gerenciar seus recursos</p>
+  </div>
+
+  <div class="container-content">
+    <div class="label-input">
+      <label for="login">Email</label>
+      <input type="text" id="login" [(ngModel)]="login.email" name="email"/>
     </div>
 
-    <div class="container-content">
-        <div class="label-input">
-            <label  for="login">Email</label>
-            <input type="text" id="login" />
-        </div>
-
-        <div class="label-input">
-            <label for="senha" >Senha</label>
-            <input type="password" id="senha"/>
-        </div>
-
-        <a href="http://localhost:4200/login" id="content-senha"><p>Esqueci minha senha</p></a>
-
-        <button type="submit" (click)="logar()">Entrar</button>
-
-        <p id="cadastrar">Não tem uma conta? <a href="/register">Cadastre-se</a></p>
+    <div class="label-input">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" [(ngModel)]="login.password" name="password" >
     </div>
+
+    <a href="/login" id="content-senha"><p>Esqueci minha senha</p></a>
+
+    <button type="button" (click)="logar()">Entrar</button>
+
+    <p id="cadastrar">Não tem uma conta? <a href="/register">Cadastre-se</a></p>
+  </div>
 </div>

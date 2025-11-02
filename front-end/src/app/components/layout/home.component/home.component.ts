@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { Cardhome } from '../../home/cardhome/cardhome';
+import { LogoComponent } from '../logo.component/logo.component';
 
 @Component({
-  selector: 'app-home.component',
+  selector: 'app-home',
   standalone: true,
-  imports: [Cardhome, RouterOutlet],
+  imports: [Cardhome, LogoComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

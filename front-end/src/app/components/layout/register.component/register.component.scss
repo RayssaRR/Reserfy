@@ -72,13 +72,6 @@ input{
     gap: 10px;
 }
 
-#content-senha{
-    align-self: flex-end;
-}
-
-#content-senha p{
-    font-size: 1rem;
-}
 
 button{
     background-color: vars.$success-light;
@@ -103,9 +96,6 @@ button:hover{
     margin-bottom: 50px;
 }
 
-.radio{
-    display: none;
-}
 
 .input-radio {
     display: flex;
@@ -113,18 +103,31 @@ button:hover{
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 10px;
     padding: 5px 20px;
     border: 1px solid #{vars.$stroke};
     border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+}
+
+.input-radio label{
+    cursor: pointer;
+}
+
+.input-radio:hover {
+    cursor: pointer;
+    border-color: vars.$text-color;
+    background-color: vars.$white;
 }
 
 .input-radio:has(input[type="radio"]:checked) {
     background-color: vars.$success-light; 
     border-color: vars.$success-dark;
     border: 1px solid #{vars.$success-light};
+}
+
+
+.input-radio input{
+    display: none;
 }
 
 #entrar{
