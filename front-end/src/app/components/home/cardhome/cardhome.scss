@@ -1,9 +1,9 @@
-@import '../../styles/variables';
+@use '../../../styles/variables' as vars;
 
 
 .card {
-    background-color: $white;
-    border: 1px solid $dark-green;
+    background-color: vars.$background-color;
+    border: 1px solid vars.$success-dark;
     border-radius: 10px;
     width: 360px;
     height: 200px;

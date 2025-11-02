@@ -1,0 +1,19 @@
+@use '../../../styles/variables' as vars;
+
+button{
+    background-color: vars.$success-light;
+    border: 1px solid #{vars.$success-light};
+    border-radius: 10px;
+    padding: 0px 25px;
+    color: vars.$success-dark;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    transition: transform 0.3s ease-out;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
