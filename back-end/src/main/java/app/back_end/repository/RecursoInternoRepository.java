@@ -1,10 +1,9 @@
 package app.back_end.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import app.back_end.entity.RecursoInterno;
 import java.util.Optional;
+import app.back_end.entity.RecursoInterno;
 
 public interface RecursoInternoRepository extends JpaRepository<RecursoInterno, Long> {
-
-    Optional<RecursoInterno> findByCodigo(String codigo);
+    Optional<RecursoInterno> findByNome(String nome);
 }

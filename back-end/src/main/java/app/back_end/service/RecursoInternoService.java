@@ -1,13 +1,10 @@
 package app.back_end.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import app.back_end.entity.RecursoInterno;
 import app.back_end.repository.RecursoInternoRepository;
+import java.util.Optional;
 
 @Service
 public class RecursoInternoService {
@@ -15,31 +12,20 @@ public class RecursoInternoService {
     @Autowired
     private RecursoInternoRepository recursoInternoRepository;
 
-
     public RecursoInterno salvar(RecursoInterno recursoInterno) {
-        
+
         if (recursoInterno.getNome() == null || recursoInterno.getNome().isBlank() ||
-            recursoInterno.getCodigo() == null || recursoInterno.getCodigo().isBlank()) {
-            throw new IllegalArgumentException("Os campos 'nome' e 'código' são obrigatórios!");
+            recursoInterno.getCategoria() == null || recursoInterno.getCategoria().isBlank() ||
+            recursoInterno.getStatus() == null || recursoInterno.getStatus().isBlank()) {
+            throw new IllegalArgumentException("Os campos 'nome', 'categoria' e 'status' são obrigatórios!");
         }
 
 
-        Optional<RecursoInterno> existente = recursoInternoRepository.findByCodigo(recursoInterno.getCodigo());
+        Optional<RecursoInterno> existente = recursoInternoRepository.findByNome(recursoInterno.getNome());
         if (existente.isPresent()) {
-            throw new IllegalArgumentException("Já existe um recurso interno com esse código!");
+            throw new IllegalArgumentException("Já existe um recurso com esse nome!");
         }
-
 
         return recursoInternoRepository.save(recursoInterno);
-    }
-
-
-
-    public List<RecursoInterno> listarTodos() {
-        return recursoInternoRepository.findAll();
-    }
-
-    public Optional<RecursoInterno> buscarPorId(Long id) {
-        return recursoInternoRepository.findById(id);
     }
 }
