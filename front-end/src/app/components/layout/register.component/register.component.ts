@@ -139,8 +139,6 @@ export class RegisterComponent {
 
   validarTelefone(){
     const regexTelefone = /^(\(?\d{2}\)?\s?)?\d{5}-?\d{4}$/;
-
-  
   }
-
+  
 }
