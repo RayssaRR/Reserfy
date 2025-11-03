@@ -134,9 +134,13 @@ export class RegisterComponent {
     const regexSenha = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,20}$/;
 
     if(!regexSenha.test(this.password)){
-
     }
+  }
 
+  validarTelefone(){
+    const regexTelefone = /^(\(?\d{2}\)?\s?)?\d{5}-?\d{4}$/;
+
+  
   }
 
 }
