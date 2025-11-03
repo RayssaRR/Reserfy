@@ -37,10 +37,14 @@ public class RecursoInternoService {
     public Page<RecursoInterno> listarRecursos(int page, int size, String status) {
     	Pageable pageable = PageRequest.of(page, size);
     	
-    	if (status != null && !status.isBlank()) {
-    		return recursoInternoRepository.findByStatus(status, pageable);
-    	}
+    	Page<RecursoInterno> recursos;
     	
-    	return recursoInternoRepository.findAll(pageable);
+    	 if (status != null && !status.isBlank()) {
+    	        recursos = recursoInternoRepository.findByStatus(status, pageable);
+    	    } else {
+    	        recursos = recursoInternoRepository.findAll(pageable);
+    	    }
+    	
+    	return recursos;
     }
 }

@@ -18,10 +18,14 @@ public class RecursoInterno {
 
     @Column(nullable = false)
     private String status; 
+    
+    @Transient
+    private String statusDisponibilidade;
 
     private String localizacao;
     private String responsavel; 
     private String descricao;
+    private int quantidade;
 
 
     public Long getId() { return id; }
@@ -35,6 +39,9 @@ public class RecursoInterno {
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+    
+    public String getStatusDisponibilidade() { return quantidade > 0 ? "disponível" : "indisponível"; }
+    public void setStatusDisponibilidade(String statusDisponibilidade) { this.statusDisponibilidade = statusDisponibilidade; }
 
     public String getLocalizacao() { return localizacao; }
     public void setLocalizacao(String localizacao) { this.localizacao = localizacao; }
@@ -44,4 +51,8 @@ public class RecursoInterno {
 
     public String getDescricao() { return descricao; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
+    
+    public int getQuantidade() { return quantidade; }
+    public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
+    
 }
