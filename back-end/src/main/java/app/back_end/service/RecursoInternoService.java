@@ -1,9 +1,14 @@
 package app.back_end.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import app.back_end.entity.RecursoInterno;
 import app.back_end.repository.RecursoInternoRepository;
+
 import java.util.Optional;
 
 @Service
@@ -27,5 +32,15 @@ public class RecursoInternoService {
         }
 
         return recursoInternoRepository.save(recursoInterno);
+    }
+    
+    public Page<RecursoInterno> listarRecursos(int page, int size, String status) {
+    	Pageable pageable = PageRequest.of(page, size);
+    	
+    	if (status != null && !status.isBlank()) {
+    		return recursoInternoRepository.findByStatus(status, pageable);
+    	}
+    	
+    	return recursoInternoRepository.findAll(pageable);
     }
 }
