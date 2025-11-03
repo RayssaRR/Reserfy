@@ -1,0 +1,10 @@
+<div class="dialog-container">
+  <div class="icon-container" [ngStyle]="{ color: data.color || '#ff0000' }">
+    <mat-icon *ngIf="data.icon">{{ data.icon }}</mat-icon>
+  </div>
+
+  <h2>{{ data.title }}</h2>
+  <p>{{ data.message }}</p>
+
+  <button mat-raised-button color="primary" (click)="fechar()">OK</button>
+</div>

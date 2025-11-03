@@ -1,0 +1,23 @@
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.icon-container {
+  margin: 12px;
+}
+
+
+
+h2 {
+  margin: 8px 0;
+  font-weight: 600;
+}
+
+p {
+  color: #555;
+  margin-bottom: 20px;
+}

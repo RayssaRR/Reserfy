@@ -8,18 +8,18 @@
   <div class="container-content">
     <div class="label-input">
       <label for="name">Nome completo</label>
-      <input type="text" id="name" [(ngModel)]="name" name="name" />
+      <input type="text" id="name" [(ngModel)]="name" name="name" placeholder="Rafael Silva"/>
     </div>
 
     <div class="label-input">
       <label for="email">Email</label>
-      <input type="email" id="email" [(ngModel)]="email" name="email" />
+      <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="rafael.silva@capgemini.com"/>
     </div>
 
     <div class="half-input">
       <div class="label-input">
         <label for="cpf">CPF</label>
-        <input type="text" id="cpf" [(ngModel)]="cpf" name="cpf" />
+        <input type="text" id="cpf" [(ngModel)]="cpf" name="cpf" placeholder="000.000.000-00"/>
       </div>
 
       <div class="label-input">
@@ -42,12 +42,12 @@
 
     <div class="label-input">
       <label for="password">Senha</label>
-      <input type="password" id="password" [(ngModel)]="password" name="password" class="password"/>
+      <input type="password" id="password" [(ngModel)]="password" name="password" class="password" placeholder="Mínimo 8 caracteres"/>
     </div>
 
     <div class="label-input">
       <label for="confirmPassword">Confirmação de senha</label>
-      <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" class="password"/>
+      <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" class="password" placeholder="Mínimo 8 caracteres"/>
     </div>
 
     <p id="p-select-perfil">Selecione seu Perfil</p>

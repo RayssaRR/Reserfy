@@ -5,6 +5,8 @@ import { Login } from '../../../auth/login';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../auth/login.service';
 import { CommonModule } from '@angular/common';
+import { DialogComponent } from '../../dialog.component/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -20,6 +22,8 @@ export class LoginComponent {
   router = inject(Router);
   loginService = inject(LoginService);
 
+  constructor(private dialog: MatDialog) {}
+
   logar() {
     this.loginService.logar(this.login).subscribe({
       next: (token) => {
@@ -29,9 +33,21 @@ export class LoginComponent {
         }
       },
       error: (erro) => {
+        this.abrirDialog(
+        'Erro ao logar',
+        'Login ou senha incorreto !',
+        'error',
+        'red'
+        );
         console.error('Erro ao logar', erro);
-        alert('Email ou senha incorretos');
       },
+    });
+  }
+
+  abrirDialog(title: string, message: string, icon?: string, color?: string) {
+    this.dialog.open(DialogComponent, {
+      width: '400px',
+      data: { title, message, icon, color }
     });
   }
 }
