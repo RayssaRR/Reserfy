@@ -48,11 +48,29 @@ h2{
     width: 100%;
 }
 
-input{
+input, #department{
+    background-color: #fff;
     border: 1px solid #{vars.$stroke};
     border-radius: 8px;
     padding: 1%;
+    font-size: 1rem;
+    height: 2.2rem;
+    padding: 5px;
 }
+
+.input-erro {
+  border: 1px solid #{vars.$error-dark} !important;
+}
+
+select.input-placeholder {
+  color: gray; 
+}
+
+select {
+  color: black;
+}
+
+
 
 .label-input label{
     font-size: 1.2rem;

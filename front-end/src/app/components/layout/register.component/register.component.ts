@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { LogoComponent } from '../logo.component/logo.component';
+import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
+import { LogoComponent } from '../logo.component/logo.component';
 import { RegisterService } from '../../../auth/register.service';
 import { User } from '../../../auth/user';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog.component/dialog.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [LogoComponent, FormsModule, MatDialogModule],
+  imports: [CommonModule, FormsModule, LogoComponent, MatDialogModule, NgSelectModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
@@ -24,16 +26,46 @@ export class RegisterComponent {
   confirmPassword!: string;
   roleFlag!: string;
 
+
+  departments: string[] = [
+    'Administração Geral',
+    'Financeiro',
+    'Contabilidade',
+    'Recursos Humanos',
+    'Departamento Pessoal',
+    'Marketing',
+    'Comercial / Vendas',
+    'Atendimento ao Cliente',
+    'Produção / Operações',
+    'Logística',
+    'Compras / Suprimentos',
+    'TI (Tecnologia da Informação)',
+    'Desenvolvimento de Software',
+    'Segurança da Informação',
+    'Jurídico',
+    'Pesquisa e Desenvolvimento (P&D)',
+    'Qualidade',
+    'Sustentabilidade / ESG',
+    'Comunicação Institucional'
+  ];
+
+  cpfInvalido = false;
+  senhaInvalida = false;
+  telefoneInvalido = false;
+
   constructor(
     private registerService: RegisterService,
     private dialog: MatDialog
   ) {}
 
-
-
-
   criarConta() {
-    this.validarCPF();
+    const cpfValido = this.validarCPF();
+    const senhaValida = this.validarSenha();
+    const telefoneValido = this.validarTelefone();
+
+    if (!cpfValido || !senhaValida || !telefoneValido) {
+      return;
+    }
 
     if (this.password !== this.confirmPassword) {
       this.abrirDialog(
@@ -85,60 +117,48 @@ export class RegisterComponent {
     });
   }
 
-
-  validarCPF() {
-    const regexCPF = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+   validarCPF(): boolean {
+    const regexCPF = /^\d{3}\.?\d{3}\.?\d{3}\-?\d{2}$/;
     const cpfNum = this.cpf.replace(/\D/g, '');
 
-    
     if (cpfNum.length !== 11 || !regexCPF.test(this.cpf)) {
-      this.abrirDialog(
-        'CPF inválido',
-        'Formato incorreto. Use o formato XXX.XXX.XXX-XX',
-        'error',
-        'red'
-      );
+      this.cpfInvalido = true;
       return false;
     }
 
-
     const cpfArray = cpfNum.split('').map(Number);
-
     const primeiroVerificador = this.digitoVerificador(cpfArray.slice(0, 9));
     const segundoVerificador = this.digitoVerificador(cpfArray.slice(0, 10));
 
     if (primeiroVerificador !== cpfArray[9] || segundoVerificador !== cpfArray[10]) {
-      this.abrirDialog('CPF inválido', 'Seu CPF é inválido.', 'error', 'red');
+      this.cpfInvalido = true;
       return false;
     }
 
+    this.cpfInvalido = false; 
     return true;
   }
 
+  validarSenha(): boolean {
+    const regexSenha = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,20}$/;
+    this.senhaInvalida = !regexSenha.test(this.password);
+    return !this.senhaInvalida;
+  }
+
+  validarTelefone(): boolean {
+    const regexTelefone = /^(\(?\d{2}\)?\s?)?\d{5}-?\d{4}$/;
+    this.telefoneInvalido = !regexTelefone.test(this.phone);
+    return !this.telefoneInvalido;
+  }
 
   digitoVerificador(cpfArray: number[]): number {
     let soma = 0;
     let multiplicador = cpfArray.length + 1;
-
     for (let i = 0; i < cpfArray.length; i++) {
       soma += cpfArray[i] * multiplicador;
-      multiplicador = multiplicador - 1;
+      multiplicador--;
     }
-
     const resto = soma % 11;
     return resto < 2 ? 0 : 11 - resto;
   }
-
-
-  validarSenha(){
-    const regexSenha = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,20}$/;
-
-    if(!regexSenha.test(this.password)){
-    }
-  }
-
-  validarTelefone(){
-    const regexTelefone = /^(\(?\d{2}\)?\s?)?\d{5}-?\d{4}$/;
-  }
-  
 }
