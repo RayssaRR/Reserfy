@@ -23,7 +23,7 @@ public class LoginController {
             String token = loginService.logar(login);
     		return new ResponseEntity<>(token, HttpStatus.OK);
         } catch (Exception e) {
-    		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    		return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 
         }		
 	}
@@ -34,7 +34,7 @@ public class LoginController {
         	String message = loginService.register(user);    		
         	return new ResponseEntity<>(message, HttpStatus.OK);
         } catch (Exception e) {
-    		return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    		return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 
         }		
 	}
