@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
-import { LogoComponent } from '../logo.component/logo.component';
+import { CommonModule } from '@angular/common'; 
 import { FormsModule } from '@angular/forms';
+import { LogoComponent } from '../logo.component/logo.component';
 import { RegisterService } from '../../../auth/register.service';
-
 import { User } from '../../../auth/user';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from '../../dialog.component/dialog.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-register',
-  imports: [LogoComponent, FormsModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, LogoComponent, MatDialogModule, NgSelectModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
   name!: string;
@@ -22,25 +26,55 @@ export class RegisterComponent {
   confirmPassword!: string;
   roleFlag!: string;
 
-  constructor(private registerService: RegisterService) {}
+
+  departments: string[] = [
+    'Administração Geral',
+    'Financeiro',
+    'Contabilidade',
+    'Recursos Humanos',
+    'Departamento Pessoal',
+    'Marketing',
+    'Comercial / Vendas',
+    'Atendimento ao Cliente',
+    'Produção / Operações',
+    'Logística',
+    'Compras / Suprimentos',
+    'TI (Tecnologia da Informação)',
+    'Desenvolvimento de Software',
+    'Segurança da Informação',
+    'Jurídico',
+    'Pesquisa e Desenvolvimento (P&D)',
+    'Qualidade',
+    'Sustentabilidade / ESG',
+    'Comunicação Institucional'
+  ];
+
+  cpfInvalido = false;
+  senhaInvalida = false;
+  telefoneInvalido = false;
+
+  constructor(
+    private registerService: RegisterService,
+    private dialog: MatDialog
+  ) {}
 
   criarConta() {
-    const red = '#ff0000';
-    const stroke = '#b5b5b5';
-    const inputs = document.querySelectorAll('.password');
-    if (this.password !== this.confirmPassword) {
-      inputs.forEach(input => {
-        if (input instanceof HTMLElement) {
-          input.style.borderColor = red;
-        }
-      });
+    const cpfValido = this.validarCPF();
+    const senhaValida = this.validarSenha();
+    const telefoneValido = this.validarTelefone();
+
+    if (!cpfValido || !senhaValida || !telefoneValido) {
       return;
-    } else {
-      inputs.forEach(input => {
-        if (input instanceof HTMLElement) {
-          input.style.borderColor = stroke;
-        }
-      });
+    }
+
+    if (this.password !== this.confirmPassword) {
+      this.abrirDialog(
+        'Senhas não coincidem',
+        'Verifique e tente novamente.',
+        'error',
+        'red'
+      );
+      return;
     }
 
     const user: User = {
@@ -56,14 +90,75 @@ export class RegisterComponent {
     };
 
     this.registerService.register(user).subscribe({
-      next: (token) => {
-        console.log('Usuário registrado com sucesso! Token:', token);
-        alert('Cadastro realizado com sucesso!');
+      next: () => {
+        this.abrirDialog(
+          'Cadastro realizado',
+          'Usuário registrado com sucesso!',
+          'check_circle',
+          'green'
+        );
       },
       error: (err) => {
         console.error('Erro ao registrar:', err);
-        alert('Erro ao criar conta. Verifique os dados e tente novamente.');
+        this.abrirDialog(
+          'Erro no servidor',
+          'Não foi possível concluir o cadastro. Tente novamente mais tarde.',
+          'warning',
+          'orange'
+        );
       }
     });
+  }
+
+  abrirDialog(title: string, message: string, icon?: string, color?: string) {
+    this.dialog.open(DialogComponent, {
+      width: '400px',
+      data: { title, message, icon, color }
+    });
+  }
+
+   validarCPF(): boolean {
+    const regexCPF = /^\d{3}\.?\d{3}\.?\d{3}\-?\d{2}$/;
+    const cpfNum = this.cpf.replace(/\D/g, '');
+
+    if (cpfNum.length !== 11 || !regexCPF.test(this.cpf)) {
+      this.cpfInvalido = true;
+      return false;
+    }
+
+    const cpfArray = cpfNum.split('').map(Number);
+    const primeiroVerificador = this.digitoVerificador(cpfArray.slice(0, 9));
+    const segundoVerificador = this.digitoVerificador(cpfArray.slice(0, 10));
+
+    if (primeiroVerificador !== cpfArray[9] || segundoVerificador !== cpfArray[10]) {
+      this.cpfInvalido = true;
+      return false;
+    }
+
+    this.cpfInvalido = false; 
+    return true;
+  }
+
+  validarSenha(): boolean {
+    const regexSenha = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,20}$/;
+    this.senhaInvalida = !regexSenha.test(this.password);
+    return !this.senhaInvalida;
+  }
+
+  validarTelefone(): boolean {
+    const regexTelefone = /^(\(?\d{2}\)?\s?)?\d{5}-?\d{4}$/;
+    this.telefoneInvalido = !regexTelefone.test(this.phone);
+    return !this.telefoneInvalido;
+  }
+
+  digitoVerificador(cpfArray: number[]): number {
+    let soma = 0;
+    let multiplicador = cpfArray.length + 1;
+    for (let i = 0; i < cpfArray.length; i++) {
+      soma += cpfArray[i] * multiplicador;
+      multiplicador--;
+    }
+    const resto = soma % 11;
+    return resto < 2 ? 0 : 11 - resto;
   }
 }

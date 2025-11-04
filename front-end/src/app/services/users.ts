@@ -12,7 +12,7 @@ export class Users {
   }
   http = inject(HttpClient);
 
-  API = "http://localhost:8080/api/users";
+  API = "http://localhost:8080/api/user";
 
   constructor(){}
 

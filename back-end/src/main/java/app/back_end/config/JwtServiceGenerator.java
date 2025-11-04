@@ -1,6 +1,5 @@
 package app.back_end.config;
 
-//JwtService.java
 
 import java.security.Key;
 import java.util.Date;
@@ -20,33 +19,21 @@ import io.jsonwebtoken.security.Keys;
 
 @Service
 public class JwtServiceGenerator {  
-
-	///////////////////////////////////////////////////////
-	//Parâmetros para geração do token
 	public static final String SECRET_KEY = "UMACHAVESECRETADASUAAPIAQUIUMACHAVESECRETADASUAAPIAQUIUMACHAVESECRETADASUAAPIAQUIUMACHAVESECRETADASUAAPIAQUI";
 	public static final SignatureAlgorithm ALGORITMO_ASSINATURA = SignatureAlgorithm.HS256;
 	public static final int HORAS_EXPIRACAO_TOKEN = 1;
 
-	public Map<String, Object> gerarPayload(User user){
-		//AQUI VOCÊ PODE COLOCAR O QUE MAIS VAI COMPOR O PAYLOAD DO TOKEN
-		
+	public Map<String, Object> gerarPayload(User user){		
 		Map<String, Object> payloadData = new HashMap<>();
-		payloadData.put("username", user.getUsername());
+		payloadData.put("User", user.getUsername());
 		payloadData.put("id", user.getId().toString());
-		payloadData.put("role", user.getRoleFlag());
-		payloadData.put("outracoisa", "teste");
-		
+		payloadData.put("role", user.getRoleFlag());		
 		return payloadData;
 	}
-
-	///////////////////////////////////////////////////////
-
-	
 	
 	
 	
 	public String generateToken(User user) {
-
 		Map<String, Object> payloadData = this.gerarPayload(user);
 
 		return Jwts
@@ -54,8 +41,8 @@ public class JwtServiceGenerator {
 				.setClaims(payloadData)
 				.setSubject(user.getUsername())
 				.setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(new Date().getTime() + 3600000 * this.HORAS_EXPIRACAO_TOKEN))
-				.signWith(getSigningKey(), this.ALGORITMO_ASSINATURA)
+				.setExpiration(new Date(new Date().getTime() + 3600000 * HORAS_EXPIRACAO_TOKEN))
+				.signWith(getSigningKey(), ALGORITMO_ASSINATURA)
 				.compact();
 	}
 
@@ -83,7 +70,7 @@ public class JwtServiceGenerator {
 	}
 
 	private Key getSigningKey() {
-		byte[] keyBytes = Decoders.BASE64.decode(this.SECRET_KEY);
+		byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
 		return Keys.hmacShaKeyFor(keyBytes);
 	}
 
