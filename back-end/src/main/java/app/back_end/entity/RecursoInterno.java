@@ -19,8 +19,9 @@ public class RecursoInterno {
     @Column(nullable = false)
     private String status; 
     
-    @Transient
-    private String statusDisponibilidade;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private StatusDisponibilidade statusDisponibilidade;
 
     private String localizacao;
     private String responsavel; 
@@ -40,9 +41,9 @@ public class RecursoInterno {
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
     
-    public String getStatusDisponibilidade() { return quantidade > 0 ? "disponível" : "indisponível"; }
-    public void setStatusDisponibilidade(String statusDisponibilidade) { this.statusDisponibilidade = statusDisponibilidade; }
-
+    public StatusDisponibilidade getStatusDisponibilidade() { return statusDisponibilidade; }
+    public void setStatusDisponibilidade(StatusDisponibilidade statusDisponibilidade) { this.statusDisponibilidade = statusDisponibilidade; }
+    
     public String getLocalizacao() { return localizacao; }
     public void setLocalizacao(String localizacao) { this.localizacao = localizacao; }
 
