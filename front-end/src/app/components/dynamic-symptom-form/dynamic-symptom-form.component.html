@@ -1,0 +1,64 @@
+<mat-card style="max-width: 600px; margin: 30px auto; padding: 20px;">
+  <mat-card-header>
+    <mat-card-title>Registro de Histórico Clínico</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    
+    <form [formGroup]="symptomHistoryForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 20px;">
+        <mat-label>ID do Paciente</mat-label>
+        <input matInput formControlName="patientId" type="number" required>
+      </mat-form-field>
+
+      <h3>Sintomas Registrados (Formulários Dinâmicos)</h3>
+      
+      <div formArrayName="symptoms" *ngFor="let symptomGroup of symptoms.controls; let i = index" class="symptom-group">
+        
+        <div [formGroupName]="i" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 5px;">
+          
+          <button 
+            mat-icon-button 
+            color="warn" 
+            (click)="removeSymptom(i)" 
+            type="button" 
+            [disabled]="symptoms.length === 1" 
+            style="float: right;">
+            <mat-icon>delete</mat-icon>
+          </button>
+          
+          <h4>Sintoma #{{ i + 1 }}</h4>
+          
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Descrição do Sintoma</mat-label>
+            <input matInput formControlName="description" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Status (Múltipla Seleção)</mat-label>
+            <mat-select formControlName="status" multiple required>
+              <mat-option *ngFor="let status of statusOptions" [value]="status">
+                {{ status }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Notas Adicionais</mat-label>
+            <textarea matInput formControlName="notes"></textarea>
+          </mat-form-field>
+
+        </div>
+      </div>
+
+      <button mat-raised-button color="accent" type="button" (click)="addSymptom()" style="margin-right: 10px;">
+        <mat-icon>add</mat-icon> Adicionar Outro Sintoma
+      </button>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="symptomHistoryForm.invalid">
+        Salvar Histórico
+      </button>
+
+    </form>
+  </mat-card-content>
+</mat-card>
