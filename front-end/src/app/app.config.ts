@@ -2,11 +2,16 @@ import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom, pro
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 import { NgSelectModule } from '@ng-select/ng-select';
 
 import { routes } from './app.routes';
@@ -19,14 +24,18 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([meuHttpInterceptor])),
-    
     importProvidersFrom(
       FormsModule,
       ReactiveFormsModule,
-      MatInputModule,    
+      MatInputModule,
       MatButtonModule,
       MatCardModule,
       MatFormFieldModule,
+      MatTableModule,
+      MatPaginatorModule,
+      MatSortModule,
+      MatAutocompleteModule,
+
       NgSelectModule
     )
   ]
