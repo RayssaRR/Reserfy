@@ -9,7 +9,8 @@ import { GuardGuard } from './auth/guard.guard';
 import { ContactComponent } from './pages/contact/contact.component'; 
 import { ProductsComponent } from './pages/products/products.component';
 import { HistoryComponent } from './pages/history/history.component';
-import { InsightsComponent } from './pages/insights/insights.component';
+import { InsightsComponent } from './pages/insights/insights.component'; 
+import { SpeechPageComponent } from './pages/speech-page/speech-page.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -20,10 +21,11 @@ export const routes: Routes = [
   {path: 'contato', component: ContactComponent},
   {path: 'produtos', component: ProductsComponent},
   {path: 'historico-clinico', component: HistoryComponent},
+  {path: 'insights', component: InsightsComponent},
 
   {
-      path: 'insights', 
-      component: InsightsComponent
+      path: 'leitura-voz', 
+      component: SpeechPageComponent
   },
 
   {path: 'user', component: PrincipalComponent, canActivate:[GuardGuard], children:[
