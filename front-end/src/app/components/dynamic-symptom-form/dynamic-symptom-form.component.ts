@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import { ClinicalDataService, FrontendSymptomData } from '../../services/clinical-data.service';
+
 @Component({
   selector: 'app-dynamic-symptom-form',
   standalone: true,
@@ -24,16 +26,18 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./dynamic-symptom-form.component.scss']
 })
 export class DynamicSymptomFormComponent implements OnInit {
-  
+    
   symptomHistoryForm!: FormGroup;
-
   statusOptions: string[] = ['Leve', 'Moderado', 'Intenso', 'Crônico', 'Recorrente'];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private clinicalDataService: ClinicalDataService
+  ) { }
 
   ngOnInit(): void {
     this.symptomHistoryForm = this.fb.group({
-      patientId: ['', Validators.required],
+      patientId: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       symptoms: this.fb.array([this.createSymptomGroup()])
     });
   }
@@ -60,20 +64,24 @@ export class DynamicSymptomFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.symptomHistoryForm.valid) {
-      console.log('Dados a serem enviados para histórico (com timestamps no Back-end):', this.symptomHistoryForm.value);
-      alert('Registro de sintomas enviado com sucesso! (Verifique o console)');
+      const dataToSend: FrontendSymptomData = this.symptomHistoryForm.value;
 
-      const dataForHistory = this.symptoms.controls.map(control => ({
-        patientId: this.symptomHistoryForm.get('patientId')?.value,
-        ...control.value,
-        timestamp: new Date().toISOString()
-      }));
-      console.log('Dados Modelados com Timestamp:', dataForHistory);
-
-      this.symptomHistoryForm.reset();
-      this.symptoms.clear();
-      this.addSymptom();
+      this.clinicalDataService.saveSymptomHistory(dataToSend).subscribe({
+        next: (response) => {
+          console.log('Resposta da API:', response);
+          alert('Histórico de sintomas salvo com sucesso!');
+          
+          this.symptomHistoryForm.reset();
+          this.symptoms.clear();
+          this.addSymptom();
+        },
+        error: (err) => {
+          console.error('Erro ao salvar histórico (API):', err);
+          alert('Erro ao salvar histórico. Verifique o console para detalhes.');
+        }
+      });
     } else {
+      this.symptomHistoryForm.markAllAsTouched();
       alert('Por favor, preencha todos os campos obrigatórios.');
     }
   }
