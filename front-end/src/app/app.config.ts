@@ -18,6 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon'; 
 import { NgSelectModule } from '@ng-select/ng-select';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 import { routes } from './app.routes';
 import { meuHttpInterceptor } from './auth/http-interceptor.service';
 
@@ -41,6 +43,7 @@ export const appConfig: ApplicationConfig = {
       MatAutocompleteModule,
       MatSelectModule,
       MatIconModule,
+      NgxChartsModule,
       NgSelectModule
     )
   ]
