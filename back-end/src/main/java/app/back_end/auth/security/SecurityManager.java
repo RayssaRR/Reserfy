@@ -1,4 +1,4 @@
-package app.back_end.config;
+package app.back_end.auth.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,13 +12,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import app.back_end.auth.LoginRepository;
+import app.back_end.auth.repository.UserRepository;
 
 @Configuration
 public class SecurityManager {
 	
 	@Autowired
-	private LoginRepository loginRepository;
+	private UserRepository userRepository;
 	
 	
 	@Bean
@@ -42,7 +42,7 @@ public class SecurityManager {
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return username -> loginRepository.findByEmail(username)
+		return username -> userRepository.findByEmail(username)
 				.orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado") );
 	}
 

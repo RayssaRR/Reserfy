@@ -1,4 +1,4 @@
-package app.back_end.controller;
+package app.back_end.resource.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.data.domain.Page;
 
-import app.back_end.entity.RecursoInterno;
-import app.back_end.service.RecursoInternoService;
+import app.back_end.resource.entity.RecursoInterno;
+import app.back_end.resource.service.RecursoInternoService;
 
 @RestController
-@RequestMapping("/api/recurso-interno")
+@RequestMapping("/api/internal-resources")
 public class RecursoInternoController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class RecursoInternoController {
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody RecursoInterno recursoInterno) {
         try {
-            recursoInternoService.salvar(recursoInterno);
+            recursoInternoService.save(recursoInterno);
             return new ResponseEntity<>("Recurso Interno cadastrado com sucesso!", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -33,7 +33,7 @@ public class RecursoInternoController {
     		@RequestParam(defaultValue = "10") int size,
     		@RequestParam(required = false) String status) {
     	
-    	Page<RecursoInterno> recursos = recursoInternoService.listarRecursos(page, size, status);
-    	return new ResponseEntity<>(recursos, HttpStatus.OK);
+    	Page<RecursoInterno> resources = recursoInternoService.listarRecursos(page, size, status);
+    	return new ResponseEntity<>(resources, HttpStatus.OK);
     }
 }

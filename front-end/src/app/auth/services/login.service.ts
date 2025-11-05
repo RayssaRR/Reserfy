@@ -2,24 +2,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { jwtDecode, JwtPayload } from "jwt-decode";
-import { Login } from './login';
-import { User } from './user';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { Login } from '../models/login';
+import { User } from '../models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
   private http = inject(HttpClient);
-  private API = 'http://localhost:8080/api/login';
+  private API = 'http://localhost:8080/api/auth/login';
 
   logar(login: Login): Observable<string> {
     return this.http.post(this.API, login, {
       headers: { 'Content-Type': 'application/json' },
-      responseType: 'text'
+      responseType: 'text',
     });
   }
-
 
   addToken(token: string) {
     localStorage.setItem('token', token);

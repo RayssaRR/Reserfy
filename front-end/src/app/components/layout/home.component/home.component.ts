@@ -17,10 +17,10 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   goToLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['auth/login']);
   }
 
   goToRegister() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['auth/register']);
   }
 }

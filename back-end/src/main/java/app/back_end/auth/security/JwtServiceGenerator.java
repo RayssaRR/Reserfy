@@ -1,4 +1,4 @@
-package app.back_end.config;
+package app.back_end.auth.security;
 
 
 import java.security.Key;
@@ -10,7 +10,7 @@ import java.util.function.Function;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import app.back_end.auth.User;
+import app.back_end.auth.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

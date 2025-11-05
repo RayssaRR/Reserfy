@@ -1,4 +1,4 @@
-package app.back_end.auth;
+package app.back_end.auth.entity;
 
 
 import java.util.ArrayList;
@@ -15,8 +15,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User implements UserDetails{
 
 	@Id
@@ -30,8 +32,6 @@ public class User implements UserDetails{
 	private String department;
 	private String position;
 	private String phone;
-	
-
 
 	@Override
 	@JsonIgnore

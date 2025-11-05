@@ -11,7 +11,7 @@ export class GuardGuard implements CanActivate {
     const token = localStorage.getItem('token');
     if (token) return true;
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
     return false;
   }
 }

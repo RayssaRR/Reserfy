@@ -1,6 +1,4 @@
-package app.back_end.config;
-
-//JwtAuthenticationFilter.java
+package app.back_end.auth.security;
 
 import java.io.IOException;
 

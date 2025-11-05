@@ -5,18 +5,18 @@ import { RegisterComponent } from './components/layout/register.component/regist
 import { DashboardComponent } from './components/layout/dashboard.component/dashboard.component';
 import { PrincipalComponent } from './components/layout/principal.component/principal.component';
 import { NgModule } from '@angular/core';
-import { GuardGuard } from './auth/guard.guard'; 
+import { GuardGuard } from './auth/guards/guard.guard'; 
 
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent },
-  {path: 'register', component: RegisterComponent },
+  {path: 'auth/login', component: LoginComponent },
+  {path: 'auth/register', component: RegisterComponent },
   {path: 'user',  component: PrincipalComponent, canActivate:[GuardGuard], children:[
   { path: 'dashboard', component: DashboardComponent}
    ] },
-   { path: '**', redirectTo: 'login' }
+   { path: '**', redirectTo: 'auth/login' }
 ];
 
 

@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LogoComponent } from '../logo.component/logo.component';
-import { RegisterService } from '../../../auth/register.service';
-import { User } from '../../../auth/user';
+import { User } from '../../../auth/models/user';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from '../../dialog.component/dialog.component';
+import { DialogComponent } from '../../dialog/dialog.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { RegisterService } from '../../../auth/services/register.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, FormsModule, LogoComponent, MatDialogModule, NgSelectModule],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
   name!: string;
@@ -25,7 +25,6 @@ export class RegisterComponent {
   password!: string;
   confirmPassword!: string;
   roleFlag!: string;
-
 
   departments: string[] = [
     'Administração Geral',
@@ -46,34 +45,39 @@ export class RegisterComponent {
     'Pesquisa e Desenvolvimento (P&D)',
     'Qualidade',
     'Sustentabilidade / ESG',
-    'Comunicação Institucional'
+    'Comunicação Institucional',
   ];
 
   cpfInvalido = false;
   senhaInvalida = false;
   telefoneInvalido = false;
 
-  constructor(
-    private registerService: RegisterService,
-    private dialog: MatDialog
-  ) {}
+  constructor(private registerService: RegisterService, private dialog: MatDialog) {}
 
   criarConta() {
-    const cpfValido = this.validarCPF();
-    const senhaValida = this.validarSenha();
-    const telefoneValido = this.validarTelefone();
+    const cpfInvalido = this.validarCPF();
+    const senhaInvalida = this.validarSenha();
+    const telefoneInvalido = this.validarTelefone();
+    const senhasDiferentes = this.password !== this.confirmPassword;
 
-    if (!cpfValido || !senhaValida || !telefoneValido) {
-      return;
-    }
+    if (cpfInvalido || senhaInvalida || telefoneInvalido || senhasDiferentes) {
+      let msg = 'Formulário preenchido de forma incorreta!\n';
+      if (cpfInvalido) {
+        msg += '- CPF inválido\n';
+      } if (senhaInvalida) {
+        msg += '- Senha inválida\n';
+      } if (telefoneInvalido) {
+        msg += '- Telefone inválido\n';
+      } if (senhasDiferentes) {
+        msg += '- Senhas não conferem\n';
+      }
 
-    if (this.password !== this.confirmPassword) {
       this.abrirDialog(
-        'Senhas não coincidem',
-        'Verifique e tente novamente.',
-        'error',
-        'red'
-      );
+        'Erro ao cadastrar', 
+        msg, 
+        'error', 
+        'red');
+        
       return;
     }
 
@@ -90,40 +94,37 @@ export class RegisterComponent {
     };
 
     this.registerService.register(user).subscribe({
-      next: () => {
-        this.abrirDialog(
-          'Cadastro realizado',
-          'Usuário registrado com sucesso!',
-          'check_circle',
-          'green'
-        );
-      },
-      error: (err) => {
-        console.error('Erro ao registrar:', err);
-        this.abrirDialog(
-          'Erro no servidor',
-          'Não foi possível concluir o cadastro. Tente novamente mais tarde.',
-          'warning',
-          'orange'
-        );
+      next: () => this.abrirDialog(
+        'Cadastro realizado', 
+        'Usuário registrado com sucesso!', 
+        'check_circle', 
+        'green'),
+      error: (err) => { 
+        console.error('Erro ao registrar:', err); 
+        this.abrirDialog( 
+          'Erro no servidor', 
+          'Não foi possível concluir o cadastro. Tente novamente mais tarde.', 
+          'warning', 
+          'orange' 
+        ); 
       }
     });
   }
 
+
   abrirDialog(title: string, message: string, icon?: string, color?: string) {
     this.dialog.open(DialogComponent, {
       width: '400px',
-      data: { title, message, icon, color }
+      data: { title, message, icon, color },
     });
   }
 
-   validarCPF(): boolean {
+  validarCPF(): boolean {
     const regexCPF = /^\d{3}\.?\d{3}\.?\d{3}\-?\d{2}$/;
     const cpfNum = this.cpf.replace(/\D/g, '');
 
     if (cpfNum.length !== 11 || !regexCPF.test(this.cpf)) {
-      this.cpfInvalido = true;
-      return false;
+      return this.cpfInvalido = true;
     }
 
     const cpfArray = cpfNum.split('').map(Number);
@@ -131,24 +132,22 @@ export class RegisterComponent {
     const segundoVerificador = this.digitoVerificador(cpfArray.slice(0, 10));
 
     if (primeiroVerificador !== cpfArray[9] || segundoVerificador !== cpfArray[10]) {
-      this.cpfInvalido = true;
-      return false;
+      return this.cpfInvalido = true;
     }
 
-    this.cpfInvalido = false; 
-    return true;
+    return false;
   }
 
   validarSenha(): boolean {
     const regexSenha = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).{8,20}$/;
-    this.senhaInvalida = !regexSenha.test(this.password);
-    return !this.senhaInvalida;
+    this.senhaInvalida = regexSenha.test(this.password);
+    return this.senhaInvalida;
   }
 
   validarTelefone(): boolean {
     const regexTelefone = /^(\(?\d{2}\)?\s?)?\d{5}-?\d{4}$/;
-    this.telefoneInvalido = !regexTelefone.test(this.phone);
-    return !this.telefoneInvalido;
+    this.telefoneInvalido = regexTelefone.test(this.phone);
+    return this.telefoneInvalido;
   }
 
   digitoVerificador(cpfArray: number[]): number {

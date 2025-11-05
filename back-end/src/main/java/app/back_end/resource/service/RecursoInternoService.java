@@ -1,4 +1,4 @@
-package app.back_end.service;
+package app.back_end.resource.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -6,8 +6,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import app.back_end.entity.RecursoInterno;
-import app.back_end.repository.RecursoInternoRepository;
+import app.back_end.resource.entity.RecursoInterno;
+import app.back_end.resource.repository.RecursoInternoRepository;
 
 import java.util.Optional;
 
@@ -17,7 +17,7 @@ public class RecursoInternoService {
     @Autowired
     private RecursoInternoRepository recursoInternoRepository;
 
-    public RecursoInterno salvar(RecursoInterno recursoInterno) {
+    public RecursoInterno save(RecursoInterno recursoInterno) {
 
         if (recursoInterno.getNome() == null || recursoInterno.getNome().isBlank() ||
             recursoInterno.getCategoria() == null || recursoInterno.getCategoria().isBlank() ||
