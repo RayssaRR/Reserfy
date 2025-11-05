@@ -9,6 +9,7 @@ import { GuardGuard } from './auth/guard.guard';
 import { ContactComponent } from './pages/contact/contact.component'; 
 import { ProductsComponent } from './pages/products/products.component';
 import { HistoryComponent } from './pages/history/history.component';
+import { InsightsComponent } from './pages/insights/insights.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,10 +19,11 @@ export const routes: Routes = [
   
   {path: 'contato', component: ContactComponent},
   {path: 'produtos', component: ProductsComponent},
-  
+  {path: 'historico-clinico', component: HistoryComponent},
+
   {
-      path: 'historico-clinico', 
-      component: HistoryComponent
+      path: 'insights', 
+      component: InsightsComponent
   },
 
   {path: 'user', component: PrincipalComponent, canActivate:[GuardGuard], children:[
