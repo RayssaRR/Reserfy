@@ -1,0 +1,47 @@
+<div style="padding: 20px;">
+  <mat-card style="max-width: 400px; margin: auto;">
+    <mat-card-header>
+      <mat-card-title>Formulário de Contato</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Nome</mat-label>
+          <input matInput placeholder="Seu nome completo" formControlName="name" required>
+          <mat-error *ngIf="f['name'].invalid && f['name'].touched">
+            O nome é obrigatório.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="email@exemplo.com" formControlName="email" required>
+          <mat-error *ngIf="f['email'].invalid && f['email'].touched">
+            <span *ngIf="f['email'].errors?.['required']">O email é obrigatório.</span>
+            <span *ngIf="f['email'].errors?.['email']">O email deve ser válido.</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Mensagem</mat-label>
+          <textarea matInput placeholder="Sua mensagem detalhada" formControlName="message" rows="5" required></textarea>
+          <mat-error *ngIf="f['message'].invalid && f['message'].touched">
+            A mensagem é obrigatória e precisa ter no mínimo 10 caracteres.
+          </mat-error>
+        </mat-form-field>
+
+        <button 
+          mat-raised-button 
+          color="primary" 
+          type="submit" 
+          [disabled]="contactForm.invalid" 
+          style="width: 100%; margin-top: 10px;">
+          Enviar Mensagem
+        </button>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
