@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { GuardGuard } from './auth/guard.guard';
 import { ContactComponent } from './pages/contact/contact.component'; 
 import { ProductsComponent } from './pages/products/products.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,17 +16,18 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
   
-  {path: 'contato', component: ContactComponent}, 
+  {path: 'contato', component: ContactComponent},
+  {path: 'produtos', component: ProductsComponent},
   
   {
-      path: 'produtos', 
-      component: ProductsComponent
+      path: 'historico-clinico', 
+      component: HistoryComponent
   },
 
   {path: 'user', component: PrincipalComponent, canActivate:[GuardGuard], children:[
     { path: 'dashboard', component: DashboardComponent }
   ]},
-  { path: '***', redirectTo: 'login' }
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
