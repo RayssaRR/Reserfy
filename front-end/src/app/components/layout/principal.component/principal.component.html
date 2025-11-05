@@ -1,1 +1,24 @@
-<p>principal.component works!</p>
+<div class="main-layout">
+    
+    <header class="main-header">
+        <h1>Reserfy - Sistema Interno</h1>
+        </header>
+
+    <div class="content-wrapper">
+        <nav class="sidebar">
+            <ul>
+                <li><a [routerLink]="['/user/dashboard']" routerLinkActive="active">Dashboard</a></li>
+                <li><a [routerLink]="['/produtos']" routerLinkActive="active">Gerenciar Produtos</a></li>
+                <li><a [routerLink]="['/historico-clinico']" routerLinkActive="active">Histórico Clínico</a></li>
+                <li><a [routerLink]="['/contato']" routerLinkActive="active">Fale Conosco</a></li>
+                
+                <li><a [routerLink]="['/login']">Sair</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+
+</div>
