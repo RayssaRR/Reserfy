@@ -7,20 +7,25 @@ import { PrincipalComponent } from './components/layout/principal.component/prin
 import { NgModule } from '@angular/core';
 import { GuardGuard } from './auth/guard.guard';
 import { ContactComponent } from './pages/contact/contact.component'; 
+import { ProductsComponent } from './pages/products/products.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
+  
+  {path: 'contato', component: ContactComponent}, 
+  
   {
-      path: 'contato',
-      component: ContactComponent
+      path: 'produtos', 
+      component: ProductsComponent
   },
+
   {path: 'user', component: PrincipalComponent, canActivate:[GuardGuard], children:[
     { path: 'dashboard', component: DashboardComponent }
   ]},
-  { path: '**', redirectTo: 'login' }
+  { path: '***', redirectTo: 'login' }
 ];
 
 @NgModule({
