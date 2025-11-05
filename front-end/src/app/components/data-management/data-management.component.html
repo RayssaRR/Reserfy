@@ -1,0 +1,58 @@
+<div class="data-container">
+  <h2>Catálogo de Produtos</h2>
+
+  <mat-form-field appearance="outline" class="filter-field">
+    <mat-label>Filtrar por Nome do Produto</mat-label>
+    <input 
+      type="text"
+      placeholder="Comece a digitar..."
+      matInput
+      [formControl]="searchControl"
+      [matAutocomplete]="auto">
+    
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8 table-wrapper">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let element"> **{{element.name}}** </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Preço </th>
+        <td mat-cell *matCellDef="let element"> {{element.price | currency:'BRL':'symbol'}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Nenhum dado encontrado com o filtro: "{{searchControl.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator 
+      [pageSizeOptions]="[5, 10, 25]" 
+      aria-label="Selecione a página" 
+      showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>
