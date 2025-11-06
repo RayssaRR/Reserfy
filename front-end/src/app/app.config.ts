@@ -20,6 +20,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
 import { routes } from './app.routes';
 import { meuHttpInterceptor } from './auth/http-interceptor.service';
 
@@ -44,6 +46,7 @@ export const appConfig: ApplicationConfig = {
       MatSelectModule,
       MatIconModule,
       NgxChartsModule,
+      ZXingScannerModule,
       NgSelectModule
     )
   ]
