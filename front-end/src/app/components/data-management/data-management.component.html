@@ -1,22 +1,43 @@
 <div class="data-container">
-  <h2>Catálogo de Produtos</h2>
+  <h2>Gerenciamento de Dados (Busca Avançada)</h2>
 
-  <mat-form-field appearance="outline" class="filter-field">
-    <mat-label>Filtrar por Nome do Produto</mat-label>
-    <input 
-      type="text"
-      placeholder="Comece a digitar..."
-      matInput
-      [formControl]="searchControl"
-      [matAutocomplete]="auto">
-    
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
+  <form [formGroup]="filterForm" class="advanced-filter-bar">
+    <div class="filter-row">
+      
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-label>Nome do Produto (Debounce)</mat-label>
+        <input 
+          type="text"
+          placeholder="Ex: Notebook"
+          matInput
+          formControlName="name"
+          [matAutocomplete]="auto">
+        
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="">-- Todas as Categorias --</mat-option>
+          <mat-option *ngFor="let cat of categoryOptions" [value]="cat">
+            {{ cat }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-label>Preço Mínimo</mat-label>
+        <input matInput type="number" formControlName="minPrice">
+        <span matPrefix>R$&nbsp;</span>
+      </mat-form-field>
+
+    </div>
+  </form>
 
   <div class="mat-elevation-z8 table-wrapper">
     <table mat-table [dataSource]="dataSource" matSort>
@@ -45,11 +66,12 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">Nenhum dado encontrado com o filtro: "{{searchControl.value}}"</td>
+        <td class="mat-cell" colspan="4">Nenhum dado encontrado com os filtros aplicados.</td>
       </tr>
     </table>
 
     <mat-paginator 
+      [length]="resultsLength"
       [pageSizeOptions]="[5, 10, 25]" 
       aria-label="Selecione a página" 
       showFirstLastButtons>
