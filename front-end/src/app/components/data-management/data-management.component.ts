@@ -7,9 +7,9 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { Observable, startWith, map, merge, switchMap, tap } from 'rxjs';
+import { Observable, startWith, map, merge, switchMap, tap, debounceTime, distinctUntilChanged } from 'rxjs';
 
-import { DataService, Product, DataResponse, SearchParams } from '../services/data.service';
+import { DataService, Product, DataResponse, SearchParams } from '../../services/data.service';
 
 @Component({
   selector: 'app-data-management',
@@ -46,9 +46,14 @@ export class DataManagementComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.sort.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
 
-    merge(this.sort.sortChange, this.paginator.page, this.searchControl.valueChanges.pipe(map(() => {})))
+    const searchChanges = this.searchControl.valueChanges.pipe(
+        debounceTime(400),
+        distinctUntilChanged(),
+        tap(() => this.paginator.pageIndex = 0)
+    );
+
+    merge(this.sort.sortChange, this.paginator.page, searchChanges)
       .pipe(
-        tap(() => this.paginator.pageIndex = 0),
         startWith({}),
         switchMap(() => {
           return this.loadData();
