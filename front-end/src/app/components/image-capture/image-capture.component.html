@@ -1,0 +1,38 @@
+<mat-card style="max-width: 600px; margin: 30px auto; padding: 20px;">
+  <mat-card-header>
+    <mat-card-title>Captura e Envio de Imagem</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    
+    <input type="file" 
+           accept="image/*" 
+           (change)="onFileSelected($event)"
+           id="imageInput"
+           style="display: none;">
+
+    <button mat-raised-button 
+            color="accent" 
+            (click)="imageInput.click()" 
+            [disabled]="uploading"
+            style="width: 100%; margin-bottom: 15px;">
+      <mat-icon>cloud_upload</mat-icon> 
+      {{ selectedFile ? 'Mudar Imagem' : 'Selecionar Imagem ou Foto' }}
+    </button>
+    
+    <div *ngIf="imagePreviewUrl" style="text-align: center; margin-bottom: 20px;">
+      <img [src]="imagePreviewUrl" alt="Pré-visualização da Imagem" style="max-width: 100%; max-height: 250px; border: 1px solid #ddd; border-radius: 5px;">
+      <p style="margin-top: 10px;">Arquivo: {{ selectedFile!.name }}</p>
+    </div>
+
+    <button mat-raised-button 
+            color="primary" 
+            (click)="uploadImage()" 
+            [disabled]="!selectedFile || uploading"
+            style="width: 100%;">
+      <mat-icon *ngIf="!uploading">send</mat-icon> 
+      <mat-icon *ngIf="uploading">schedule</mat-icon> 
+      {{ uploading ? 'Enviando...' : 'Enviar Imagem ao Servidor' }}
+    </button>
+
+  </mat-card-content>
+</mat-card>
