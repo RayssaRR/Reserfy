@@ -1,0 +1,21 @@
+<main class="container">
+    <app-menu [nameLabel]="name" [usernameLabel]="username"></app-menu>
+    <h1>Olá, {{name}} !</h1>
+    <h2>Bem-vindo de volta, organize suas reservas aqui</h2>
+
+    <section class="section-cards">
+        <app-card-numbers></app-card-numbers>
+        <app-card-numbers></app-card-numbers>
+        <app-card-numbers></app-card-numbers>
+        <app-card-numbers></app-card-numbers>
+    </section>
+
+    
+    <section class="graphic"></section>
+
+    <section>
+        <h3>Últimas Solicitações</h3>
+        <app-last-requests></app-last-requests>
+    </section>
+    
+</main>

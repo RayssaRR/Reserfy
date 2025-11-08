@@ -1,0 +1,15 @@
+@use '../../../../styles/variables' as vars;
+
+main{
+    padding: 50px 0;
+}
+
+.section-cards{
+    display: flex;
+    justify-content: space-between;
+}
+
+.graphic{
+    height: 400px;
+    background-color: vars.$white;
+}

@@ -1,0 +1,39 @@
+<div class="user-menu" tabindex="0">
+  <div (click)="toggleDropdown()">
+    <mat-icon class="user-perfil">dashboard</mat-icon>
+  </div>
+
+  <section class="dropdown" *ngIf="dropdownOpen" aria-label="Menu do usuário" role="menu">
+    <div class="div-menu">
+      <button type="button" (click)="toggleDropdown()" aria-label="Fechar menu" class="close">
+        <mat-icon>close</mat-icon>
+      </button>
+
+
+      <button type="button" role="menuitem" class="menu-item">
+        <mat-icon>dashboard</mat-icon>Dashboard
+      </button>
+
+      <button type="button" role="menuitem" class="menu-item">
+        <mat-icon>inventory_2</mat-icon>Recursos
+      </button>
+
+      <button type="button" role="menuitem" class="menu-item">
+        <mat-icon>event_note</mat-icon>Reservas
+      </button>
+    </div>
+
+    <div>
+      <div class="div-logout">
+        <mat-icon>account_circle</mat-icon>
+        <div>
+          <p class="name">{{ nameLabel }}</p>
+          <p class="username">{{ usernameLabel }}</p>
+        </div>
+      </div>
+      <button type="button" class="logout" role="menuitem" (click)="logout()">
+        <mat-icon>logout</mat-icon>Sair
+      </button>
+    </div>
+  </section>
+</div>

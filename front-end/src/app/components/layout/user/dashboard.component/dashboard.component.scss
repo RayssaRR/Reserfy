@@ -1,0 +1,51 @@
+@use '../../../../styles/variables' as vars;
+
+main{
+    padding: 50px 0;
+}
+
+
+h2{
+    font-size: 1.5rem;    
+    font-weight: 400;
+}
+
+section{
+    width: 100%;
+}
+
+.graphic{
+    height: 400px;
+    background-color: vars.$white;
+}
+
+.div-cards{
+    display: flex;
+    gap: 20px;
+    margin: 50px 0;
+}
+
+.section-cards-img{
+    width: 70%;
+}
+
+.div-card-img{
+    display: flex;
+    gap: 15px;
+}
+
+.section-cards-next{
+    background-color: vars.$white;
+    border: 1px solid #{vars.$stroke};
+    border-radius: 15px;
+    padding: 25px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.div-card-pending{
+    display: flex;
+    gap: 30px;
+}

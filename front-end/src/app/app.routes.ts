@@ -1,24 +1,39 @@
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/layout/home.component/home.component';
-import { LoginComponent } from './components/layout/login.component/login.component';
-import { RegisterComponent } from './components/layout/register.component/register.component';
-import { DashboardComponent } from './components/layout/dashboard.component/dashboard.component';
-import { PrincipalComponent } from './components/layout/principal.component/principal.component';
-import { NgModule } from '@angular/core';
-import { GuardGuard } from './auth/guards/guard.guard'; 
 
+import { LoginComponent } from './pages/login.component/login.component';
+import { RegisterComponent } from './pages/register.component/register.component';
+import { DashboardComponent } from './components/layout/user/dashboard.component/dashboard.component';
+import { DashboardAdminComponent } from './components/layout/admin/dashboard-admin.component/dashboard-admin.component';
+import { NgModule } from '@angular/core';
+import { roleGuard } from './auth/guards/role.guard';
+import { HomeComponent } from './pages/home.component/home.component';
 
 export const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'auth/login', component: LoginComponent },
-  {path: 'auth/register', component: RegisterComponent },
-  {path: 'user',  component: PrincipalComponent, canActivate:[GuardGuard], children:[
-  { path: 'dashboard', component: DashboardComponent}
-   ] },
-   { path: '**', redirectTo: 'auth/login' }
-];
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'auth/login', component: LoginComponent },
+  { path: 'auth/register', component: RegisterComponent },
+  {
+    path: 'user',
+    canActivate: [roleGuard],
+    data: { roleFlag: ['USER'] },
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+    ],
+  },
+  {
+    path: 'admin',
+    canActivate: [roleGuard],
+    data: { roleFlag: ['ADMIN'] },
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardAdminComponent },
+    ],
+  },
 
+  { path: '**', redirectTo: 'auth/login' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

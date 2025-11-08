@@ -1,0 +1,25 @@
+@use '../../../../styles/variables' as vars;
+
+.container{
+    background-color: vars.$white;
+    border: 1px solid #{vars.$stroke};
+    border-radius: 15px;
+    padding: 10px;
+}
+
+img{
+    width: 100%;
+}
+
+button{
+    background-color: vars.$success-light;
+    color: vars.$success-dark;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button:hover{
+    background-color: vars.$success-dark;
+    color: vars.$white;
+}

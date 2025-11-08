@@ -1,0 +1,70 @@
+@use '../../../../styles/variables' as vars;
+
+
+table{
+    border: 1px solid #{vars.$warning-dark};
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: vars.$white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+.head {
+  background-color: vars.$warning-dark;
+  color: vars.$white;
+  padding: 12px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+
+tbody tr {
+  border-bottom: 1px solid vars.$stroke;
+}
+
+.head,
+td {
+  vertical-align: middle; 
+  padding: 12px 20px;
+  font-size: 0.95rem;
+}
+
+
+td {
+  padding: 12px 20px;
+  font-size: 0.95rem;
+}
+
+.table-actions {
+  text-align: center;
+}
+
+
+.btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.btn:hover{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+
+.check{
+    color: vars.$success-dark;
+}
+
+.cancel{
+    color: vars.$error-dark;
+}

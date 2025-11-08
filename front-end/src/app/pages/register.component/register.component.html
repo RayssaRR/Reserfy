@@ -1,0 +1,77 @@
+<main class="container">
+  <app-logo></app-logo>
+
+  <header class="container-text">
+    <h1>Crie sua Conta</h1>
+    <h2>Preencha os campos abaixo para iniciar</h2>
+  </header>
+
+  <form class="container-content" (ngSubmit)="criarConta()">
+
+    <div class="label-input">
+      <label for="name">Nome completo</label>
+      <input type="text" id="name" [(ngModel)]="name" name="name" placeholder="Rafael Silva" required/>
+    </div>
+
+    <div class="label-input">
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="washington.sposito@capgemini.com" required/>
+    </div>
+
+    <fieldset class="half-input">
+      <div class="label-input">
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" [(ngModel)]="cpf" name="cpf" placeholder="000.000.000-00"
+        [ngClass]="{'input-erro': cpfInvalido}" (blur)="validarCPF()" required/>
+      </div>
+
+      <div class="label-input">
+        <label for="phone">Telefone</label>
+        <input type="text" id="phone" [(ngModel)]="phone" name="phone" placeholder="(00) 00000-0000" [ngClass]="{'input-erro': telefoneInvalido}" (blur)="validarTelefone()" required/>
+      </div>
+    </fieldset>
+
+    <fieldset class="half-input">
+      <div class="label-input">
+        <label for="department">Departamento</label>
+        <select id="department" [(ngModel)]="department" name="department" required>
+          <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+        </select>
+      </div>
+
+      <div class="label-input">
+        <label for="position">Cargo</label>
+        <input type="text" id="position" [(ngModel)]="position" name="position" placeholder="Coordenador" required/>
+      </div>
+    </fieldset>
+
+    <div class="label-input">
+      <label for="password">Senha</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Mínimo 8 caracteres" [ngClass]="{'input-erro': senhaInvalida}" (blur)="validarSenha()" required/>
+    </div>
+
+    <div class="label-input">
+      <label for="confirmPassword">Confirmação de senha</label>
+      <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Mínimo 8 caracteres" required/>
+    </div>
+
+    <fieldset class="fieldsetRoleFlag">
+      <legend>Selecione seu Perfil</legend>
+      <div class="roleFlag">
+      <div class="input-radio">
+        <input type="radio" id="ADMIN" name="roleFlag" value="ADMIN" [(ngModel)]="roleFlag" />
+        <label for="ADMIN">Administrador</label>
+      </div>
+
+      <div class="input-radio">
+        <input type="radio" id="USER" name="roleFlag" value="USER" [(ngModel)]="roleFlag" />
+        <label for="USER">Usuário</label>
+      </div>
+      </div>
+    </fieldset>
+
+    <button type="submit">Criar Conta</button>
+
+    <p id="entrar">Já possui uma conta? <a href="auth/login">Entrar</a></p>
+  </form>
+</main>

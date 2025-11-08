@@ -1,10 +1,15 @@
-<div class="dialog-container">
-  <div class="icon-container" [ngStyle]="{ color: data.color || '#ff0000' }">
+<section class="dialog-container" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-message">
+  <div class="icon-container" [ngStyle]="{ color: data.color || '#ff0000' }" aria-hidden="true">
     <mat-icon *ngIf="data.icon">{{ data.icon }}</mat-icon>
   </div>
 
-  <h2>{{ data.title }}</h2>
-  <p>{{ data.message }}</p>
+  <header>
+    <h2 id="dialog-title">{{ data.title }}</h2>
+  </header>
 
-  <button mat-raised-button color="primary" (click)="fechar()">OK</button>
-</div>
+  <p id="dialog-message">{{ data.message }}</p>
+
+  <footer>
+    <button mat-raised-button color="primary" (click)="fechar()">OK</button>
+  </footer>
+</section>

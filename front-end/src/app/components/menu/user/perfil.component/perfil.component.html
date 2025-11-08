@@ -1,0 +1,12 @@
+<div class="user-menu" (click)="toggleDropdown()" tabindex="0">
+  <div class="user-perfil">
+    <mat-icon>account_circle</mat-icon>
+    <p class="user-name">{{ nameLabel }}</p>
+    <mat-icon>expand_more</mat-icon>
+  </div>
+
+  <div class="dropdown" *ngIf="dropdownOpen">
+    <button>Perfil</button>
+    <button (click)="logout()">Sair</button>
+  </div>
+</div>

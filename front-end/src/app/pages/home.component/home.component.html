@@ -1,0 +1,21 @@
+<main class="container">
+  <app-logo></app-logo>
+  <h1>Bem-vindo ao portal de gerenciamento de recursos</h1>
+  <h2>Nossa plataforma centraliza a reserva de salas de reunião, veículos e equipamentos, aumentando a eficiência da sua equipe de forma simples e intuitiva </h2>
+
+  <section class="buttons">
+    <button class="button" id="button-cadastro" (click)="goToRegister()">Cadastro</button>
+    <button class="button" id="button-login" (click)="goToLogin()">Login</button>
+  </section>
+
+
+  <p>Descubra como nossa plataforma pode simplificar processos e aumentar a produtividade da sua empresa</p>
+
+  <section class="cards-container">
+    <app-cardhome titulo="Gestão Centralizada" texto="Visualize e administre todos os recursos da sua empresa em um único lugar" ></app-cardhome>
+    <app-cardhome titulo="Reservas Simplificadas" texto="Agende salas, equipamentos e veículos com apenas alguns cliques" ></app-cardhome>
+    <app-cardhome titulo="Notificações Automáticas" texto="Receba alertas sobre suas reservas e mantenha sua equipe sempre informada " ></app-cardhome>
+  </section>
+</main>
+
+
