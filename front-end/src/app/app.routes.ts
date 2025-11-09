@@ -11,6 +11,8 @@ import { ProductsComponent } from './pages/products/products.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { InsightsComponent } from './pages/insights/insights.component'; 
 import { SpeechPageComponent } from './pages/speech-page/speech-page.component';
+import { InventoryPageComponent } from './pages/inventory/inventory-page.component';
+import { CameraToolsComponent } from './pages/camera-tools/camera-tools.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -22,6 +24,16 @@ export const routes: Routes = [
   {path: 'produtos', component: ProductsComponent},
   {path: 'historico-clinico', component: HistoryComponent},
   {path: 'insights', component: InsightsComponent},
+
+  {
+      path: 'inventario',
+      component: InventoryPageComponent
+  },
+  
+  {
+      path: 'ferramentas-camera',
+      component: CameraToolsComponent
+  },
 
   {
       path: 'leitura-voz', 
