@@ -16,11 +16,13 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon'; 
-import { NgSelectModule } from '@ng-select/ng-select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'; // <-- ADICIONADO: Para o Toggle de Inventário
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { routes } from './app.routes';
 import { meuHttpInterceptor } from './auth/http-interceptor.service';
@@ -45,6 +47,7 @@ export const appConfig: ApplicationConfig = {
       MatAutocompleteModule,
       MatSelectModule,
       MatIconModule,
+      MatSlideToggleModule, 
       NgxChartsModule,
       ZXingScannerModule,
       NgSelectModule
