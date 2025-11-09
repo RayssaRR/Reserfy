@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DashboardChartsComponent } from '../../components/dashboard-charts/dashboard-charts.component';
+import { ReportExporterComponent } from '../../components/report-exporter/report-exporter.component';
 
 @Component({
   selector: 'app-insights',
   standalone: true,
   imports: [
     CommonModule, 
-    DashboardChartsComponent
+    DashboardChartsComponent,
+    ReportExporterComponent
   ],
   template: `
     <div class="page-container">
@@ -16,6 +18,9 @@ import { DashboardChartsComponent } from '../../components/dashboard-charts/dash
       <p class="subtitle">Visão geral das principais métricas de negócio.</p>
       
       <app-dashboard-charts></app-dashboard-charts>
+
+      <!-- Botão de Exportação de Relatórios -->
+      <app-report-exporter [reportType]="'Relatório de Análise de Vendas'"></app-report-exporter>
     </div>
   `,
   styles: [`
