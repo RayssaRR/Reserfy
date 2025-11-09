@@ -1,0 +1,44 @@
+<mat-card style="max-width: 500px; margin: 30px auto; padding: 20px;">
+  <mat-card-header>
+    <mat-card-title>Lançamento de Uso/Consumo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    
+    <form [formGroup]="usageForm" (ngSubmit)="onSubmit()">
+
+      <mat-slide-toggle 
+          [checked]="isManualEntry" 
+          (change)="toggleEntryType($event)" 
+          color="primary"
+          style="margin-bottom: 20px; display: block;">
+        Modo de Lançamento: **{{ isManualEntry ? 'Manual' : 'Automático' }}**
+      </mat-slide-toggle>
+      
+      <input type="hidden" formControlName="entryType">
+
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Item Consumido</mat-label>
+        <mat-select formControlName="itemId" required>
+          <mat-option *ngFor="let item of availableItems" [value]="item.id">
+            {{ item.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Quantidade Utilizada</mat-label>
+        <input matInput type="number" formControlName="quantityUsed" min="1" required>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Observação / Razão</mat-label>
+        <textarea matInput formControlName="reason"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="usageForm.invalid" style="width: 100%; margin-top: 10px;">
+        Registrar Uso
+      </button>
+
+    </form>
+  </mat-card-content>
+</mat-card>
