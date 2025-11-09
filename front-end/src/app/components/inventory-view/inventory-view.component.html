@@ -1,0 +1,89 @@
+<mat-card style="margin: 20px auto; max-width: 1200px;">
+  <mat-card-header style="display: flex; justify-content: space-between; align-items: center;">
+    <mat-card-title>Estoque Atual de Itens</mat-card-title>
+    
+    <button mat-icon-button (click)="toggleView()" title="Alternar Visualização">
+        <mat-icon>{{ viewMode === 'card' ? 'list' : 'grid_view' }}</mat-icon>
+    </button>
+  </mat-card-header>
+  
+  <mat-card-content style="margin-top: 20px;">
+    
+    <div *ngIf="viewMode === 'table'" class="mat-elevation-z2">
+      <table mat-table [dataSource]="dataSource" style="width: 100%;">
+        
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Item </th>
+          <td mat-cell *matCellDef="let element"> **{{element.name}}** </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantidade Restante </th>
+          <td mat-cell *matCellDef="let element" [class.low-stock]="element.quantity <= element.minLimit"> {{element.quantity}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef> Local </th>
+          <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> 
+            <span [class]="getInventoryStatus(element) | lowercase">{{ getInventoryStatus(element) }}</span>
+          </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+    <div *ngIf="viewMode === 'card'" class="card-grid">
+      <mat-card *ngFor="let item of inventoryItems" [ngClass]="getInventoryStatus(item) | lowercase">
+        <mat-card-header>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+          <mat-card-subtitle>ID: {{ item.id }} | Local: {{ item.location }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Quantidade Restante:</p>
+          <h2 class="quantity-display">{{ item.quantity }}</h2>
+          <p>Limite Mínimo: {{ item.minLimit }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+           <span [class]="getInventoryStatus(item) | lowercase">{{ getInventoryStatus(item) }}</span>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    
+  </mat-card-content>
+</mat-card>
+
+<style>
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+.quantity-display {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.low-stock { color: #f44336; font-weight: bold; } 
+.baixo { border-left: 5px solid #f44336; color: #f44336; }
+.atencao { border-left: 5px solid #ff9800; color: #ff9800; }
+.normal { border-left: 5px solid #4caf50; color: #4caf50; }
+
+.baixo, .atencao, .normal {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+</style>
