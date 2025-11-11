@@ -1,5 +1,4 @@
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/layout/home/home.component';
 import { LoginComponent } from './components/layout/login/login.component';
 import { RegisterComponent } from './components/layout/register.component/register.component';
 import { DashboardComponent } from './components/layout/dashboard.component/dashboard.component';
@@ -14,9 +13,13 @@ import { SpeechPageComponent } from './pages/speech-page/speech-page.component';
 import { InventoryPageComponent } from './pages/inventory/inventory-page.component';
 import { CameraToolsComponent } from './pages/camera-tools/camera-tools.component';
 
+import { HomePageComponent } from './pages/home/home-page.component'; 
+
 export const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
+  
+  {path: 'home', component: HomePageComponent},
+  
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
   
