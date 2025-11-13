@@ -3,7 +3,6 @@ package app.back_end.resource.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.data.domain.Page;
@@ -28,13 +27,18 @@ public class RecursoInternoController {
         }
     }
     
-    @GetMapping("/list")
-    public ResponseEntity<Page<RecursoInterno>> listarRecursos(
-    		@RequestParam(defaultValue = "0") int page,
-    		@RequestParam(defaultValue = "10") int size,
-    		@RequestParam(required = false) String status) {
-    	
-    	Page<RecursoInterno> resources = recursoInternoService.listarRecursos(page, size, status);
-    	return new ResponseEntity<>(resources, HttpStatus.OK);
+    @PostMapping("/list")
+    public ResponseEntity<?> listarRecursos(@RequestBody FiltroRecursoInterno filtro) {
+        try {
+            Page<RecursoInterno> recursos = recursoInternoService.listarRecursos(
+                filtro.getPage(),
+                filtro.getSize(),
+                filtro.getStatus()
+            );
+
+            return new ResponseEntity<>(recursos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro ao listar recursos: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }
