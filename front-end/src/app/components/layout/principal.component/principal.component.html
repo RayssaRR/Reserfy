@@ -1,0 +1,35 @@
+<div class="main-layout">
+    
+    <header class="main-header">
+        <h1>Reserfy - Sistema Interno</h1>
+    </header>
+
+    <div class="content-wrapper">
+        <nav class="sidebar">
+            <ul>
+                
+                <li><a [routerLink]="['/user/dashboard']" routerLinkActive="active">Dashboard</a></li>
+                
+                <li><a [routerLink]="['/inventario']" routerLinkActive="active">Inventário e Estoque</a></li>
+                
+                <li><a [routerLink]="['/produtos']" routerLinkActive="active">Gerenciar Produtos</a></li>
+
+                <li><a [routerLink]="['/insights']" routerLinkActive="active">Análise de Insights</a></li>
+                
+                <li><a [routerLink]="['/historico-clinico']" routerLinkActive="active">Histórico Clínico</a></li>
+                
+                <li><a [routerLink]="['/ferramentas-camera']" routerLinkActive="active">Ferramentas Câmera</a></li> 
+                
+                <li><a [routerLink]="['/leitura-voz']" routerLinkActive="active">Leitura de Voz</a></li> 
+                
+                <li><a [routerLink]="['/contato']" routerLinkActive="active">Fale Conosco</a></li>
+                <li><a [routerLink]="['/login']">Sair</a></li>
+            </ul>
+        </nav>
+
+        <main class="content-area">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+
+</div>

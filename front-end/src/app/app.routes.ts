@@ -1,38 +1,52 @@
 import { RouterModule, Routes } from '@angular/router';
-
-import { LoginComponent } from './pages/login.component/login.component';
-import { RegisterComponent } from './pages/register.component/register.component';
-import { DashboardComponent } from './components/layout/user/dashboard.component/dashboard.component';
-import { DashboardAdminComponent } from './components/layout/admin/dashboard-admin.component/dashboard-admin.component';
+import { LoginComponent } from './components/layout/login/login.component';
+import { RegisterComponent } from './components/layout/register.component/register.component';
+import { DashboardComponent } from './components/layout/dashboard.component/dashboard.component';
+import { PrincipalComponent } from './components/layout/principal.component/principal.component';
 import { NgModule } from '@angular/core';
-import { roleGuard } from './auth/guards/role.guard';
-import { HomeComponent } from './pages/home.component/home.component';
+import { GuardGuard } from './auth/guard.guard';
+import { ContactComponent } from './pages/contact/contact.component'; 
+import { ProductsComponent } from './pages/products/products.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { InsightsComponent } from './pages/insights/insights.component'; 
+import { SpeechPageComponent } from './pages/speech-page/speech-page.component';
+import { InventoryPageComponent } from './pages/inventory/inventory-page.component';
+import { CameraToolsComponent } from './pages/camera-tools/camera-tools.component';
+
+import { HomePageComponent } from './pages/home/home-page.component'; 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'auth/login', component: LoginComponent },
-  { path: 'auth/register', component: RegisterComponent },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  
+  {path: 'home', component: HomePageComponent},
+  
+  {path: 'login', component: LoginComponent },
+  {path: 'register', component: RegisterComponent },
+  
+  {path: 'contato', component: ContactComponent},
+  {path: 'produtos', component: ProductsComponent},
+  {path: 'historico-clinico', component: HistoryComponent},
+  {path: 'insights', component: InsightsComponent},
+
   {
-    path: 'user',
-    canActivate: [roleGuard],
-    data: { roleFlag: ['USER'] },
-    children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
-    ],
+      path: 'inventario',
+      component: InventoryPageComponent
   },
+  
   {
-    path: 'admin',
-    canActivate: [roleGuard],
-    data: { roleFlag: ['ADMIN'] },
-    children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardAdminComponent },
-    ],
+      path: 'ferramentas-camera',
+      component: CameraToolsComponent
   },
 
-  { path: '**', redirectTo: 'auth/login' },
+  {
+      path: 'leitura-voz', 
+      component: SpeechPageComponent
+  },
+
+  {path: 'user', component: PrincipalComponent, canActivate:[GuardGuard], children:[
+    { path: 'dashboard', component: DashboardComponent }
+  ]},
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

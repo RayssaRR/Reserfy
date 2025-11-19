@@ -1,0 +1,43 @@
+<mat-card style="max-width: 700px; margin: 30px auto; padding: 20px;">
+  <mat-card-header>
+    <mat-card-title>Recurso de Leitura em Voz Alta (SpeechSynthesis)</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+    <p style="margin-bottom: 20px; font-style: italic;">
+      Texto de Exemplo: {{ sampleText }}
+    </p>
+
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <mat-label>Selecione a Voz (pt-BR)</mat-label>
+      <mat-select [formControl]="selectedVoiceControl">
+        <mat-option *ngFor="let voice of voices" [value]="voice.name">
+          {{ voice.name }} ({{ voice.localService ? 'Local' : 'Nuvem' }})
+        </mat-option>
+      </mat-select>
+      <mat-hint *ngIf="voices.length === 0">As vozes estão sendo carregadas...</mat-hint>
+    </mat-form-field>
+
+    <div class="controls" style="display: flex; gap: 10px;">
+      
+      <button mat-raised-button 
+              color="primary" 
+              (click)="startReading()" 
+              [disabled]="isSpeaking || voices.length === 0" 
+              style="flex: 1;">
+        <mat-icon>{{ isSpeaking ? 'volume_up' : 'play_arrow' }}</mat-icon> 
+        {{ isSpeaking ? 'Lendo...' : 'Iniciar Leitura' }}
+      </button>
+
+      <button mat-raised-button 
+              color="warn" 
+              (click)="stopReading()" 
+              [disabled]="!isSpeaking" 
+              style="flex: 1;">
+        <mat-icon>stop</mat-icon> 
+        Parar Leitura
+      </button>
+    </div>
+
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,38 @@
+<div class="dashboard-container">
+    <h2>Visão Geral de Insights</h2>
+
+    <div class="charts-grid">
+        
+        <div class="chart-card">
+            <h3>Vendas por Mês</h3>
+            <ngx-charts-bar-vertical
+                [view]="view"
+                [scheme]="scheme"
+                [results]="monthlySalesData"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                (select)="onSelect($event)">
+            </ngx-charts-bar-vertical>
+        </div>
+
+        <div class="chart-card">
+            <h3>Distribuição por Categoria</h3>
+            <ngx-charts-pie-chart
+                [view]="view"
+                [scheme]="scheme"
+                [results]="categorySalesData"
+                [legend]="showLegend"
+                [doughnut]="true" 
+                [labels]="true"
+                (select)="onSelect($event)">
+            </ngx-charts-pie-chart>
+        </div>
+
+    </div>
+</div>
