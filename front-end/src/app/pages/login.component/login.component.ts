@@ -33,9 +33,9 @@ export class LoginComponent {
           const decoded: any = jwtDecode(token);
           const roleFlag = decoded.roleFlag;
           console.log('RoleFlag:', roleFlag);
-          if (roleFlag === 'ADMIN') {
+          if (roleFlag === 'ROLE_ADMIN') {
             this.router.navigate(['/admin']);
-          } else if (roleFlag === 'USER') {
+          } else if (roleFlag === 'ROLE_USER') {
             this.router.navigate(['/user']);
           } else {
             this.router.navigate(['/login']);

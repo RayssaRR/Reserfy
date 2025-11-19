@@ -1,0 +1,42 @@
+<main class="container">
+  <h2>{{data.title}}</h2>
+  <h3 class="subtitle">{{data.subtitle}}</h3>
+
+  <form class="container-content" [formGroup]="form">
+    <div class="label-input">
+      <label for="name">Nome do recurso</label>
+      <input id="name" type="text" formControlName="name" />
+    </div>
+
+    <fieldset class="half-input">
+      <div class="label-input">
+        <label for="category">Categoria</label>
+        <select id="category" formControlName="category">
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+
+      <div class="label-input">
+        <label for="status">Status</label>
+        <select id="status" formControlName="status">
+          <option *ngFor="let status of statusList" [value]="status.value">{{ status.label }}</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <div class="label-input">
+      <label for="location">Localização</label>
+      <input id="location" type="text" formControlName="location" />
+    </div>
+
+    <div class="label-input">
+      <label for="description">Descrição técnica</label>
+      <textarea id="description" rows="4" formControlName="description"></textarea>
+    </div>
+  </form>
+
+  <div class="buttons">
+    <button class="cancel" type="button" (click)="cancel()">Cancelar</button>
+    <button class="success" type="button" (click)="onSubmit()">{{data.action}}</button>
+  </div>
+</main>

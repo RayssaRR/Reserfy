@@ -1,12 +1,26 @@
 @use '../../../../styles/variables' as vars;
 
-main{
-    padding: 50px 0;
+
+h2{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+section{
+    margin: 50px  0;
 }
 
 .section-cards{
     display: flex;
     justify-content: space-between;
+    gap: 40px;
+}
+
+.section-cards app-card-numbers {
+  flex: 1 1 22%;                  
+  min-width: 200px;              
 }
 
 .graphic{
