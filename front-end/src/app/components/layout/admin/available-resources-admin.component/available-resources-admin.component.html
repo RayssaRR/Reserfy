@@ -1,0 +1,35 @@
+<button color="primary" (click)="AddResource()" class="addResource"><mat-icon>arrow_forward</mat-icon>Novo Recurso</button>
+
+<h1>Recursos disponíveis</h1>
+<h2>Aqui você encontra todos os recursos internos disponíveis. Gerencie, consulte e mantenha tudo organizado com praticidade.</h2>
+
+<table class="table">
+  <thead class="line">
+    <tr>
+      <th class="head">Recurso</th>
+      <th class="head">Categoria</th>
+      <th class="head">Status</th>
+      <th class="head">Local</th>
+      <th class="head">Usuário atual</th>
+      <th class="head actions"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let resource of internalResources">
+      <td>{{resource.name}}</td>
+      <td>{{resource.category}}</td>
+        <td><span class="status-badge"[ngClass]="'status-' + (resource.status.toLowerCase())">{{ statusLabels[resource.status] }}</span></td>
+      <td>{{resource.location}}</td>
+      <td>{{resource.currentUser}}</td>
+      <td class="table-actions">
+        <button class="btn" >
+          <mat-icon class="edit" (click)="edit(resource)">edit</mat-icon>
+        </button>
+        <button class="btn" (click)="delete(resource)">
+          <mat-icon class="delete">delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

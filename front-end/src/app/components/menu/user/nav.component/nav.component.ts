@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from '../../../../auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -16,7 +17,7 @@ export class NavComponent {
 
   dropdownOpen = false;
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService,private router: Router){}
   
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
@@ -24,5 +25,13 @@ export class NavComponent {
 
   logout(): void {
     this.authService.logout();
+  }
+
+  dashboard(){
+    this.router.navigate(['/user/principal/dashboard']);
+  }
+
+  internalResources(){
+    this.router.navigate(['/user/principal/internal-resources']);
   }
 }

@@ -1,0 +1,58 @@
+@use '../../../../styles/variables' as vars;
+
+.table {
+  border-collapse: collapse;
+  background-color: vars.$white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #{vars.$success-dark}; 
+}
+
+
+.head {
+  background-color: vars.$success-dark;
+  color: vars.$white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+tbody tr {
+  border-bottom: 1px solid #{vars.$success-dark};
+}
+
+th, td {
+  margin: 0;
+  padding: 10px 25px;
+}
+
+td {
+  font-size: 0.95rem;
+}
+
+tbody tr:last-child {
+  border-bottom: transparent;
+}
+
+.btn {
+  margin: 0;
+  padding: 0 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.btn:hover {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.check {
+  color: vars.$success-dark;
+}
+
+.cancel {
+  color: vars.$error-dark;
+}

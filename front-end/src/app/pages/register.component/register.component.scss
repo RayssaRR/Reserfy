@@ -57,9 +57,6 @@ input, #department{
     padding: 5px;
 }
 
-.input-erro {
-  border: 1px solid #{vars.$error-dark} !important;
-}
 
 select.input-placeholder {
   color: gray; 
@@ -69,9 +66,7 @@ select {
   color: black;
 }
 
-
-
-.label-input label{
+.label-input, legend{
     font-size: 1.2rem;
 }
 

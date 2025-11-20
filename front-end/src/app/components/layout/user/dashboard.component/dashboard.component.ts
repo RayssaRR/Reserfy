@@ -4,7 +4,6 @@ import { CardPendingReservationsComponent } from '../../../dashboard/user/card-p
 import { CardNextReservationsComponent } from '../../../dashboard/user/card-next-reservations.component/card-next-reservations.component';
 import { AuthService } from '../../../../auth/services/auth.service';
 import { jwtDecode } from 'jwt-decode';
-import { MenuComponent } from '../../menu.component/menu.component';
 
 
 @Component({
@@ -13,15 +12,14 @@ import { MenuComponent } from '../../menu.component/menu.component';
   imports: [
     CardImgComponent,
     CardPendingReservationsComponent,
-    CardNextReservationsComponent,
-    MenuComponent,
+    CardNextReservationsComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent{
   name!: string;
-  username!: string;
+
 
   constructor(private authService: AuthService) {}
 
@@ -34,8 +32,7 @@ export class DashboardComponent implements OnInit {
     if (token) {
       const decoded: any = jwtDecode(token);
       console.log(decoded);
-      this.name = decoded.Name.split(' ', 2).join(' ') || 'Usuário';
-      this.username = decoded.User || 'Usuário';
+      this.name = decoded.Name.split(' ', 1) || 'Usuário';
     }
   }
 }

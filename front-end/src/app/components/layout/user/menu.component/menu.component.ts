@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { NavComponent } from '../../menu/user/nav.component/nav.component';
-import { PerfilComponent } from '../../menu/user/perfil.component/perfil.component';
+import { NavComponent } from '../../../menu/user/nav.component/nav.component';
+import { PerfilComponent } from '../../../menu/user/perfil.component/perfil.component';
 
 @Component({
   selector: 'app-menu',

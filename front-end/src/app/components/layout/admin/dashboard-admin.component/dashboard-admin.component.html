@@ -1,21 +1,31 @@
-<main class="container">
-    <app-menu [nameLabel]="name" [usernameLabel]="username"></app-menu>
-    <h1>Olá, {{name}} !</h1>
-    <h2>Bem-vindo de volta, organize suas reservas aqui</h2>
+<h1>Olá, {{name}} !</h1>
+<h2>Bem-vindo de volta ao painel administrativo. Gerencie os recursos internos com facilidade e mantenha tudo sob controle</h2>
 
-    <section class="section-cards">
-        <app-card-numbers></app-card-numbers>
-        <app-card-numbers></app-card-numbers>
-        <app-card-numbers></app-card-numbers>
-        <app-card-numbers></app-card-numbers>
-    </section>
+<section class="section-cards">
+    <app-card-numbers></app-card-numbers>
+    <app-card-numbers></app-card-numbers>
+    <app-card-numbers></app-card-numbers>
+    <app-card-numbers></app-card-numbers>
+</section>
 
     
-    <section class="graphic"></section>
+<section class="graphic"></section>
 
+
+<div class="">
     <section>
-        <h3>Últimas Solicitações</h3>
-        <app-last-requests></app-last-requests>
+        <div>
+            <h3>Últimas Solicitações</h3>
+            <app-last-requests></app-last-requests>
+        </div>
+
+        <div>
+            <h3>Últimos Incidentes</h3>
+            <app-last-incidents></app-last-incidents>
+        </div>
     </section>
+
+</div>
     
-</main>
+
+    

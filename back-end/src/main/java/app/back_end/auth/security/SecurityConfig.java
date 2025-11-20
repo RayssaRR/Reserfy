@@ -3,6 +3,7 @@ package app.back_end.auth.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -30,6 +31,10 @@ public class SecurityConfig {
             .cors(Customizer.withDefaults())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/internal-resources/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/internal-resources/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/internal-resources/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/internal-resources/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
             )
             .authenticationProvider(authenticationProvider)

@@ -1,70 +1,58 @@
 @use '../../../../styles/variables' as vars;
 
-
-table{
-    border: 1px solid #{vars.$warning-dark};
-}
-
 .table {
-  width: 100%;
   border-collapse: collapse;
-  background: vars.$white;
+  background-color: vars.$white;
   border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 0 0 1px #{vars.$brown-light}; 
 }
 
 
 .head {
-  background-color: vars.$warning-dark;
+  background-color: vars.$brown-light;
   color: vars.$white;
-  padding: 12px 20px;
-  text-align: left;
   font-weight: 600;
   font-size: 1rem;
 }
 
-
 tbody tr {
-  border-bottom: 1px solid vars.$stroke;
+  border-bottom: 1px solid #{vars.$brown-light};
 }
 
-.head,
+th, td {
+  margin: 0;
+  padding: 10px 25px;
+}
+
 td {
-  vertical-align: middle; 
-  padding: 12px 20px;
   font-size: 0.95rem;
 }
 
-
-td {
-  padding: 12px 20px;
-  font-size: 0.95rem;
+tbody tr:last-child {
+  border-bottom: transparent;
 }
-
-.table-actions {
-  text-align: center;
-}
-
 
 .btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    box-shadow: none;
+  margin: 0;
+  padding: 0 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
 }
 
-.btn:hover{
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    box-shadow: none;
+.btn:hover {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  box-shadow: none;
 }
 
-
-.check{
-    color: vars.$success-dark;
+.check {
+  color: vars.$success-dark;
 }
 
-.cancel{
-    color: vars.$error-dark;
+.cancel {
+  color: vars.$error-dark;
 }

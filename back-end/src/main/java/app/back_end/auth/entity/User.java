@@ -15,11 +15,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
 public class User implements UserDetails{
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +36,16 @@ public class User implements UserDetails{
 	private String department;
 	private String position;
 	private String phone;
+	
+	@ManyToOne
+    @JoinColumn(name = "admin_id")
+    private User admin;
 
+    @OneToMany(mappedBy = "admin")
+    private List<User> AdministeredUsers = new ArrayList<>();
+
+    
+    
 	@Override
 	@JsonIgnore
 	public Collection<? extends GrantedAuthority> getAuthorities() {

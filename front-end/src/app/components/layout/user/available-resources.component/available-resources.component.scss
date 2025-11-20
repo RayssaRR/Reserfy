@@ -1,0 +1,78 @@
+@use '../../../../styles/variables' as vars;
+
+
+h2{
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+
+.table {
+  margin: 50px  0;
+  border-collapse: collapse;
+  background-color: vars.$white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #{vars.$brown-light}; 
+}
+
+
+.head {
+  background-color: vars.$brown-light;
+  color: vars.$white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+
+tbody tr {
+  border-bottom: 1px solid #{vars.$brown-light};
+}
+
+th, td {
+  margin: 0;
+  padding: 10px 25px;
+}
+
+
+tbody tr:last-child {
+  border-bottom: transparent;
+}
+
+.status-badge {
+  padding: 3px 15px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+  
+.status-disponivel {
+  color: vars.$success-dark;
+  background-color: vars.$success-light;
+}
+  
+.status-alocado {
+  color: vars.$warning-dark;
+  background-color: vars.$warning-light;
+}
+  
+.status-manutencao {
+  color: vars.$error-dark;
+  background-color: vars.$error-light;
+}
+
+
+.button-request {
+  padding: 2px 20px;
+  border-radius: 25px;
+  background-color: vars.$warning-light;
+  color: vars.$warning-dark;
+  border: none;
+}
+
+.disabled{
+  display: none;
+}
+
