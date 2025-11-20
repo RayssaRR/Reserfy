@@ -16,10 +16,10 @@
       <input type="password" id="senha" [(ngModel)]="login.password" name="password" >
     </div>
 
-    <a href="/login" id="content-senha"><p>Esqueci minha senha</p></a>
+    <a href="api/auth/login" id="content-senha"><p>Esqueci minha senha</p></a>
 
     <button type="button" (click)="logar()">Entrar</button>
 
-    <p id="cadastrar">Não tem uma conta? <a href="auth/register">Cadastre-se</a></p>
+    <p id="cadastrar">Não tem uma conta? <a href="api/auth/register">Cadastre-se</a></p>
   </div>
 </div>

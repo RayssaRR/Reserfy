@@ -14,7 +14,7 @@ import { DialogComponent } from '../../../dialog/dialog.component';
   templateUrl: './available-resources-admin.component.html',
   styleUrls: ['./available-resources-admin.component.scss'],
 })
-export class AvailableResourcesAdminComponent {
+export class AvailableResourcesAdminComponent{
   internalResources: InternalResource[] = [];
   
   private internalResourceService = inject(InternalResourceService);

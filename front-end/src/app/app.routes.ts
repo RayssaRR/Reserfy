@@ -15,8 +15,8 @@ import { AvailableResourcesAdminComponent } from './components/layout/admin/avai
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'auth/login', component: LoginComponent },
-  { path: 'auth/register', component: RegisterComponent },
+  { path: 'api/auth/login', component: LoginComponent },
+  { path: 'api/auth/register', component: RegisterComponent },
   
   { path: 'user', canActivate: [roleGuard], data: { roleFlag: ['ROLE_USER'] },
     children: [

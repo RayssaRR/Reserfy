@@ -13,7 +13,7 @@ import app.back_end.auth.dto.RegisterRequest;
 import app.back_end.auth.service.AuthService;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("api/auth")
 public class AuthController {
 
 	@Autowired

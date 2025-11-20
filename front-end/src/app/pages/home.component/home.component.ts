@@ -19,10 +19,10 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   goToLogin() {
-    this.router.navigate(['auth/login']);
+    this.router.navigate(['api/auth/login']);
   }
 
   goToRegister() {
-    this.router.navigate(['auth/register']);
+    this.router.navigate(['api/auth/register']);
   }
 }

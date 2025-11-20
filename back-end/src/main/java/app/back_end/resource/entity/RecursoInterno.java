@@ -4,7 +4,6 @@ package app.back_end.resource.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.back_end.auth.entity.User;
 import app.back_end.request.entity.Request;
 import jakarta.persistence.*;
 

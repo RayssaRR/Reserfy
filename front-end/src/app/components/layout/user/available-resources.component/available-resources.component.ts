@@ -15,6 +15,12 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class AvailableResourcesComponent implements OnInit {
 
+  statusLabels: Record<string, string> = {
+    DISPONIVEL: 'Disponível',
+    EM_MANUTENCAO: 'Em manutenção',
+    ALOCADO: 'Alocado'
+  };
+
   internalResources: InternalResource[] = [];
 
   private internalResourceService = inject(InternalResourceService);
