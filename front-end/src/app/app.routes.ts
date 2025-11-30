@@ -13,34 +13,42 @@ import { PrincipalComponent } from './components/layout/user/principal.component
 import { AvailableResourcesAdminComponent } from './components/layout/admin/available-resources-admin.component/available-resources-admin.component';
 import { ResourceDetailsComponent } from './components/layout/user/resource-details.component/resource-details.component';
 import { IncidentsComponent } from './components/layout/admin/incidents.component/incidents.component';
+import { ReservationsComponent } from './components/layout/user/reservations.component/reservations.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'api/auth/login', component: LoginComponent },
   { path: 'api/auth/register', component: RegisterComponent },
-  
-  { path: 'user', canActivate: [roleGuard], data: { roleFlag: ['ROLE_USER'] },
+
+  {
+    path: 'user', canActivate: [roleGuard], data: { roleFlag: ['ROLE_USER'] },
     children: [
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
-      { path: 'principal', component: PrincipalComponent, children:[
-        {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-        {path: 'dashboard', component:DashboardComponent},
-        {path: 'internal-resources', component: AvailableResourcesComponent},
-        {path: 'internal-resources/:id', component: ResourceDetailsComponent},
-      ]},
+      {
+        path: 'principal', component: PrincipalComponent, children: [
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', component: DashboardComponent },
+          { path: 'internal-resources', component: AvailableResourcesComponent },
+          { path: 'internal-resources/:id', component: ResourceDetailsComponent },
+          { path: 'reservations', component: ReservationsComponent }
+        ]
+      },
     ],
   },
 
-  { path: 'admin', canActivate: [roleGuard], data: { roleFlag: ['ROLE_ADMIN'] },
+  {
+    path: 'admin', canActivate: [roleGuard], data: { roleFlag: ['ROLE_ADMIN'] },
     children: [
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
-      { path: 'principal', component: PrincipalAdminComponent, children:[
-        {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-        {path: 'dashboard', component:DashboardAdminComponent},
-        {path: 'internal-resources', component:AvailableResourcesAdminComponent},
-        {path: 'incidents', component:IncidentsComponent}
-      ]},
+      {
+        path: 'principal', component: PrincipalAdminComponent, children: [
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', component: DashboardAdminComponent },
+          { path: 'internal-resources', component: AvailableResourcesAdminComponent },
+          { path: 'incidents', component: IncidentsComponent }
+        ]
+      },
     ],
   },
 
@@ -51,4 +59,4 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

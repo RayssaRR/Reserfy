@@ -1,0 +1,95 @@
+@use '../../../../styles/variables' as vars;
+
+.card {
+  width: 320px;
+  background: #fff4cc;
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #ffe8a3;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      mat-icon {
+        font-size: 28px;
+        color: #cc8a00;
+      }
+    }
+
+    .info {
+      .title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #444;
+      }
+
+      .date {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      mat-icon {
+        font-size: 20px;
+        color: #cc8a00;
+      }
+
+      span {
+        font-size: 14px;
+        color: #444;
+      }
+    }
+
+    .status {
+      background: #ffe6c7;
+      padding: 4px 10px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #c97800;
+    }
+
+    .cancel-btn {
+      background: #ffebe8;
+      color: #d0453e;
+      border: 1px solid #ffb4ad;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:hover {
+        background: #ffd2cd;
+      }
+    }
+  }
+}

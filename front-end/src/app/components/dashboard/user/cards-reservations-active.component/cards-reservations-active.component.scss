@@ -1,0 +1,80 @@
+@use '../../../../styles/variables' as vars;
+
+.card {
+  width: 320px;
+  background: #e4f6e4;
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #cceecb;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      mat-icon {
+        font-size: 28px;
+        color: #2e5c2e;
+      }
+    }
+
+    .info {
+      .title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #2b422b;
+      }
+
+      .date {
+        margin: 0;
+        font-size: 14px;
+        color: #556b55;
+      }
+    }
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      mat-icon {
+        font-size: 20px;
+        color: #2e5c2e;
+      }
+
+      span {
+        font-size: 14px;
+        color: #2e5c2e;
+      }
+    }
+
+    .status {
+      background: #c4ffc4;
+      padding: 4px 10px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2e5c2e;
+    }
+  }
+}
