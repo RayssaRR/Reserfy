@@ -4,10 +4,10 @@ import { Incident } from '../../../../models/incident/incident.model';
 
 @Component({
   selector: 'app-card-incident',
-  templateUrl: './card-incident.component.html',
-  styleUrls: ['./card-incident.component.scss'],
-  standalone: true, 
-  imports: [CommonModule] 
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './cards-incidents.components.html',
+  styleUrls: ['./cards-incidents.components.scss'],
 })
 export class CardIncidentComponent {
   @Input() incident!: Incident;

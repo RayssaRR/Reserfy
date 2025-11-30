@@ -15,7 +15,7 @@ public class Request {
     private Long id;
 
     @Column(nullable = false)
-    private String status;
+    private StatusRequest status;
 
     private LocalDateTime startDate;
 
@@ -34,8 +34,8 @@ public class Request {
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public StatusRequest getStatus() { return status; }
+    public void setStatus(StatusRequest status) { this.status = status; }
 
     public LocalDateTime getStartDate() { return startDate; }
     public void setStartDate(LocalDateTime startDate) { this.startDate = startDate; }

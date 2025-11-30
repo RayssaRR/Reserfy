@@ -9,66 +9,61 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import app.back_end.request.entity.Request;
-import app.back.end.request.service.RequestService;
+import app.back_end.request.service.RequestService;
 
 @RestController
-@RequestMapping("/{roleFlag}/principal/reservas")
+@RequestMapping("/{roleFlag}/principal/reservations")
 public class RequestController {
 
     @Autowired
     private RequestService requestService;
 
-    // LISTAR TODAS
     @GetMapping("/list")
     public ResponseEntity<?> listar() {
         try {
-            List<Request> reservas = requestService.listarTodas();
+            List<Request> reservas = requestService.findAll();
             return new ResponseEntity<>(reservas, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
-    // FILTRAR POR STATUS (APROVADA, PENDENTE, RECUSADA)
     @GetMapping("/status/{status}")
     public ResponseEntity<?> buscarPorStatus(@PathVariable String status) {
         try {
-            List<Request> reservas = requestService.buscarPorStatus(status);
+            List<Request> reservas = requestService.findByStatus(status);
             return new ResponseEntity<>(reservas, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
-    // APROVAR RESERVA
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/approve/{id}")
     public ResponseEntity<?> aprovar(@PathVariable Long id) {
         try {
-            Request reserva = requestService.aprovar(id);
+            Request reserva = requestService.approve(id);
             return new ResponseEntity<>(reserva, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
-    // REJEITAR RESERVA
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/reject/{id}")
     public ResponseEntity<?> rejeitar(@PathVariable Long id) {
         try {
-            Request reserva = requestService.rejeitar(id);
+            Request reserva = requestService.reject(id);
             return new ResponseEntity<>(reserva, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
-    // BUSCAR PELO NOME DO RECURSO
     @GetMapping("/filter")
-    public ResponseEntity<?> buscarPorRecurso(@RequestParam String nome) {
+    public ResponseEntity<?> buscarPorRecurso(@RequestParam Long resourceId) {
         try {
-            List<Request> reservas = requestService.buscarPorRecurso(nome);
+            List<Request> reservas = requestService.findByResourceId(resourceId);
             return new ResponseEntity<>(reservas, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
