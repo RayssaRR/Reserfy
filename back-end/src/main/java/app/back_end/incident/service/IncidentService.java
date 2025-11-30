@@ -61,7 +61,6 @@ public class IncidentService {
         incident.setDescription(updatedIncident.getDescription());
         incident.setStatus(updatedIncident.getStatus());
         incident.setSeverity(updatedIncident.getSeverity());
-        incident.setUpdatedAt(LocalDateTime.now());
 
         if (updatedIncident.getRecursoInterno() != null &&
             updatedIncident.getRecursoInterno().getId() != null) {
