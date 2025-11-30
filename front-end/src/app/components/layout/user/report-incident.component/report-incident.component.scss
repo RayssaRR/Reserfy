@@ -1,0 +1,171 @@
+@use '../../../../styles/variables' as vars;
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  width: 70vw;
+  border-radius: 25px;
+}
+
+h2, h3{
+  margin: 0;
+  padding: 0;
+}
+
+
+h2{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h3{
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.container-content{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.label-input{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label-input label{
+  font-size: 1.2rem;
+}
+
+input, #category, #status, #description{
+  background-color: #fff;
+  border: 1px solid #{vars.$stroke};
+  border-radius: 8px;
+  padding: 1%;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+input, #category, #status{
+  height: 2.2rem;
+}
+
+#description{
+  resize: none;
+}
+
+.half-input{
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.input-erro {
+  border: 1px solid #{vars.$error-dark} !important;
+}
+
+
+#p-select-perfil{
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-self: flex-start;
+}
+
+.buttons{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+button{
+  color: vars.$success-dark;
+  border-radius: 10px;
+  width: 100%;
+  padding: 4px 0;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+button:hover{
+  background-color: vars.$white;
+}
+
+.cancel{
+  background-color: #f0f0f0;
+  border: 2px solid #{vars.$stroke};
+}
+
+.success{
+  background-color: vars.$success-light;
+  border: 2px solid #{vars.$success-light};
+}
+
+
+.form-radio{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+
+.input-radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px 20px;
+    border: 1px solid #{vars.$stroke};
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-radio label{
+    cursor: pointer;
+}
+
+.input-radio:hover {
+    cursor: pointer;
+    border-color: vars.$text-color;
+    background-color: vars.$white;
+}
+
+.input-radio:has(input[type="radio"]:checked) {
+    background-color: vars.$success-light; 
+    border-color: vars.$success-dark;
+    border: 1px solid #{vars.$success-light};
+}
+
+.fieldsetRoleFlag{
+    width: 100%;
+}
+
+.roleFlag{
+    display: flex;
+    gap: 15px;
+}
+
+.input-radio input{
+    display: none;
+}
+
+#entrar{
+    align-self: flex-end;
+    font-size: 1rem;
+}
+
+#entrar a{
+    font-weight: bold;
+}

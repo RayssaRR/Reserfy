@@ -1,0 +1,113 @@
+@use '../../../../styles/variables' as vars;
+
+
+main{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.back{
+    border: none;
+    width: 50px;
+    background-color: vars.$background-color;
+    align-self: flex-start;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+
+h2{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.background{
+    background-color: vars.$white;
+    border: 1px solid #{vars.$stroke};
+    border-radius: 25px;
+    padding: 25px;
+}
+
+
+.section-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+}
+
+.div-details{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.div-details-status{
+    align-self: flex-end;
+    padding: 2px 25px;
+    border-radius: 25px;
+}
+
+.status-disponivel {
+  color: vars.$success-dark;
+  background-color: vars.$success-light;
+}
+  
+  
+.status-em_manutencao, .status-alocado {
+  color: vars.$text-color;
+  background-color: #D9E2EC;
+}
+
+
+.button-report{
+    background-color: vars.$error-light;
+    color: vars.$error-dark;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 20px;
+    align-self: flex-end;
+}
+
+.section-form{
+    width: 30%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.div-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.div-form input, .div-form textarea{
+    background-color: vars.$background-color;
+    border: 1px solid #{vars.$stroke};
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.div-form textarea{
+    resize: none;
+}
+
+.request{
+    margin-top: 15px;
+    width: 100%;
+    background-color: vars.$success-light;
+    color: vars.$success-dark;
+    border: none;
+    border-radius: 5px;
+}
+
+.request:hover{
+    background-color: vars.$success-dark;
+    color: vars.$white;
+}

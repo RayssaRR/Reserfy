@@ -11,6 +11,8 @@ import { DashboardAdminComponent } from './components/layout/admin/dashboard-adm
 import { AvailableResourcesComponent } from './components/layout/user/available-resources.component/available-resources.component';
 import { PrincipalComponent } from './components/layout/user/principal.component/principal.component';
 import { AvailableResourcesAdminComponent } from './components/layout/admin/available-resources-admin.component/available-resources-admin.component';
+import { ResourceDetailsComponent } from './components/layout/user/resource-details.component/resource-details.component';
+import { IncidentsComponent } from './components/layout/admin/incidents.component/incidents.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,6 +27,7 @@ export const routes: Routes = [
         {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
         {path: 'dashboard', component:DashboardComponent},
         {path: 'internal-resources', component: AvailableResourcesComponent},
+        {path: 'internal-resources/:id', component: ResourceDetailsComponent},
       ]},
     ],
   },
@@ -35,7 +38,8 @@ export const routes: Routes = [
       { path: 'principal', component: PrincipalAdminComponent, children:[
         {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
         {path: 'dashboard', component:DashboardAdminComponent},
-        {path: 'internal-resources', component:AvailableResourcesAdminComponent}
+        {path: 'internal-resources', component:AvailableResourcesAdminComponent},
+        {path: 'incidents', component:IncidentsComponent}
       ]},
     ],
   },

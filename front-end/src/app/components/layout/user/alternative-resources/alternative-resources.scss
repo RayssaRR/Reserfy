@@ -1,0 +1,14 @@
+@use '../../../../styles/variables' as vars;
+
+article{
+    display: flex;
+    flex-direction: column;
+}
+
+h3{
+    font-size: 20px;
+}
+
+p{
+    font-size: 15px;
+}

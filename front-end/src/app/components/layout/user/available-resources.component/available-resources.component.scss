@@ -53,14 +53,10 @@ tbody tr:last-child {
   background-color: vars.$success-light;
 }
   
-.status-alocado {
-  color: vars.$warning-dark;
-  background-color: vars.$warning-light;
-}
   
-.status-em_manutencao {
-  color: vars.$error-dark;
-  background-color: vars.$error-light;
+.status-em_manutencao, .status-alocado {
+  color: vars.$text-color;
+  background-color: #D9E2EC;
 }
 
 .button-request {

@@ -5,11 +5,12 @@ import { InternalResource } from '../../../../models/internalResource/internalRe
 import { CommonModule } from '@angular/common';
 import { ResourceComponent } from '../../../resource/resource.component/resource.component';
 import { MatDialog } from '@angular/material/dialog';
+import { RouterOutlet, Router, ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-available-resources',
   standalone: true,
-  imports: [MatIconModule, CommonModule],
+  imports: [MatIconModule, CommonModule, RouterOutlet],
   templateUrl: './available-resources.component.html',
   styleUrls: ['./available-resources.component.scss'],
 })
@@ -18,22 +19,27 @@ export class AvailableResourcesComponent implements OnInit {
   statusLabels: Record<string, string> = {
     DISPONIVEL: 'Disponível',
     EM_MANUTENCAO: 'Em manutenção',
-    ALOCADO: 'Alocado'
+    ALOCADO: 'Alocado',
+    INDISPONIVEL: 'Indisponível'
   };
 
   internalResources: InternalResource[] = [];
 
   private internalResourceService = inject(InternalResourceService);
 
-  constructor(private dialog: MatDialog){}
+
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
+  constructor(private dialog: MatDialog) {}
 
   openModal() {
     const dialogRef = this.dialog.open(ResourceComponent, {
       width: 'auto',
-      maxWidth: '70vw', 
-      data: {}, 
+      maxWidth: '70vw',
+      data: {},
     });
-  
+
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         console.log('Recurso cadastrado:', result);
@@ -50,6 +56,7 @@ export class AvailableResourcesComponent implements OnInit {
     });
   }
 
-
-
+  openDetails(id: number) {
+    this.router.navigate([id], { relativeTo: this.route});
+  }
 }

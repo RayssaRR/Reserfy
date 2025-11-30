@@ -1,0 +1,38 @@
+@use '../../../../styles/variables' as vars;
+
+
+article{
+    display: flex;
+    flex-direction: column;
+    background-color: vars.$background-color;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #{vars.$stroke};
+}
+
+.div-labels{
+    display: flex;
+    align-self: flex-end;
+    gap: 5px;
+}
+
+.label{
+    padding: 5px 20px;
+    border-radius: 25px;
+}
+
+h3{
+    font-size: 20px;
+}
+
+p{
+    font-size: 16px;
+}
+
+a{
+    font-weight: bold;
+}
+
+.details{
+    align-self: flex-end;
+}

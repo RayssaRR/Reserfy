@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MenuComponent } from '../menu.component/menu.component';
 import { jwtDecode } from 'jwt-decode';
 import { AuthService } from '../../../../auth/services/auth.service';
+import { MenuComponent } from '../menu.component/menu.component';
 
 
 

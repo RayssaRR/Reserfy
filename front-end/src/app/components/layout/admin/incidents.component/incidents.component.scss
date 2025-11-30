@@ -1,0 +1,26 @@
+@use '../../../..//styles/variables' as vars;
+
+
+.section-cards{
+    background-color: vars.$white;
+    border: 1px solid #{vars.$stroke};
+    border-radius: 15px;
+    padding: 50px;
+
+}
+
+.div-filter{
+    display: flex;
+    justify-content: space-between;
+}
+
+h4{
+    font-size: 20px;
+    font-weight: 400;
+}
+.div-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+
+}

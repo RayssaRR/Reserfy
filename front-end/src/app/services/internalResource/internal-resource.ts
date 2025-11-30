@@ -18,6 +18,10 @@ export class InternalResourceService {
     return this.http.get<InternalResource[]>(`${this.API}/list`);
   }
 
+  findById(id: number): Observable<InternalResource> {
+    return this.http.get<InternalResource>(`${this.API}/${id}`);
+  }
+
   save(internalResource: InternalResource): Observable<string> {
     return this.http.post(`${this.API}/save`, internalResource, { responseType: 'text' });
   }

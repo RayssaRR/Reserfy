@@ -1,0 +1,34 @@
+<main class="container">
+  <h2>Reportar incidente</h2>
+  <h3 class="subtitle">Preencha o formulário abaixo para comunicar um incidente</h3>
+
+  <form class="container-content">
+    <div class="label-input">
+      <label for="name">Nome do recurso</label>
+      <input id="name" type="text" formControlName="name" />
+    </div>
+
+    <div class="label-input">
+      <label for="dateIncident">Data do Incidente</label>
+      <input id="dateIncident" type="date" formControlName="dateIncident" />
+    </div>
+
+    <div class="label-input">
+      <label for="description">Descreva o Incidente</label>
+      <textarea id="description" rows="4" formControlName="description"></textarea>
+    </div>
+
+    <div>
+        <label for=""><input type="radio" name="severity" value="low">Baixa</label>
+
+        <label for=""><input type="radio" name="severity" value="medium">Média</label>
+
+        <label for=""><input type="radio" name="severity" value="high">Alta</label>
+    </div>
+  </form>
+
+  <div class="buttons">
+    <button class="cancel" type="button">Cancelar</button>
+    <button class="success" type="button" (click)="reportIncident(form)">Reportar Incidente</button>
+  </div>
+</main>
