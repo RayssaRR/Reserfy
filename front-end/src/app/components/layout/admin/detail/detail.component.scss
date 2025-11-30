@@ -1,0 +1,160 @@
+.page-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+}
+
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.green { background: #d8f3d2; color: #3b6f36; }
+.yellow { background: #fff1b8; color: #7d6300; }
+.red { background: #f9c8c8; color: #9a2f2f; }
+
+
+/* ---------------------- TOP SECTION ---------------------- */
+
+.top-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 25px;
+  margin-bottom: 35px;
+}
+
+.info-card,
+.calendar-card,
+.section {
+  background: #fff;
+  border: 1px solid #ced7c9;
+  padding: 22px;
+  border-radius: 16px;
+}
+
+.info-card.big {
+  min-height: 220px;
+}
+
+.calendar-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+
+/* ---------------------- MAINTENANCE ---------------------- */
+
+.maintenance-box {
+  margin-bottom: 35px;
+}
+
+.maintenance-grid {
+  display: flex;
+  gap: 25px;
+}
+
+.maintenance-card {
+  flex: 1;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 18px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* garante tudo alinhado à esquerda */
+  gap: 4px; /* distância igual à da segunda imagem */
+  
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-top: 6px; 
+}
+
+.agendada { 
+  background: #ffefb8; 
+  color: #7d6300;
+  display: inline-block; 
+ 
+}
+.concluida { 
+  background: #d9f3d1; 
+  color: #3b6f36; 
+  display: inline-block;
+  margin-top: 6px;
+}
+
+
+/* ---------------------- HISTORY ---------------------- */
+
+.history-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  padding: 12px 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.user {
+  font-weight: 600;
+}
+
+.incident {
+  margin-top: 15px;
+  background: #fde0e0;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.incident-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.status.devolvido { 
+  color: #4a7c59; 
+}
+.status.aberto { 
+  color: #b22222; 
+  font-weight: 700; 
+  display: inline-block;
+  
+}
+.disponivel { 
+  background: #e6fbe6; 
+  color: #3b6f36; 
+  padding: 6px 10px; 
+  border-radius: 8px; 
+}
+
+
+.info-card.big h2 {
+  margin: 0;
+}
+
+.info-card.big .header-line {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* distância entre o nome e o badge */
+}
