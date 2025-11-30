@@ -1,0 +1,75 @@
+<div class="page-container">
+
+  <div class="header-actions">
+    <h1>Detalhe do Recurso</h1>
+
+    <div class="actions">
+      <button class="green">Agendar Manutenção</button>
+      <button class="yellow">Editar</button>
+      <button class="red">Remover</button>
+    </div>
+  </div>
+
+
+  <section>
+  <div class="top-section">
+    <!-- CARD DO RECURSO -->
+    <div class="info-card big">
+      <h2>{{ recurso.nome }}</h2>
+      <p class="subtitle">Equipamento de audiovisual</p>
+      <p class="description">{{ recurso.descricao }}</p>
+      <span class="status disponivel">{{ recurso.status }}</span>
+    </div>
+
+    <!-- CARD DO CALENDÁRIO -->
+    <div class="calendar-card">
+      <h3>Calendário de disponibilidade</h3>
+      <app-calendar></app-calendar>
+    </div>
+  </div>
+  </section>
+
+  <!-- MANUTENÇÃO -->
+  <div class="section maintenance-box">
+    <h3>Manutenção e disponibilidade</h3>
+
+    <div class="maintenance-grid">
+      <div class="maintenance-card">
+        <p>Próxima manutenção</p>
+        <strong>{{ recurso.proximaManutencao }}</strong>
+        <span class="tag agendada">Agendada</span>
+      </div>
+
+      <div class="maintenance-card">
+        <p>Última manutenção</p>
+        <strong>{{ recurso.ultimaManutencao }}</strong>
+        <span class="tag concluida">Concluída</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- HISTÓRICO -->
+  <div class="section history-box">
+    <h3>Histórico de uso</h3>
+
+    <div class="history">
+      <div *ngFor="let h of recurso.historico" class="history-item">
+        <span class="user">{{ h.nome }}</span>
+        <span>{{ h.dataInicio }} - {{ h.dataFim }}</span>
+        <span class="status devolvido">{{ h.status }}</span>
+      </div>
+
+      <div class="incident">
+
+  <div class="incident-header">
+    <strong>Incidente: {{ recurso.incidente.descricao }}</strong>
+    <span class="status aberto">{{ recurso.incidente.status }}</span>
+  </div>
+
+  <p>Reportado: {{ recurso.incidente.data }}</p>
+
+</div>
+
+
+</div>

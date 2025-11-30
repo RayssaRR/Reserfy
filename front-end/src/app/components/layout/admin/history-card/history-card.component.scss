@@ -1,0 +1,112 @@
+.card {
+    background: #FFFFFF;
+    padding: 26px 26px 22px 26px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow:
+        0px 1.5px 3px rgba(0, 0, 0, 0.05),
+        0px 4px 12px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* Texto */
+.card p {
+    margin: 3px 0;
+    font-size: 14px;
+    color: #4A4A4A;
+}
+
+.card p:nth-of-type(2) {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.card p:nth-of-type(3) {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+.badge {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 50px;
+    padding: 7px 16px;
+}
+
+
+.badge.pending {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    background: #FFEEC6;
+    color: #A77A00;
+}
+
+
+.badge.approved,
+.badge.rejected {
+    position: relative;
+    display: inline-block;
+    margin-top: 12px;
+    margin-left: auto;
+    padding: 7px 70px;
+    border-radius: 50px;
+}
+
+.badge.approved {
+    background: #DCF7DE;
+    color: #2E7D32;
+}
+
+.badge.rejected {
+    background: #FFD5D5;
+    color: #C62828;
+}
+
+/* ------------------------------
+   BOTÕES
+--------------------------------*/
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* centraliza visualmente */
+    gap: 46px;
+    width: 100%;
+}
+
+.actions button {
+    flex: 1;
+    width: 260px;
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+button.reject {
+    background: #FFD5D5;
+    color: #B71C1C;
+}
+
+button.approve {
+    background: #DDF7E0;
+    color: #1B5E20;
+}
+
+button.reject:hover {
+    background: #FFBFC0;
+}
+
+button.approve:hover {
+    background: #C8EECF;
+}

@@ -1,0 +1,21 @@
+<div class="history-header">
+    <h1>Histórico de Reservas</h1>
+    <p>Revisar e gerenciar solicitações de reserva de recursos recebidas</p>
+</div>
+
+<div class="top-bar">
+    <input type="text" placeholder="Buscar por salas, equipamentos, veículos...">
+    <select class="status">
+        <option>Status</option>
+        <option>Aprovada</option>
+        <option>Aprovação pendente</option>
+        <option>Recusada</option>
+    </select>
+</div>
+
+<div class="cards-container"> 
+    <app-history-card 
+        *ngFor="let req of requests"
+        [request]="req">
+    </app-history-card>
+</div>

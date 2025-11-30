@@ -35,8 +35,4 @@ export class NavAdminComponent {
   internalResources(){
     this.router.navigate(['/admin/principal/internal-resources']); 
   }
-
-  incidents(){
-    this.router.navigate(['/admin/principal/incidents']); 
-  }
 }

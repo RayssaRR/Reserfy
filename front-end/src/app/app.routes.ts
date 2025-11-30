@@ -8,20 +8,27 @@ import { roleGuard } from './auth/guards/role.guard';
 import { HomeComponent } from './pages/home.component/home.component';
 import { PrincipalAdminComponent } from './components/layout/admin/principal-admin.component/principal-admin.component';
 import { DashboardAdminComponent } from './components/layout/admin/dashboard-admin.component/dashboard-admin.component';
-
 import { PrincipalComponent } from './components/layout/user/principal.component/principal.component';
 import { AvailableResourcesAdminComponent } from './components/layout/admin/available-resources-admin.component/available-resources-admin.component';
 import { ResourceDetailsComponent } from './components/layout/user/resource-details.component/resource-details.component';
 import { IncidentsComponent } from './components/layout/admin/incidents.component/incidents.component';
 import { AvailableResourcesComponent } from './components/layout/user/available-resources.component/available-resources.component';
+import { DetailComponent } from './components/layout/admin/detail/detail.component';
+import { HistoryComponent } from './components/layout/admin/history.component/history.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+
   { path: 'api/auth/login', component: LoginComponent },
   { path: 'api/auth/register', component: RegisterComponent },
   
-  { path: 'user', canActivate: [roleGuard], data: { roleFlag: ['ROLE_USER'] },
+  {
+    path: 'user',
+    canActivate: [roleGuard],
+    data: { roleFlag: ['USER'] },
+
     children: [
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       { path: 'principal', component: PrincipalComponent, children:[
@@ -41,7 +48,9 @@ export const routes: Routes = [
         {path: 'dashboard', component:DashboardAdminComponent},
         {path: 'internal-resources', component:AvailableResourcesAdminComponent},
         {path: 'internal-resources/:id', component: ResourceDetailsComponent},
-        {path: 'incidents', component:IncidentsComponent}
+        {path: 'incidents', component:IncidentsComponent},
+        { path: 'detail', component: DetailComponent },
+        { path: 'history', component: HistoryComponent },
       ]},
     ],
   },

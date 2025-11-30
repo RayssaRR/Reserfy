@@ -1,0 +1,37 @@
+<div class="calendar-container">
+
+  <div class="calendar-header">
+    <button (click)="previousMonth()">❮</button>
+
+    <div class="month-title">{{ currentDate | date:'MMMM yyyy' }}</div>
+
+    <button (click)="nextMonth()">❯</button>
+  </div>
+
+
+
+  <div class="weekdays">
+    <span>Dom</span>
+    <span>Seg</span>
+    <span>Ter</span>
+    <span>Qua</span>
+    <span>Qui</span>
+    <span>Sex</span>
+    <span>Sáb</span>
+  </div>
+
+ <div class="days">
+  <div
+    *ngFor="let item of daysOfMonth"
+    class="day"
+    [class.vazio]="item === null"
+    [class.disponivel]="item && disponibilidade.has(item.fullDate)"
+    [class.other-month]="item && item.otherMonth"
+    (click)="item ? onDayClick(item) : null"
+  >
+    <span *ngIf="item">{{ item.day }}</span>
+  </div>
+</div>
+
+
+</div>

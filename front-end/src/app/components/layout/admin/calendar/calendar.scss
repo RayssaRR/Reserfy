@@ -1,0 +1,105 @@
+/* CONTAINER */
+.calendar {
+  width: 100%;
+  max-width: 360px;
+  padding: 16px;
+  border: 1px solid #dfe7d6;
+  border-radius: 16px;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HEADER */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #2b2b2b;
+}
+
+.calendar-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* BOTÕES DE NAVEGAÇÃO */
+.calendar-header button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6f6f6f;
+}
+
+.calendar-header button:hover {
+  color: #222;
+}
+
+/* WEEKDAYS */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #7a7a7a;
+}
+
+/* GRID DE DIAS */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+/* DIA NORMAL */
+.day {
+  padding: 8px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #3b3b3b;
+  transition: background 0.2s;
+}
+
+.day:hover {
+  background: #f2f2f2;
+}
+
+/* DIA VAZIO */
+.vazio {
+  visibility: hidden;
+  cursor: default !important;
+}
+
+/* DISPONÍVEL*/
+.disponivel {
+  background: #c7efc3 !important;
+  color: #1d4d1a !important;
+  border: 1px solid #a4d6a0;
+  font-weight: 600;
+}
+
+.weekdays {
+  border-top: 1px solid #ccc; /* linha contínua */
+  padding-top: 8px;            /* distância da linha para os dias */
+  border-bottom: 1px solid #ccc; /* linha abaixo */
+  padding: 2px 0;               /* espaço entre a linha e os dias */
+}
+
+/* marca visual para dias de outros meses (mais claros) */
+.day.other-month {
+  color: #bdbdbd;
+  cursor: pointer; /* você pode navegar para esse mês ao clicar */
+  font-weight: 500;
+}
+
+/* opcional: diferenciar quando o other-month está no hover */
+.day.other-month:hover {
+  background: #f6f7f2;
+}
+
+
+
+
+
