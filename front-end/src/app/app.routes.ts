@@ -6,34 +6,27 @@ import { DashboardComponent } from './components/layout/user/dashboard.component
 import { NgModule } from '@angular/core';
 import { roleGuard } from './auth/guards/role.guard';
 import { HomeComponent } from './pages/home.component/home.component';
-<<<<<<< Updated upstream
 import { PrincipalAdminComponent } from './components/layout/admin/principal-admin.component/principal-admin.component';
 import { DashboardAdminComponent } from './components/layout/admin/dashboard-admin.component/dashboard-admin.component';
 import { AvailableResourcesComponent } from './components/layout/user/available-resources.component/available-resources.component';
 import { PrincipalComponent } from './components/layout/user/principal.component/principal.component';
 import { AvailableResourcesAdminComponent } from './components/layout/admin/available-resources-admin.component/available-resources-admin.component';
-=======
 import { DetailComponent } from './components/layout/admin/detail/detail.component';
+import { HistoryComponent } from './components/layout/admin/history.component/history.component';
 
->>>>>>> Stashed changes
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-<<<<<<< Updated upstream
+
   { path: 'api/auth/login', component: LoginComponent },
   { path: 'api/auth/register', component: RegisterComponent },
   
-  { path: 'user', canActivate: [roleGuard], data: { roleFlag: ['ROLE_USER'] },
-=======
-  { path: 'auth/login', component: LoginComponent },
-  { path: 'auth/register', component: RegisterComponent },
-  { path: 'detail', component: DetailComponent },
   {
     path: 'user',
     canActivate: [roleGuard],
     data: { roleFlag: ['USER'] },
->>>>>>> Stashed changes
+
     children: [
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       { path: 'principal', component: PrincipalComponent, children:[
@@ -50,7 +43,9 @@ export const routes: Routes = [
       { path: 'principal', component: PrincipalAdminComponent, children:[
         {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
         {path: 'dashboard', component:DashboardAdminComponent},
-        {path: 'internal-resources', component:AvailableResourcesAdminComponent}
+        {path: 'internal-resources', component:AvailableResourcesAdminComponent},
+        { path: 'detail', component: DetailComponent },
+        { path: 'history', component: HistoryComponent },
       ]},
     ],
   },

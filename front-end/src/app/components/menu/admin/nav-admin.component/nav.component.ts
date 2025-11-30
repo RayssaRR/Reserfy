@@ -35,4 +35,8 @@ export class NavAdminComponent {
   internalResources(){
     this.router.navigate(['/admin/principal/internal-resources']); 
   }
+
+  history(){
+    this.router.navigate(['/admin/principal/history']); 
+}
 }
