@@ -17,8 +17,8 @@ export class NavComponent {
 
   dropdownOpen = false;
 
-  constructor(private authService: AuthService,private router: Router){}
-  
+  constructor(private authService: AuthService, private router: Router) { }
+
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
   }
@@ -27,11 +27,15 @@ export class NavComponent {
     this.authService.logout();
   }
 
-  dashboard(){
+  dashboard() {
     this.router.navigate(['/user/principal/dashboard']);
   }
 
-  internalResources(){
+  internalResources() {
     this.router.navigate(['/user/principal/internal-resources']);
+  }
+
+  reservations() {
+    this.router.navigate(['/user/principal/reservations']);
   }
 }
