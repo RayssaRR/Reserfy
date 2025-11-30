@@ -17,14 +17,14 @@
 
   <tbody>
     <tr *ngFor="let resource of internalResources">
-      <td>{{resource.name}}</td>
+      <td (click)="openDetails(resource.id)">{{resource.name}}</td>
       <td>{{resource.category}}</td>
         <td><span class="status-badge"[ngClass]="'status-' + (resource.status.toLowerCase())">{{ statusLabels[resource.status] }}</span></td>
       <td>{{resource.location}}</td>
       <td>{{resource.currentUser}}</td>
       <td class="table-actions">
         <button class="btn" >
-          <mat-icon>settings</mat-icon>
+
           <mat-icon class="edit" (click)="edit(resource)">edit</mat-icon>
         </button>
         <button class="btn" (click)="delete(resource)">

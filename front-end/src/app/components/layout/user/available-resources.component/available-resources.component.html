@@ -1,4 +1,3 @@
-
 <h1>Recursos disponíveis</h1>
 <h2>Aqui você pode consultar os recursos internos disponíveis e solicitar o que precisar de forma prática e rápida.</h2>
 
@@ -15,14 +14,21 @@
 
   <tbody>
     <tr *ngFor="let resource of internalResources">
-      <td>{{resource.name}}</td>
-      <td>{{resource.category}}</td>
-      <td><span class="status-badge" [ngClass]="'status-' + (resource.status.toLowerCase())">{{statusLabels[resource.status === 'ALOCADO' || resource.status === 'EM_MANUTENCAO'? 'INDISPONIVEL': resource.status]}}</span></td>
-      <td>{{resource.location}}</td>
-      <td><button class="button-request" [ngClass]="{ 'disabled': resource.status !== 'DISPONIVEL' }" (click)="openDetails(resource.id)">Solicitar</button>
+      <td>{{ resource.name }}</td>
+      <td>{{ resource.category }}</td>
+      <td>
+        <span class="status-badge" [ngClass]="getStatusClass(resource.status)">
+          {{ getStatusLabel(resource.status) }}
+        </span>
+      </td>
+      <td>{{ resource.location }}</td>
+      <td>
+        <button class="button-request"
+                [disabled]="resource.status !== 'DISPONIVEL'"
+                (click)="openDetails(resource.id)">
+          Solicitar
+        </button>
       </td>
     </tr>
   </tbody>
 </table>
-<router-outlet></router-outlet>
-

@@ -8,7 +8,7 @@ import app.back_end.request.entity.Request;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "internal_resource")
+@Table(name = "internal_resources")
 public class RecursoInterno {
 
     @Id

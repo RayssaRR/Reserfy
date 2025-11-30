@@ -7,6 +7,7 @@ import app.back_end.resource.entity.RecursoInterno;
 import app.back_end.resource.repository.RecursoInternoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RecursoInternoService {
@@ -27,6 +28,10 @@ public class RecursoInternoService {
 
     public List<RecursoInterno> listarRecursos() {
         return recursoInternoRepository.findAll();
+    }
+    
+    public Optional<RecursoInterno> findById(Long idResource) {
+    	return recursoInternoRepository.findById(idResource);
     }
 
     public RecursoInterno delete(Long idResource) {

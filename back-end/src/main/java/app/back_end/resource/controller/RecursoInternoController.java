@@ -1,9 +1,9 @@
 package app.back_end.resource.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -37,6 +37,23 @@ public class RecursoInternoController {
             return new ResponseEntity<>(recursos, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+    
+    @GetMapping("/{idResource}")
+    public ResponseEntity<?> pegarRecurso(@PathVariable Long idResource) {
+    	try {
+            Optional<RecursoInterno> recursoOpt = recursoInternoService.findById(idResource);
+
+            if (recursoOpt.isPresent()) {
+                return ResponseEntity.ok(recursoOpt.get());
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("Recurso não encontrado para o id: " + idResource);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Erro ao buscar recurso: " + e.getMessage());
         }
     }
     

@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ResourceComponent } from '../../../resource/resource.component/resource.component';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DialogComponent } from '../../../dialog/dialog.component';
 
 @Component({
@@ -18,6 +19,8 @@ export class AvailableResourcesAdminComponent{
   internalResources: InternalResource[] = [];
   
   private internalResourceService = inject(InternalResourceService);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   constructor(private dialog: MatDialog) {}
 
@@ -56,6 +59,10 @@ export class AvailableResourcesAdminComponent{
         this.loadResources(); 
       }
     });
+  }
+
+  openDetails(id: number) {
+    this.router.navigate([id], { relativeTo: this.route });
   }
 
   delete(resource: InternalResource) {

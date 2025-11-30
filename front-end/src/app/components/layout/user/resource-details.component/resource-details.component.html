@@ -1,57 +1,82 @@
 <main>
-    <section class="section-cards">
-        <button class="back" (click)="goBack()"><mat-icon>arrow_back_ios</mat-icon></button>
-        <div class="background div-details">
-            <span class="div-details-status" [ngClass]="'status-' + (resource.status.toLowerCase())">{{statusLabels[resource.status === 'ALOCADO' || resource.status === 'EM_MANUTENCAO'? 'INDISPONIVEL': resource.status]}}</span>
-            <h1>{{resource.name}}</h1>
-            <h2>{{resource.category}}</h2>
-            <p>{{resource.description}}</p>
-            <button type="button" class="button-report" (click)="reportIncident()">Reportar Incidente</button>
-        </div>
+  <section class="section-cards">
+    <button class="back" (click)="goBack()">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
 
-        <div class="background">
-            <h3>Manutenção preventiva</h3>
-            <div>
-                <app-preventive-maintenance></app-preventive-maintenance>
-            </div>
-        </div>
+    <div class="background div-details">
+      <span
+        class="div-details-status"
+        [ngClass]="'status-' + (resource.status.toLowerCase())"
+      >
+        {{
+          statusLabels[
+            resource.status === 'ALOCADO' || resource.status === 'EM_MANUTENCAO'
+              ? 'INDISPONIVEL'
+              : resource.status
+          ]
+        }}
+      </span>
 
-        <div class="background">
-            <h3>Recuros Alternativos</h3>
-            <app-alternative-resources></app-alternative-resources>
+      <h1>{{ resource.name }}</h1>
+      <h2>{{ resource.category }}</h2>
+      <p>{{ resource.description }}</p>
 
-        </div>
+      <button
+        type="button"
+        class="button-report"
+        (click)="reportIncident()"
+      >
+        Reportar Incidente
+      </button>
+    </div>
 
-    </section>
-    <section class="background section-form">
-        <h2>Solicitar Recurso</h2>
-        <form>
-            <div class="div-form">
-                <label for="startDate">Data de Início</label>
-                <input type="date" id="startDate"/>
-            </div>
+    <div class="background">
+      <h3>Manutenção preventiva</h3>
+      <div>
+        <app-preventive-maintenance></app-preventive-maintenance>
+      </div>
+    </div>
 
-            <div class="div-form">
-                <label for="endDate">Data Final</label>
-                <input type="date" id="endDate"/>
-            </div>
+    <div class="background">
+      <h3>Recursos Alternativos</h3>
+      <app-alternative-resources></app-alternative-resources>
+    </div>
+  </section>
 
-            <div class="div-form">
-                <label for="startTime">Horário de Início</label>
-                <input type="time" id="startTime"/>
-            </div>
+  <section class="background section-form">
+    <h2>Solicitar Recurso</h2>
+    <form>
+      <div class="div-form">
+        <label for="startDate">Data de Início</label>
+        <input type="date" id="startDate" />
+      </div>
 
-            <div class="div-form">
-                <label for="endTime">Horário Final</label>
-                <input type="time" id="endTime"/>
-            </div>
+      <div class="div-form">
+        <label for="endDate">Data Final</label>
+        <input type="date" id="endDate" />
+      </div>
 
-            <div class="div-form">
-                <label for="justification">Justificativa</label>
-                <textarea name="justification" id="justification" rows="5"></textarea>
-            </div>
+      <div class="div-form">
+        <label for="startTime">Horário de Início</label>
+        <input type="time" id="startTime" />
+      </div>
 
-            <button type="submit" class="request">Enviar Solicitação</button>
-        </form>
-    </section>
+      <div class="div-form">
+        <label for="endTime">Horário Final</label>
+        <input type="time" id="endTime" />
+      </div>
+
+      <div class="div-form">
+        <label for="justification">Justificativa</label>
+        <textarea
+          name="justification"
+          id="justification"
+          rows="5"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="request">Enviar Solicitação</button>
+    </form>
+  </section>
 </main>

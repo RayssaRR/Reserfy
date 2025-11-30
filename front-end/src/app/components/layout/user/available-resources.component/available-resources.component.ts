@@ -1,22 +1,22 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
 import { InternalResourceService } from '../../../../services/internalResource/internal-resource';
 import { InternalResource } from '../../../../models/internalResource/internalResource.model';
-import { CommonModule } from '@angular/common';
-import { ResourceComponent } from '../../../resource/resource.component/resource.component';
-import { MatDialog } from '@angular/material/dialog';
-import { RouterOutlet, Router, ActivatedRoute } from '@angular/router'; 
+
+type ResourceStatus = 'DISPONIVEL' | 'EM_MANUTENCAO' | 'ALOCADO' | 'INDISPONIVEL';
 
 @Component({
   selector: 'app-available-resources',
   standalone: true,
-  imports: [MatIconModule, CommonModule, RouterOutlet],
+  imports: [MatIconModule, CommonModule],
   templateUrl: './available-resources.component.html',
   styleUrls: ['./available-resources.component.scss'],
 })
 export class AvailableResourcesComponent implements OnInit {
 
-  statusLabels: Record<string, string> = {
+  statusLabels: Record<ResourceStatus, string> = {
     DISPONIVEL: 'Disponível',
     EM_MANUTENCAO: 'Em manutenção',
     ALOCADO: 'Alocado',
@@ -26,26 +26,10 @@ export class AvailableResourcesComponent implements OnInit {
   internalResources: InternalResource[] = [];
 
   private internalResourceService = inject(InternalResourceService);
-
-
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
-  constructor(private dialog: MatDialog) {}
-
-  openModal() {
-    const dialogRef = this.dialog.open(ResourceComponent, {
-      width: 'auto',
-      maxWidth: '70vw',
-      data: {},
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        console.log('Recurso cadastrado:', result);
-      }
-    });
-  }
+  constructor() {}
 
   ngOnInit() {
     this.internalResourceService.list().subscribe({
@@ -57,6 +41,20 @@ export class AvailableResourcesComponent implements OnInit {
   }
 
   openDetails(id: number) {
-    this.router.navigate([id], { relativeTo: this.route});
+    this.router.navigate([id], { relativeTo: this.route });
+  }
+
+  getStatusLabel(status: string): string {
+    if (status === 'ALOCADO' || status === 'EM_MANUTENCAO') {
+      return this.statusLabels['INDISPONIVEL'];
+    }
+    return this.statusLabels[status as ResourceStatus];
+  }
+
+  getStatusClass(status: string): string {
+    if (status === 'ALOCADO' || status === 'EM_MANUTENCAO') {
+      return 'status-indisponivel';
+    }
+    return 'status-' + status.toLowerCase();
   }
 }

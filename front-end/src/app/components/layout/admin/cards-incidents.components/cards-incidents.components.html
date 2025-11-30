@@ -1,11 +1,10 @@
-<article>
-    <div class="div-labels">
-        <span class="label">Aberto</span>
-        <span class="label">Severidade Alta</span>
-    </div>
-    <h3>Falha de conexão no servidor </h3>
-    <p> Recurso afetado: Servidor de aplicações Lorem ipsum dolor sit amet, consectetur adipiscing elit....</p>
-    <p>Reportado em: 02 de Outubro, 2025</p>
-
-    <a href="" class="details">Ver Detalhes</a>
+<article class="card">
+  <div class="div-labels">
+    <span class="label">{{ incident.status }}</span>
+    <span class="label">Severidade {{ incident.severity }}</span>
+  </div>
+  <h3>{{ incident.name }}</h3>
+  <p>{{ incident.description }}</p>
+  <p>Reportado em: {{ incident.dateIncident}}</p>
+  <a href="" class="details">Ver Detalhes</a>
 </article>

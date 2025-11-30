@@ -7,7 +7,7 @@ import app.back_end.auth.entity.User;
 import app.back_end.resource.entity.RecursoInterno;
 
 @Entity
-@Table(name = "request")
+@Table(name = "requests")
 public class Request {
 
     @Id
@@ -31,7 +31,6 @@ public class Request {
     @JoinColumn(name = "internal_resource_id")
     private RecursoInterno resource;
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
