@@ -1,0 +1,163 @@
+$cor-fundo: #f4f4f4; 
+$cor-card-fundo: #ffffff; 
+$cor-texto-principal: #333333;
+$cor-linha-divisor: #dddddd;
+
+$cor-alta: #ff4136; 
+$cor-em-analise: #ffdc00; 
+$cor-resolvido: #2ecc40; 
+$cor-aguardando-validacao: #0074d9; 
+
+.container-detalhes {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: $cor-fundo;
+  font-family: Arial, sans-serif;
+  color: $cor-texto-principal;
+}
+
+.loading-container {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2em;
+}
+
+.btn-voltar {
+  background: none;
+  border: none;
+  color: #0074d9;
+  cursor: pointer;
+  padding: 5px 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.titulo-principal {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: $cor-card-fundo;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-titulo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $cor-linha-divisor;
+  padding-bottom: 10px;
+}
+
+.detalhe-linha {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 15px;
+  
+  .label {
+    font-weight: 500;
+    width: 180px; 
+    flex-shrink: 0;
+  }
+  .valor {
+    flex-grow: 1;
+  }
+}
+
+.status-display {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-alta { background-color: $cor-alta; }
+.status-em-analise { background-color: $cor-em-analise; }
+.status-aguardando-validacao { background-color: $cor-aguardando-validacao; }
+.status-resolvido { background-color: $cor-resolvido; }
+
+.timeline {
+  border-left: 2px solid $cor-linha-divisor;
+  padding-left: 15px;
+  margin-left: 5px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.timeline-bullet {
+  position: absolute;
+  left: -20px;
+  top: 3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: $cor-card-fundo;
+  border: 2px solid $cor-linha-divisor; 
+}
+
+.timeline-content {
+  display: flex;
+  font-size: 14px;
+  .timeline-data {
+    font-weight: bold;
+    width: 50px;
+    flex-shrink: 0;
+  }
+}
+
+.acoes-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+  flex-grow: 1;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.btn-resolvido {
+  background-color: $cor-resolvido;
+  color: white;
+}
+
+.btn-revisao {
+  background-color: $cor-em-analise;
+  color: $cor-texto-principal;
+}
+
+.btn-excluir {
+  background-color: $cor-alta;
+  color: white;
+}

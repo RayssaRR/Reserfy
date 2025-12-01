@@ -1,0 +1,88 @@
+<div class="container-detalhes" *ngIf="incident; else loading">
+  <button class="btn-voltar" (click)="voltar()">Voltar</button>
+
+  <h2 class="titulo-principal">Detalhes do Incidente</h2>
+
+
+  <div class="card">
+    <h3 class="card-titulo">Informações Gerais</h3>
+
+    <div class="detalhe-linha">
+      <span class="label">Recursos:</span>
+      <span class="valor">{{ incident.recursos }}</span>
+    </div>
+
+    <div class="detalhe-linha">
+      <span class="label">Tipo de Ocorrência:</span>
+      <span class="valor">{{ incident.tipoOcorrencia }}</span>
+    </div>
+
+    <div class="detalhe-linha">
+      <span class="label">Severidade:</span>
+      <span class="valor status-display">
+        <span class="status-dot" [ngClass]="statusClassMap[incident.severity]"></span>
+        {{ incident.severity }}
+      </span>
+    </div>
+
+    <div class="detalhe-linha">
+      <span class="label">Status:</span>
+      <span class="valor status-display">
+        <span class="status-dot" [ngClass]="statusClassMap[incident.status]"></span>
+        {{ incident.status }}
+      </span>
+    </div>
+
+    <div class="detalhe-linha">
+      <span class="label">Data de Reporte:</span>
+      <span class="valor">{{ incident.dataReporte }}</span>
+    </div>
+
+    <div class="detalhe-linha">
+      <span class="label">Responsável:</span>
+      <span class="valor">{{ incident.responsavel }}</span>
+    </div>
+
+    <div class="detalhe-linha">
+      <span class="label">Origem:</span>
+      <span class="valor">{{ incident.origem }}</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-titulo">Informações Gerais</h3>
+    <p class="descricao">{{ incident.descricao }}</p>
+  </div>
+
+  <div class="card">
+    <h3 class="card-titulo">Linha do Tempo</h3>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let item of incident.timeline"> 
+        <div class="timeline-bullet"></div>
+        <div class="timeline-content">
+          <span class="timeline-data">{{ item.data }}</span>
+          <span class="timeline-descricao">- {{ item.descricao }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="acoes-container">
+    <button class="btn btn-resolvido" (click)="markAsResolved()"> 
+      Marcar como Resolvido
+    </button>
+    <button class="btn btn-revisao" (click)="sendForReview()"> 
+      Enviar para Revisão
+    </button>
+    <button class="btn btn-excluir" (click)="deleteIncident()"> 
+      Excluir Incidente
+    </button>
+  </div>
+</div>
+
+<ng-template #loading>
+    <div class="loading-container">
+        <p *ngIf="isLoading">Carregando detalhes do incidente...</p>
+        <p *ngIf="!isLoading">Incidente não encontrado.</p>
+    </div>
+</ng-template>

@@ -16,6 +16,7 @@ import { AvailableResourcesComponent } from './components/layout/user/available-
 import { DetailComponent } from './components/layout/admin/detail/detail.component';
 import { HistoryComponent } from './components/layout/admin/history.component/history.component';
 import { ReservationsComponent } from './components/layout/user/reservations.component/reservations.component';
+import { IncidentsDetailsComponent } from './components/layout/admin/incidents-details.component/incidents-details.component'; 
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,6 +24,9 @@ export const routes: Routes = [
 
   { path: 'api/auth/login', component: LoginComponent },
   { path: 'api/auth/register', component: RegisterComponent },
+  
+  { path: 'incidentes/:id', component: IncidentsDetailsComponent }, 
+
   {
     path: 'user', canActivate: [roleGuard], data: { roleFlag: ['ROLE_USER'] },
     children: [
@@ -49,7 +53,7 @@ export const routes: Routes = [
         {path: 'internal-resources', component:AvailableResourcesAdminComponent},
         {path: 'internal-resources/:id', component: ResourceDetailsComponent},
         {path: 'incidents', component:IncidentsComponent},
-        { path: 'detail', component: DetailComponent },
+        { path: 'detail', component: DetailComponent }, 
         { path: 'history', component: HistoryComponent },
       ]},
     ],
