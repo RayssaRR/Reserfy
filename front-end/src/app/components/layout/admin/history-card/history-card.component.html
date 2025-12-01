@@ -1,38 +1,41 @@
 <div class="card">
+  <h3>{{ request.justification }}</h3>
 
-    <h3>{{ request.resource.name }}</h3>
+  <p>
+    Solicitado por:
+    <strong>
+      {{ request.user?.name || request.user?.email || 'Usuário não informado' }}
+    </strong>
+  </p>
 
-    <p>Solicitado por: <strong>{{ request.user.name }}</strong></p>
+  <p>
+    Recurso:
+    <strong>
+      {{ request.resource?.name || 'Recurso não informado' }}
+    </strong>
+  </p>
 
-    <p>Período da Reserva:</p>
-    <p>
-        {{ request.startDate }} - {{ request.endDate }}
-    </p>
+  <p>Período da Reserva:</p>
 
-    <!-- BADGE DE STATUS -->
-    <div 
-        class="badge"
-        [ngClass]="{
-            'pending': request.status === 'PENDENTE',
-            'approved': request.status === 'APROVADO',
-            'rejected': request.status === 'RECUSADO'
-        }"
-    >
-        {{ request.status }}
-    </div>
+  <p>
+    {{ request.startDate | date: 'dd/MM/yyyy' }}
+    {{ request.startTime ? ('às ' + request.startTime) : '' }}
+    -
+    {{ request.endDate | date: 'dd/MM/yyyy' }}
+    {{ request.endTime ? ('às ' + request.endTime) : '' }}
+  </p>
 
-    <!-- BOTÕES (somente para pendentes) -->
-    <div class="actions" *ngIf="request.status === 'PENDENTE'">
+  <div class="badge" [ngClass]="request.status?.toLowerCase()">
+    {{ request.status || 'Status não informado' }}
+  </div>
 
-        <button class="reject">
-            Rejeitar
-        </button>
+  <div class="actions">
+    <button class="reject">
+      Rejeitar
+    </button>
 
-        <button class="approve">
-            Aprovar
-        </button>
-
-    </div>
-
+    <button class="approve">
+      Aprovar
+    </button>
+  </div>
 </div>
-    

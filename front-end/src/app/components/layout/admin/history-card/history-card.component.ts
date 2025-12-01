@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Request } from '../../../../models/request/request.model';
 import { CommonModule } from '@angular/common';
+import { ResourceRequest } from '../../../../models/request/request.model';
 
 @Component({
   selector: 'app-history-card',
@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./history-card.component.scss'],
 })
 export class HistoryCardComponent {
-  @Input() request!: Request;
+  @Input() request!: ResourceRequest; 
 }

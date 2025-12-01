@@ -8,16 +8,14 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './maintenance-details.component.html',
-  styleUrls: ['./maintenance-details.component.css'],
+  styleUrls: ['./maintenance-details.component.scss'],
 })
 export class MaintenanceDetailsComponent implements OnInit {
   manutencao?: Manutencao; 
 
-  // Injeção correta via construtor
   constructor(private manutencaoService: MaintenanceDetailsService) {}
 
   ngOnInit(): void {
-    // se o ID vier de rota ou @Input, você pode chamar loadData aqui
     // this.loadData(algumId);
   }
 

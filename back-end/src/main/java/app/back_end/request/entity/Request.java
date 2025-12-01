@@ -1,7 +1,8 @@
 package app.back_end.request.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import app.back_end.auth.entity.User;
 import app.back_end.resource.entity.RecursoInterno;
@@ -14,21 +15,31 @@ public class Request {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING) 
     @Column(nullable = false)
     private StatusRequest status;
 
-    private LocalDateTime startDate;
+    @Column(nullable = false)
+    private String startDate;
 
-    private LocalDateTime endDate;
+    @Column(nullable = false)
+    private String endDate;
+
+    @Column(nullable = false)
+    private String startTime;
+
+    @Column(nullable = false)
+    private String endTime;
 
     private String justification;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "internal_resource_id")
+    @JsonBackReference 
+    @JoinColumn(name = "resource_id", nullable = false)
     private RecursoInterno resource;
 
     public Long getId() { return id; }
@@ -37,11 +48,17 @@ public class Request {
     public StatusRequest getStatus() { return status; }
     public void setStatus(StatusRequest status) { this.status = status; }
 
-    public LocalDateTime getStartDate() { return startDate; }
-    public void setStartDate(LocalDateTime startDate) { this.startDate = startDate; }
+    public String getStartDate() { return startDate; }
+    public void setStartDate(String startDate) { this.startDate = startDate; }
 
-    public LocalDateTime getEndDate() { return endDate; }
-    public void setEndDate(LocalDateTime endDate) { this.endDate = endDate; }
+    public String getEndDate() { return endDate; }
+    public void setEndDate(String endDate) { this.endDate = endDate; }
+
+    public String getStartTime() { return startTime; }
+    public void setStartTime(String startTime) { this.startTime = startTime; }
+
+    public String getEndTime() { return endTime; }
+    public void setEndTime(String endTime) { this.endTime = endTime; }
 
     public String getJustification() { return justification; }
     public void setJustification(String justification) { this.justification = justification; }

@@ -67,5 +67,7 @@ public class AuthService {
         String token = jwtService.generateToken(newUser);
         return token;
     }
+    
+    
 
 }

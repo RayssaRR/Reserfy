@@ -1,21 +1,12 @@
 <main>
   <section class="section-cards">
-    <button class="back" (click)="goBack()">
+    <button type="button" class="back" (click)="goBack()">
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
 
     <div class="background div-details">
-      <span
-        class="div-details-status"
-        [ngClass]="'status-' + (resource.status.toLowerCase())"
-      >
-        {{
-          statusLabels[
-            resource.status === 'ALOCADO' || resource.status === 'EM_MANUTENCAO'
-              ? 'INDISPONIVEL'
-              : resource.status
-          ]
-        }}
+      <span class="div-details-status">
+      {{resource.status}}
       </span>
 
       <h1>{{ resource.name }}</h1>
@@ -33,50 +24,43 @@
 
     <div class="background">
       <h3>Manutenção preventiva</h3>
-      <div>
-        <app-preventive-maintenance></app-preventive-maintenance>
-      </div>
     </div>
 
     <div class="background">
       <h3>Recursos Alternativos</h3>
-      <app-alternative-resources></app-alternative-resources>
     </div>
   </section>
 
   <section class="background section-form">
     <h2>Solicitar Recurso</h2>
-    <form>
+    <form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
       <div class="div-form">
         <label for="startDate">Data de Início</label>
-        <input type="date" id="startDate" />
+        <input type="date" id="startDate" formControlName="startDate" />
       </div>
 
       <div class="div-form">
         <label for="endDate">Data Final</label>
-        <input type="date" id="endDate" />
+        <input type="date" id="endDate" formControlName="endDate" />
       </div>
 
       <div class="div-form">
         <label for="startTime">Horário de Início</label>
-        <input type="time" id="startTime" />
+        <input type="time" id="startTime" formControlName="startTime" />
       </div>
 
       <div class="div-form">
         <label for="endTime">Horário Final</label>
-        <input type="time" id="endTime" />
+        <input type="time" id="endTime" formControlName="endTime" />
       </div>
 
       <div class="div-form">
         <label for="justification">Justificativa</label>
-        <textarea
-          name="justification"
-          id="justification"
-          rows="5"
-        ></textarea>
+        <textarea id="justification" rows="5" formControlName="justification"></textarea>
       </div>
 
       <button type="submit" class="request">Enviar Solicitação</button>
     </form>
+
   </section>
 </main>

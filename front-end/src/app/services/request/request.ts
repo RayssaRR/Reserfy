@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Request } from '../../models/request/request.model';
+import { ResourceRequest } from '../../models/request/request.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,19 +11,28 @@ export class RequestService {
 
   API = 'http://localhost:8080/admin/principal/requests';
 
-  list(): Observable<Request[]> {
-    return this.http.get<Request[]>(`${this.API}/list`);
+  APIUser = 'http://localhost:8080/user/principal/internal-resources';
+
+
+  list(): Observable<ResourceRequest[]> {
+    return this.http.get<ResourceRequest[]>(`${this.APIUser}/requests`);
   }
 
-  save(request: Request): Observable<string> {
-    return this.http.post(`${this.API}/save`, request, { responseType: 'text' });
+  save(idResource:number, request: ResourceRequest): Observable<string> {
+    return this.http.post(`${this.APIUser}/${idResource}/requests/save`, request, { responseType: 'text' });
   }
 
-  delete(id: number): Observable<Request> {
-    return this.http.delete<Request>(`${this.API}/delete/${id}`);
+  delete(id: number): Observable<ResourceRequest> {
+    return this.http.delete<ResourceRequest>(`${this.API}/delete/${id}`);
   }
 
-  update(id: number, request: Request): Observable<any> {
-    return this.http.put<Request>(`${this.API}/update/${id}`, request);
+  update(id: number, request: ResourceRequest): Observable<any> {
+    return this.http.put<ResourceRequest>(`${this.API}/update/${id}`, request);
   }
+
+  findById(id: number): Observable<any> {
+    return this.http.get(`${this.APIUser}/${id}`);
+  }
+
+  
 }

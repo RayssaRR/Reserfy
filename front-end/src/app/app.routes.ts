@@ -16,7 +16,7 @@ import { AvailableResourcesComponent } from './components/layout/user/available-
 import { DetailComponent } from './components/layout/admin/detail/detail.component';
 import { HistoryComponent } from './components/layout/admin/history.component/history.component';
 import { ReservationsComponent } from './components/layout/user/reservations.component/reservations.component';
-import { ManutencaoDetalhesComponent } from './components/layout/admin/maintenance-details.component/maintenance-details.component'; 
+import { MaintenanceDetailsComponent } from './components/layout/admin/maintenance-details.component/maintenance-details.component'; 
 
 
 export const routes: Routes = [
@@ -31,8 +31,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       {
         path: 'principal', component: PrincipalComponent, children: [
-          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-          { path: 'dashboard', component: DashboardComponent },
+          { path: '', redirectTo: 'internal-resources', pathMatch: 'full' },
           { path: 'internal-resources', component: AvailableResourcesComponent },
           { path: 'internal-resources/:id', component: ResourceDetailsComponent },
           { path: 'reservations', component: ReservationsComponent }
@@ -46,14 +45,13 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'principal', pathMatch: 'full' },
       { path: 'principal', component: PrincipalAdminComponent, children:[
-        {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-        {path: 'dashboard', component:DashboardAdminComponent},
+        {path: '', redirectTo: 'internal-resources', pathMatch: 'full'},
         {path: 'internal-resources', component:AvailableResourcesAdminComponent},
         {path: 'internal-resources/:id', component: ResourceDetailsComponent},
         {path: 'incidents', component:IncidentsComponent},
         { path: 'detail', component: DetailComponent },
         { path: 'history', component: HistoryComponent },
-        { path: 'maintenance/:id', component: ManutencaoDetalhesComponent },
+        { path: 'maintenance/:id', component: MaintenanceDetailsComponent },
 
       ]},
     ],

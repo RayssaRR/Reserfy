@@ -1,6 +1,5 @@
 package app.back_end.resource.entity;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,17 +18,17 @@ public class RecursoInterno {
     private String name;
 
     @Column(nullable = false)
-    private String category; 
-    
+    private String category;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private StatusEnum status;
 
     private String location;
-    
+
     private String description;
-    
-    @OneToMany(mappedBy = "resource")
+
+    @OneToMany(mappedBy = "resource", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Request> requests = new ArrayList<>();
 
     public Long getId() { return id; }
@@ -43,12 +42,13 @@ public class RecursoInterno {
 
     public StatusEnum getStatus() { return status; }
     public void setStatus(StatusEnum status) { this.status = status; }
-    
+
     public String getLocation() { return location; }
     public void setLocation(String location) { this.location = location; }
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-    
-    
+
+    public List<Request> getRequests() { return requests; }
+    public void setRequests(List<Request> requests) { this.requests = requests; }
 }

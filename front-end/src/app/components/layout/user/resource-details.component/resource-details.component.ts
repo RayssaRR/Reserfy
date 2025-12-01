@@ -1,59 +1,64 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialog } from '@angular/material/dialog';
 
-import { AlternativeResources } from '../alternative-resources/alternative-resources';
-import { PreventiveMaintenanceComponent } from '../preventive-maintenance.component/preventive-maintenance.component';
-import { InternalResource } from '../../../../models/internalResource/internalResource.model';
 import { InternalResourceService } from '../../../../services/internalResource/internal-resource';
-import { ReportIncidentComponent } from '../report-incident.component/report-incident.component';
+import { RequestService } from '../../../../services/request/request';
+import { InternalResource } from '../../../../models/internalResource/internalResource.model';
+import { ResourceRequest } from '../../../../models/request/request.model';
+import { AuthService } from '../../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-resource-details',
   standalone: true,
-  imports: [
-    CommonModule,
-    AlternativeResources,
-    MatIconModule,
-    PreventiveMaintenanceComponent,
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatIconModule],
   templateUrl: './resource-details.component.html',
-  styleUrls: ['./resource-details.component.scss'],
+  styleUrls: ['./resource-details.component.scss']
 })
 export class ResourceDetailsComponent implements OnInit {
-  statusLabels: Record<string, string> = {
-    DISPONIVEL: 'Disponível',
-    EM_MANUTENCAO: 'Em manutenção',
-    ALOCADO: 'Alocado',
-    INDISPONIVEL: 'Indisponível',
-  };
-
-  private route = inject(ActivatedRoute);
-  private router = inject(Router);
-  private internalResourceService = inject(InternalResourceService);
-  private dialog = inject(MatDialog);
 
   resource!: InternalResource;
+  requestForm!: FormGroup;
+  loggedUserId!: string; // agora guardamos apenas o id do usuário
+
+  constructor(
+    private fb: FormBuilder,
+    private internalResourceService: InternalResourceService,
+    private requestService: RequestService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.requestForm = this.fb.group({
+      startDate: ['', Validators.required],
+      endDate: ['', Validators.required],
+      startTime: ['', Validators.required],
+      endTime: ['', Validators.required],
+      justification: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void {
-    const idParam = this.route.snapshot.paramMap.get('id');
-    const id = idParam ? Number(idParam) : null;
+    const userId = this.authService.getUserId();
 
-    if (id !== null) {
-      this.loadResource(id);
+    if (!userId) {
+      alert('Erro: usuário não autenticado!');
+      this.router.navigate(['/login']);
+      return;
     }
+
+    this.loggedUserId = userId;
+
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    if (id) this.loadResource(id);
   }
 
   loadResource(id: number): void {
     this.internalResourceService.findById(id).subscribe({
-      next: (res: InternalResource) => {
-        this.resource = res;
-      },
-      error: (err) => {
-        console.error('Erro ao carregar recurso', err);
-      },
+      next: (res) => (this.resource = res),
+      error: (err) => console.error(err),
     });
   }
 
@@ -61,14 +66,43 @@ export class ResourceDetailsComponent implements OnInit {
     this.router.navigate(['/user/principal/internal-resources']);
   }
 
-  reportIncident(): void {
-    this.dialog.open(ReportIncidentComponent, {
-      width: 'auto',
-      maxWidth: '70vw',
-      data: {
-        resourceId: this.resource,
-        resource: this.resource,
+  submitRequest(): void {
+    if (!this.resource?.id) {
+      alert('Erro: recurso não carregado.');
+      return;
+    }
+
+    if (this.requestForm.invalid) {
+      this.requestForm.markAllAsTouched();
+      alert('Preencha todos os campos!');
+      return;
+    }
+
+    const formValue = this.requestForm.value;
+
+    const payload: ResourceRequest = {
+      startDate: formValue.startDate,
+      endDate: formValue.endDate,
+      startTime: formValue.startTime,
+      endTime: formValue.endTime,
+      justification: formValue.justification,
+      resource: { id: this.resource.id },
+      user: { id: this.loggedUserId } 
+    };
+
+    console.log(payload);
+
+    this.requestService.save(this.resource.id, payload).subscribe({
+      next: () => {
+        alert('Solicitação enviada com sucesso!');
+        this.requestForm.reset();
+      },
+      error: (err) => {
+        console.error('Erro ao enviar', err);
+        alert('Erro ao enviar solicitação.');
       },
     });
   }
+
+  reportIncident(): void {}
 }

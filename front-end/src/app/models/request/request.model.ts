@@ -1,13 +1,17 @@
-export class Request {
-  id!: number;
-  status!: string;
-  startDate!: string;       
-  endDate!: string;         
-  justification!: string;
-  user!: {
-    name: string;
-  };             
-  resource!: {
-    name: string;
-  };   
+export interface ResourceRequest {
+  startDate: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
+  justification: string;
+  status?: string;
+  resource: {
+    id: number;
+    name?: string;
+  };
+  user: {
+    id: string;
+    name?: string;
+    email?: string;
+  };
 }

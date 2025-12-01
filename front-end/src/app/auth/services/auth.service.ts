@@ -49,6 +49,24 @@ export class AuthService {
     return decoded ? (decoded as unknown as User) : null;
   }
 
+  getUserId(): string | null {
+    const decoded = this.decodeToken();
+
+    if (!decoded) return null;
+
+    const anyDecoded = decoded as any;
+
+    if (anyDecoded.id) {
+      return String(anyDecoded.id);
+    }
+
+    if (anyDecoded.sub) {
+      return String(anyDecoded.sub);
+    }
+
+    return null;
+  }
+
   getRoleFlag(user: User): string {
     const roleFlag = user?.roleFlag;
     return roleFlag;

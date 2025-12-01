@@ -1,40 +1,70 @@
-import { Component } from '@angular/core';
-import { HistoryCardComponent } from '../history-card/history-card.component'; //importando um card
-import { Request } from '../../../../models/request/request.model';
-import { RequestService } from '../../../../services/request/request';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatIcon } from '@angular/material/icon';
+import { combineLatest, of } from 'rxjs';
+import { switchMap, map, catchError } from 'rxjs/operators';
+import { HistoryCardComponent } from '../history-card/history-card.component';
+import { ResourceRequest } from '../../../../models/request/request.model';
+import { RequestService } from '../../../../services/request/request';
+import { InternalResourceService } from '../../../../services/internalResource/internal-resource';
+
 
 @Component({
-  selector: 'app-history', //apagar component para importar para outra pasta
+  selector: 'app-history',
   standalone: true,
-  imports: [HistoryCardComponent, CommonModule, FormsModule, MatIcon], //importei o card do historycard.
+  imports: [HistoryCardComponent, CommonModule, FormsModule],
   templateUrl: './history.component.html',
-  styleUrl: './history.component.scss',
+  styleUrls: ['./history.component.scss'],
 })
-export class HistoryComponent {
-  buscar() {
-    throw new Error('Method not implemented.');
-  }
-  searchText: any;
-  onSearch() {
-    throw new Error('Method not implemented.');
-  }
-  requests: Request[] = []; // lista das requisições. Serve para guardar todos os cards que vão aparecer na tela.
-  filteredRequests: any;
+export class HistoryComponent implements OnInit {
+  cards: ResourceRequest[] = [];
 
-  constructor(private requestService: RequestService) {} //conecta o componente ao serviço.
+  constructor(
+    private requestService: RequestService,
+    private resourceService: InternalResourceService
+  ) {}
 
   ngOnInit(): void {
-    this.loadRequests(); //Serve para carregar as requisições automaticamente assim que a tela abre.
+    this.loadRequests();
   }
 
   loadRequests(): void {
-    this.requestService.list().subscribe({
-      //Chama o backend E ENVIA UM GET
-      next: (data) => (this.requests = data), //Agora a lista do componente recebe os dados do backend.
-      error: (err) => console.error('Erro ao carregar requisições', err),
-    });
+    this.requestService.list()
+      .pipe(
+        switchMap((requests: ResourceRequest[]) => {
+          if (!requests.length) return of([]);
+
+          const enrichedObservables = requests.map(req => {
+            const user$ = req.user?.id
+              ? this.requestService.findById(+req.user.id).pipe(
+                  catchError(() => of({ id: req.user.id, name: 'Usuário não informado', email: '' }))
+                )
+              : of({ id: '', name: 'Usuário não informado', email: '' });
+
+            const resource$ = req.resource?.id
+              ? this.resourceService.findById(req.resource.id).pipe(
+                  catchError(() => of({ id: req.resource.id, name: 'Recurso não informado' }))
+                )
+              : of({ id: 0, name: 'Recurso não informado' });
+
+            return combineLatest([user$, resource$]).pipe(
+              map(([user, resource]) => ({
+                ...req,
+                user,
+                resource
+              }))
+            );
+          });
+
+          return combineLatest(enrichedObservables);
+        })
+      )
+      .subscribe({
+        next: (enrichedRequests: ResourceRequest[]) => {
+          this.cards = enrichedRequests;
+          console.log('Requisições enriquecidas:', this.cards);
+        },
+        error: (err) => console.error('Erro ao carregar requisições', err)
+      });
   }
 }
