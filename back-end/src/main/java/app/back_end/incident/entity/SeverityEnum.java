@@ -1,7 +1,7 @@
 package app.back_end.incident.entity;
 
 public enum SeverityEnum {
-	LOW,
-	MEDIUM,
-	HIGH
+	BAIXA,
+	MEDIA,
+	ALTA
 }

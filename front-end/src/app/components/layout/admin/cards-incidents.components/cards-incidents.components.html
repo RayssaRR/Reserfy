@@ -1,10 +1,11 @@
-<article class="card">
-  <div class="div-labels">
-    <span class="label">{{ incident.status }}</span>
-    <span class="label">Severidade {{ incident.severity }}</span>
+<div class="incident-card">
+  <div class="badges">
+    <span class="badge status" [ngClass]="status.toLowerCase()">{{incident.status}}</span>
+    <span class="badge severity" [ngClass]="severity.toLowerCase()">Severidade {{ incident.severity }}</span>
   </div>
-  <h3>{{ incident.name }}</h3>
-  <p>{{ incident.description }}</p>
-  <p>Reportado em: {{ incident.dateIncident}}</p>
-  <a href="" class="details">Ver Detalhes</a>
-</article>
+
+  <h3 class="title">{{ incident.name }}</h3>
+  <p class="description">{{ incident.description }}</p>
+  <p class="date">Reportado em: {{}}</p>
+  <a href="#" class="details-link">Ver Detalhes</a>
+</div>

@@ -27,7 +27,8 @@ export class ReportIncidentComponent {
     name: [{ value: this.data.resource?.name || '', disabled: true }],
     description: ['', [Validators.required, Validators.minLength(5)]],
     dateIncident: [null, Validators.required],
-    severity: ['MEDIUM', Validators.required],
+    severity: ['MEDIA', Validators.required],
+    status: ['ABERTO', Validators.required],
   });
 
 

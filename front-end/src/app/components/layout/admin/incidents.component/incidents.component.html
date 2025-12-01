@@ -13,6 +13,8 @@
         *ngFor="let incident of incidents"
         [incident]="incident">
       </app-card-incident>
+
+      <p *ngIf="incidents.length === 0">Nenhum incidente encontrado.</p>
     </div>
   </section>
 </main>
