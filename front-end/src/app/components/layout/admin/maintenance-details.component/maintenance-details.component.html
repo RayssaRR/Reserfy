@@ -1,0 +1,52 @@
+<div class="container">
+
+  <button class="voltar">Voltar</button>
+
+  <h2>Detalhes da Manutenção</h2>
+
+  <div *ngIf="manutencao as m">
+
+    <!-- CARD 1 -->
+    <div class="card">
+      <h3>Informações Gerais</h3>
+
+      <div class="row"><strong>Recurso:</strong> {{ m.recurso }}</div>
+      <div class="row"><strong>Tipo de Manutenção:</strong> {{ m.tipo }}</div>
+      <div class="row"><strong>Severidade:</strong> {{ m.severidade }}</div>
+      <div class="row"><strong>Status:</strong> {{ m.status }}</div>
+      <div class="row"><strong>Data de Reporte:</strong> {{ m.data }}</div>
+      <div class="row"><strong>Responsável:</strong> {{ m.responsavel }}</div>
+      <div class="row"><strong>Origem:</strong> {{ m.origem }}</div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+      <h3>Informações Gerais</h3>
+      <p>{{ m.descricao }}</p>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="card">
+      <h3>Linha do Tempo</h3>
+      <ul class="timeline">
+        <li *ngFor="let item of m.timeline">
+          <span class="circle"></span>
+          <span>{{ item.data }} - {{ item.evento }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- AÇÕES -->
+    <div class="actions">
+      <button class="ok" (click)="marcarResolvido()">Marcar como Resolvido</button>
+      <button class="rev" (click)="enviarParaRevisao()">Enviar para Revisão</button>
+      <button class="del" (click)="excluir()">Excluir Manutenção</button>
+    </div>
+
+  </div>
+
+  <div *ngIf="!manutencao" class="loading">
+    Carregando dados...
+  </div>
+
+</div>

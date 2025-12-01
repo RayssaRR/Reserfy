@@ -16,6 +16,8 @@ import { AvailableResourcesComponent } from './components/layout/user/available-
 import { DetailComponent } from './components/layout/admin/detail/detail.component';
 import { HistoryComponent } from './components/layout/admin/history.component/history.component';
 import { ReservationsComponent } from './components/layout/user/reservations.component/reservations.component';
+import { ManutencaoDetalhesComponent } from './components/layout/admin/maintenance-details.component/maintenance-details.component'; 
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -51,6 +53,8 @@ export const routes: Routes = [
         {path: 'incidents', component:IncidentsComponent},
         { path: 'detail', component: DetailComponent },
         { path: 'history', component: HistoryComponent },
+        { path: 'maintenance/:id', component: ManutencaoDetalhesComponent },
+
       ]},
     ],
   },
