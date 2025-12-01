@@ -54,6 +54,11 @@ public class RequestService {
 
     public Request approve(Long idRequest) {
         Request request = findById(idRequest);
+
+        if (request.getResource().getStatus() == StatusEnum.EM_MANUTENCAO) {
+            throw new RuntimeException("Não é possível aprovar reserva: o recurso está em manutenção.");
+        }
+        
         request.setStatus(StatusRequest.APROVADA);
         return requestRepository.save(request);
     }
