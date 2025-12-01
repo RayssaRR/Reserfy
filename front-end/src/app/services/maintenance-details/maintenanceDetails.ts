@@ -6,13 +6,12 @@ import { Manutencao } from '../../models/maintenance-details/maintenance-details
 @Injectable({
   providedIn: 'root'
 })
-export class ManutencaoService {
+export class MaintenanceDetailsService {
 
-  private api = 'http://seu-backend/manutencoes'; // <-- só referência por enquanto
+  private api = 'http://seu-backend/manutencoes'; 
 
   constructor(private http: HttpClient) {}
 
-  // Buscar manutenção por ID
   getDetalhes(id: number): Observable<Manutencao> {
     return this.http.get<Manutencao>(`${this.api}/${id}`);
   }

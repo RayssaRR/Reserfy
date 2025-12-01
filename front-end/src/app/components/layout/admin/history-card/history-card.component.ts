@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Request } from '../../../../models/internalResource/request.model';
+import { Request } from '../../../../models/request/request.model';
 import { CommonModule } from '@angular/common';
 
 @Component({

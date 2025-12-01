@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Manutencao } from '../../../../models/maintenance-details/maintenance-details.model'; 
-import { ManutencaoService } from '../../../../services/maintenance-details/maintenanceDetails'; 
+import { MaintenanceDetailsService } from '../../../../services/maintenance-details/maintenanceDetails'; 
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-manutencao-detalhes',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './maintenance-details.component.html',
-  styleUrls: ['./maintenance-details.component.css']
+  styleUrls: ['./maintenance-details.component.css'],
 })
 export class MaintenanceDetailsComponent implements OnInit {
+  manutencao?: Manutencao; 
 
-  manutencao?: Manutencao; // pode receber undefined antes da carga
-  manutencaoService: any;
-
-  constructor(private maintenanceDetailsService: ManutencaoService) {}
+  // Injeção correta via construtor
+  constructor(private manutencaoService: MaintenanceDetailsService) {}
 
   ngOnInit(): void {
-    // Só exemplo — depois pega o ID via rota:
-    // this.loadData(1);
+    // se o ID vier de rota ou @Input, você pode chamar loadData aqui
+    // this.loadData(algumId);
   }
 
   loadData(id: number): void {
     this.manutencaoService.getDetalhes(id).subscribe({
-      next: (data: any) => this.manutencao = data,
+      next: (data: Manutencao) => this.manutencao = data,
       error: () => console.error("Erro ao carregar manutenção")
     });
   }
