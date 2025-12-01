@@ -3,16 +3,26 @@ import { HistoryCardComponent } from '../history-card/history-card.component';//
 import { Request } from '../../../../models/internalResource/request.model';
 import { RequestService } from '../../../../services/request';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
   selector: 'app-history',//apagar component para importar para outra pasta
   standalone: true, 
-  imports: [HistoryCardComponent, CommonModule],//importei o card do historycard.
+  imports: [HistoryCardComponent, CommonModule, FormsModule, MatIcon],//importei o card do historycard.
   templateUrl: './history.component.html',
   styleUrl: './history.component.scss',
 })
 export class HistoryComponent {
+buscar() {
+throw new Error('Method not implemented.');
+}
+searchText: any;
+onSearch() {
+throw new Error('Method not implemented.');
+}
   requests: Request[] = []; // lista das requisições. Serve para guardar todos os cards que vão aparecer na tela.
+filteredRequests: any;
 
   constructor(private requestService: RequestService) {}//conecta o componente ao serviço.
 
