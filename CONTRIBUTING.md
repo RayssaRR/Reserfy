@@ -14,7 +14,7 @@ Este documento descreve como instalar o ambiente, executar o projeto e participa
 **Front-end (Angular)**
 - Node.js v16 ou v18
 - Angular CLI:
-
+|------------|
 |npm install -g @angular/cli|
 
 - IDE recomendada: VS Code
@@ -32,6 +32,7 @@ Este documento descreve como instalar o ambiente, executar o projeto e participa
 ## 2. Como configurar o ambiente local
 
 **2.1 Clonar o repositório**
+
 | git clone https://github.com/RayssaRR/Reserfy.git |
 | cd Reserfy |
 
@@ -63,7 +64,7 @@ Dentro da pasta /backend:
 | mvn spring-boot:run |
 
 O servidor iniciará em:
-📌 http://localhost:8080
+http://localhost:8080
 
 **3.2 Rodar o Front-end**
 
@@ -73,10 +74,11 @@ Dentro da pasta /frontend:
 | ng serve |
 
 A aplicação ficará disponível em:
-📌 http://localhost:4200
+http://localhost:4200
 
 ---
 ##  4. Como rodar os testes
+
 **Back-end:**
 | mvn test |
 
@@ -114,6 +116,7 @@ A aplicação ficará disponível em:
 ---
 ## 7. Deployment (Ambiente de Produção)
 
+O Reserfy possui deploy hospedado
 O link de produção deve ser mantido atualizado no README:
 
 | https://URL-do-deploy-aqui.com |
