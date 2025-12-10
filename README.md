@@ -129,6 +129,13 @@ O fluxo representa a jornada do usuário e do administrador dentro do sistema:
 **Navigator:** revisa e propõe melhorias em tempo real.  
 **Benefícios:** melhora na qualidade, menor retrabalho e aprendizado coletivo.  
 
+Durante o desenvolvimento das novas histórias implementadas nesta entrega, utilizamos a metodologia de Programação em Par em momentos estratégicos do projeto. A prática ocorreu principalmente nas etapas de:
+
+- Implementação de regras de negócio no back-end (Services e Controllers)
+- Criação de novos componentes e telas no front-end (Angular)
+
+As duplas realizaram **sessões síncronas através do Discord**,incluindo sessões de orientação da Tech Leader com os demais desenvolvedores, e orientação da divisão de tarefas através das **sprints no Trello**. As evidências dessa prática podem ser observadas no histórico de commits e nas tarefas desenvolvidas em conjunto.
+
 ---
 
 ## 7️⃣ Testes e Critérios de Aceite  
