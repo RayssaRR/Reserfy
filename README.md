@@ -80,7 +80,7 @@ Somente tarefas revisadas e aprovadas são movidas para **Concluída**.
 
 ---
 
-## 5️⃣ Fluxo de Uso do Sistema  
+## 4️⃣ Fluxo de Uso do Sistema  
 
 O fluxo representa a jornada do usuário e do administrador dentro do sistema:  
 
@@ -99,7 +99,7 @@ O fluxo representa a jornada do usuário e do administrador dentro do sistema:
 
 ---
 
-## 6️⃣ Programação em Pares (Pair Programming)  
+## 5️⃣ Programação em Pares (Pair Programming)  
 
 **Driver:** escreve o código.  
 **Navigator:** revisa e propõe melhorias em tempo real.  
@@ -114,7 +114,7 @@ As duplas realizaram **sessões síncronas através do Discord**,incluindo sess�
 
 ---
 
-## 7️⃣ Testes e Critérios de Aceite  
+## 6️⃣ Testes e Critérios de Aceite  
 
 Cada funcionalidade é validada com base em critérios específicos:  
 
@@ -133,7 +133,7 @@ https://github.com/user-attachments/assets/586bda0f-8292-4664-a342-cc357244626c
 
 ---
 
-## 8️⃣ Deploy e Demonstração  
+## 7️⃣ Deploy e Demonstração  
 
 **Deploy:** realizado em ambiente de teste e produção.  
 **Demonstração de Telas:**  
@@ -152,10 +152,9 @@ https://github.com/user-attachments/assets/71ca7085-39d4-4202-b235-abf4abab6b77
 
 
 
-
 ---
 
-## 9️⃣ Fluxo Completo do Projeto  
+## 8️⃣ Fluxo Completo do Projeto  
 
 1. Planejamento do backlog com definição de prioridades.  
 2. Criação de tarefas e critérios de aceite.  
@@ -166,7 +165,7 @@ https://github.com/user-attachments/assets/71ca7085-39d4-4202-b235-abf4abab6b77
 
 ---
 
-## 🔍 1️⃣0️⃣ Funcionalidades Principais  
+## 9️⃣ Funcionalidades Principais  
 
 | Categoria | Funcionalidade | Responsável | Valor Entregue |
 |------------|----------------|-------------|----------------|
