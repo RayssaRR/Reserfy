@@ -31,12 +31,16 @@ O sistema abrange funcionalidades essenciais voltadas ao controle completo do ci
 - **Development Team (Dev Team):** Implementa, testa e documenta as funcionalidades.  
 
 **Ferramentas:**  
+
 Utilização de **boards Kanban/Scrum**, **GitHub Projects**, **Trello** e versionamento via **Git/GitHub**.  
 🔗 [GITHUB](https://github.com/RayssaRR/Reserfy)  
 
 <img width="717" height="498" alt="PrintTrello" src="https://github.com/user-attachments/assets/869c3ba3-cf79-4980-a37c-cb0dbd8bd1ce" />
+<img width="1322" height="636" alt="Screenshot from 2025-12-10 16-16-06" src="https://github.com/user-attachments/assets/af42ac48-06f5-4cbd-81df-6a71fe396eb2" />
+<img width="1335" height="637" alt="Screenshot from 2025-12-10 16-23-21" src="https://github.com/user-attachments/assets/4a373a13-dfb7-4ab1-9b44-d2e9e6ba55d3" />
 
 🔗 [TRELLO](https://trello.com/b/9leuU1jk/projetos-2)
+
 
 ---
 
