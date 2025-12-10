@@ -151,7 +151,6 @@ https://github.com/user-attachments/assets/73f15c5d-cf6c-44e2-9f57-f09905edbe76
 https://github.com/user-attachments/assets/71ca7085-39d4-4202-b235-abf4abab6b77
 
 
-
 ---
 
 ## 8️⃣ Fluxo Completo do Projeto  
@@ -174,7 +173,15 @@ https://github.com/user-attachments/assets/71ca7085-39d4-4202-b235-abf4abab6b77
 | Reservas | Solicitação, aprovação, rejeição e cancelamento | Usuário / Administrador | Controle transparente do uso de recursos |
 | Visualização | Agenda interativa e mapa de disponibilidade | Usuário | Planejamento facilitado e visão clara de uso |
 
-
 ---
+
+## 1️⃣0️⃣ Gestão de Issues e Bugs  
+
+**Objetivo:** registrar e acompanhar falhas, melhorias e incidentes durante o desenvolvimento.  
+Cada issue deve conter:  
+- Descrição detalhada;  
+- Passos para reprodução;  
+- Ferramentas recomendadas: **GitHub Issues**
+
 
 
