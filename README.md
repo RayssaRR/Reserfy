@@ -12,18 +12,12 @@ O sistema tem como objetivo centralizar e otimizar o gerenciamento de recursos c
 **Definição do Escopo:**  
 O sistema abrange funcionalidades essenciais voltadas ao controle completo do ciclo de vida dos recursos internos:  
 
-- **Cadastro e manutenção de recursos internos**.  
+- **Cadastro de recursos internos**.  
 - **Consulta e listagem geral de recursos disponíveis** com indicadores de status.  
 - **Filtros e busca personalizada**.  
 - **Edição e exclusão controlada** de recursos.  
 - **Solicitação, aprovação e cancelamento de reservas**.  
 - **Painel pessoal de reservas** com acompanhamento por status.  
-- **Registro e acompanhamento de incidentes ou ocorrências.**  
-- **Abertura de manutenções preventivas e corretivas.**  
-- **Agenda visual de disponibilidade**.  
-- **Notificações automáticas** sobre aprovações, cancelamentos e alterações de status.  
-- **Sugestão automática de recursos alternativos** quando o item desejado estiver indisponível.  
-- **Histórico completo de uso e auditoria de recursos.**
 
 **Papéis Scrum:**  
 - **Product Owner (PO):** Define prioridades e garante que as entregas atendam às necessidades organizacionais.  
@@ -86,18 +80,6 @@ Somente tarefas revisadas e aprovadas são movidas para **Concluída**.
 
 ---
 
-## 4️⃣ Gestão de Issues e Bugs  
-
-**Objetivo:** registrar e acompanhar falhas, melhorias e incidentes durante o desenvolvimento.  
-Cada issue deve conter:  
-- Descrição detalhada;  
-- Passos para reprodução;  
-- Responsável;  
-- Prioridade e status.
-- Ferramentas recomendadas: **GitHub Issues**, **Jira**.  
-
----
-
 ## 5️⃣ Fluxo de Uso do Sistema  
 
 O fluxo representa a jornada do usuário e do administrador dentro do sistema:  
@@ -108,14 +90,8 @@ O fluxo representa a jornada do usuário e do administrador dentro do sistema:
 2. **Usuários acessam a listagem** e consultam recursos disponíveis, com filtros e buscas específicas.  
 3. **Usuários solicitam reservas** informando datas ou turnos desejados.  
 4. **Administrador analisa e aprova ou rejeita** as solicitações de reserva.  
-5. **Sistema envia notificações automáticas** de aprovação, rejeição ou cancelamento.  
-6. **Usuários podem cancelar solicitações pendentes**, com histórico atualizado.  
-7. **Painel de reservas pessoais** permite visualizar reservas ativas, pendentes e concluídas.  
-8. **Registro de incidentes ou ocorrências** é feito diretamente pelo usuário ou responsável.  
-9. **Administrador agenda manutenções preventivas**, bloqueando reservas durante o período.  
-10. **Agenda visual** mostra em tempo real a disponibilidade de cada recurso.  
-11. **Sugestões automáticas de alternativas** são exibidas para recursos indisponíveis.  
-12. **Histórico completo de uso** e incidentes pode ser consultado para auditoria e planejamento.
+5. **Usuários podem cancelar solicitações pendentes**, com histórico atualizado.  
+6. **Painel de reservas pessoais** permite visualizar reservas ativas, pendentes e concluídas.  
 
 
 <img width="8922" height="7866" alt="Figma" src="https://github.com/user-attachments/assets/d9bf6e3a-08f4-441c-b0fe-50557cfe773d" />
@@ -134,7 +110,7 @@ Durante o desenvolvimento das novas histórias implementadas nesta entrega, util
 - Implementação de regras de negócio no back-end (Services e Controllers)
 - Criação de novos componentes e telas no front-end (Angular)
 
-As duplas realizaram **sessões síncronas através do Discord**,incluindo sessões de orientação da Tech Leader com os demais desenvolvedores, e orientação da divisão de tarefas através das **sprints no Trello**. As evidências dessa prática podem ser observadas no histórico de commits e nas tarefas desenvolvidas em conjunto.
+As duplas realizaram **sessões síncronas através do Discord**,incluindo sessões de orientação da PO/Tech Leader com os demais desenvolvedores, e orientação da divisão de tarefas através das **sprints no Trello**. As evidências dessa prática podem ser observadas no histórico de commits e nas tarefas desenvolvidas em conjunto.
 
 ---
 
@@ -144,13 +120,16 @@ Cada funcionalidade é validada com base em critérios específicos:
 
 - **Validação de campos obrigatórios e unicidade de cadastros.**  
 - **Exibição imediata de novos registros e atualizações.**  
-- **Bloqueio de reservas em períodos conflitantes ou durante manutenção.**  
-- **Confirmação visual de ações (sucesso, erro, cancelamento).**  
-- **Notificações automáticas de mudanças de status.**  
 - **Atualização dinâmica da agenda e histórico.**  
-- **Sugestão automática de alternativas disponíveis.**
 
 Os testes incluem **unitários**, **de integração** e **de interface**, garantindo estabilidade e confiabilidade em cada entrega.  
+
+
+
+https://github.com/user-attachments/assets/a06fe3f8-301c-4c89-8484-f7b2237cd987
+
+https://github.com/user-attachments/assets/586bda0f-8292-4664-a342-cc357244626c
+
 
 ---
 
@@ -182,9 +161,8 @@ https://github.com/user-attachments/assets/71ca7085-39d4-4202-b235-abf4abab6b77
 2. Criação de tarefas e critérios de aceite.  
 3. Desenvolvimento em pair programming.  
 4. Revisão e testes automatizados.  
-5. Registro de issues e correções.  
-6. Deploy e demonstração funcional.  
-7. Retrospectiva e ajustes para a próxima sprint.  
+5. Deploy e demonstração funcional.  
+6. Retrospectiva e ajustes para a próxima sprint.  
 
 ---
 
@@ -193,23 +171,11 @@ https://github.com/user-attachments/assets/71ca7085-39d4-4202-b235-abf4abab6b77
 | Categoria | Funcionalidade | Responsável | Valor Entregue |
 |------------|----------------|-------------|----------------|
 | Recursos | Cadastro, edição e exclusão de recursos | Administrador | Base confiável e atualizada de ativos internos |
-| Consulta | Listagem e filtros dinâmicos | Usuário | Acesso rápido às informações |
+| Consulta | Listagem | Usuário | Acesso rápido às informações |
 | Reservas | Solicitação, aprovação, rejeição e cancelamento | Usuário / Administrador | Controle transparente do uso de recursos |
-| Manutenção | Registro de incidentes e manutenções preventivas | Administrador | Garantia de disponibilidade e segurança |
-| Notificações | Alertas automáticos sobre atualizações | Usuário / Administrador | Comunicação eficiente e rastreável |
 | Visualização | Agenda interativa e mapa de disponibilidade | Usuário | Planejamento facilitado e visão clara de uso |
-| Inteligência | Sugestão automática de alternativas | Sistema | Otimização do tempo e aproveitamento de recursos |
-| Histórico | Log completo de uso e incidentes | Administrador | Auditoria e tomada de decisão baseada em dados |
+
 
 ---
 
-### 🧩 Resumo Final  
 
-Ao adotar práticas ágeis, papéis bem definidos e entregas incrementais, o **Sistema de Controle de Recursos Internos** promove:  
-- **Organização e rastreabilidade** de todos os recursos corporativos;  
-- **Automação de reservas e notificações**;  
-- **Manutenção preventiva inteligente**;  
-- **Fluxo visual intuitivo e eficiente**;  
-- **Qualidade garantida por critérios de aceite e testes contínuos.**  
-
-Assim, o sistema assegura **transparência, eficiência e controle total** sobre o uso dos recursos internos da organização.
