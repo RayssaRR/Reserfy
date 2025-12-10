@@ -52,10 +52,13 @@ Este documento descreve como instalar o ambiente, executar o projeto e participa
 
 Exemplo:
 
-| spring.datasource.url=jdbc:mysql://localhost:3306/reserfy 
-  spring.datasource.username=root 
-  spring.datasource.password=sua_senha 
-  spring.jpa.hibernate.ddl-auto=update |
+| spring.datasource.url=jdbc:mysql://localhost:3306/reserfy |
+
+| spring.datasource.username=root |
+
+| spring.datasource.password=sua_senha |
+
+| spring.jpa.hibernate.ddl-auto=update |
 
 ---
 ## 3. Como rodar o projeto
@@ -64,8 +67,9 @@ Exemplo:
 
 Dentro da pasta /backend:
 
-| mvn clean install 
-  mvn spring-boot:run |
+| mvn clean install |
+
+| mvn spring-boot:run |
 
 O servidor iniciará em:
 http://localhost:8080
@@ -74,8 +78,9 @@ http://localhost:8080
 
 Dentro da pasta /frontend:
 
-| npm install 
-  ng serve |
+| npm install |
+
+|  ng serve |
 
 A aplicação ficará disponível em:
 http://localhost:4200
