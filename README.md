@@ -91,7 +91,9 @@ O fluxo representa a jornada do usuário e do administrador dentro do sistema:
 3. **Usuários solicitam reservas** informando datas ou turnos desejados.  
 4. **Administrador analisa e aprova ou rejeita** as solicitações de reserva.  
 5. **Usuários podem cancelar solicitações pendentes**, com histórico atualizado.  
-6. **Painel de reservas pessoais** permite visualizar reservas ativas, pendentes e concluídas.  
+6. **Painel de reservas pessoais** permite visualizar reservas ativas, pendentes e concluídas.
+7. **Registro de incidentes ou ocorrências** é feito diretamente pelo usuário ou responsável.  
+
 
 
 <img width="8922" height="7866" alt="Figma" src="https://github.com/user-attachments/assets/d9bf6e3a-08f4-441c-b0fe-50557cfe773d" />
@@ -120,15 +122,22 @@ Cada funcionalidade é validada com base em critérios específicos:
 
 - **Validação de campos obrigatórios e unicidade de cadastros.**  
 - **Exibição imediata de novos registros e atualizações.**  
-- **Atualização dinâmica da agenda e histórico.**  
+- **Atualização dinâmica da agenda e histórico.**
+- **Confirmação visual de ações (sucesso, erro, cancelamento).**  
 
 Os testes incluem **unitários**, **de integração** e **de interface**, garantindo estabilidade e confiabilidade em cada entrega.  
-
 
 
 https://github.com/user-attachments/assets/a06fe3f8-301c-4c89-8484-f7b2237cd987
 
 https://github.com/user-attachments/assets/586bda0f-8292-4664-a342-cc357244626c
+
+**Teste de interface** para correção do front-end de Minhas Reservas, Relatório de incidentes, Reservas de Administrados e a Listagem de Incidentes:
+
+
+https://github.com/user-attachments/assets/255f689e-c948-46c4-8ded-1aaf5ab2a056
+
+https://github.com/user-attachments/assets/5b10aef2-6194-4edf-afcf-44ff91b92a1f
 
 
 ---
