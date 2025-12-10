@@ -1,3 +1,5 @@
+
+
 Obrigado por contribuir com o Reserfy!
 Este documento descreve como instalar o ambiente, executar o projeto e participar do desenvolvimento seguindo boas práticas de versionamento e colaboração.
 
@@ -14,7 +16,7 @@ Este documento descreve como instalar o ambiente, executar o projeto e participa
 **Front-end (Angular)**
 - Node.js v16 ou v18
 - Angular CLI:
-|------------|
+
 |npm install -g @angular/cli|
 
 - IDE recomendada: VS Code
@@ -28,13 +30,14 @@ Este documento descreve como instalar o ambiente, executar o projeto e participa
 
 - Git
 - Navegador atualizado (Chrome/Firefox)
+  
 ---
 ## 2. Como configurar o ambiente local
 
 **2.1 Clonar o repositório**
 
-| git clone https://github.com/RayssaRR/Reserfy.git |
-| cd Reserfy |
+| git clone https://github.com/RayssaRR/Reserfy.git 
+  cd Reserfy |
 
 **2.2 Configurar o Banco de Dados MySQL**
 
@@ -49,19 +52,20 @@ Este documento descreve como instalar o ambiente, executar o projeto e participa
 
 Exemplo:
 
-| spring.datasource.url=jdbc:mysql://localhost:3306/reserfy |
-| spring.datasource.username=root |
-| spring.datasource.password=sua_senha |
-| spring.jpa.hibernate.ddl-auto=update |
+| spring.datasource.url=jdbc:mysql://localhost:3306/reserfy 
+  spring.datasource.username=root 
+  spring.datasource.password=sua_senha 
+  spring.jpa.hibernate.ddl-auto=update |
 
 ---
 ## 3. Como rodar o projeto
+
 **3.1 Rodar o Back-end**
 
 Dentro da pasta /backend:
 
-| mvn clean install |
-| mvn spring-boot:run |
+| mvn clean install 
+  mvn spring-boot:run |
 
 O servidor iniciará em:
 http://localhost:8080
@@ -70,8 +74,8 @@ http://localhost:8080
 
 Dentro da pasta /frontend:
 
-| npm install |
-| ng serve |
+| npm install 
+  ng serve |
 
 A aplicação ficará disponível em:
 http://localhost:4200
@@ -113,6 +117,7 @@ http://localhost:4200
    - screenshots se necessário
    - referência a issues (#id)
    - Esperar a revisão.
+     
 ---
 ## 7. Deployment (Ambiente de Produção)
 
