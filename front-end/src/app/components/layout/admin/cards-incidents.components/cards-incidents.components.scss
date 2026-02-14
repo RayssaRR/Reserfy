@@ -4,8 +4,8 @@
 .incident-card {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
-  max-width: 300px;
+  padding: 20px;
+  gap:2px;
   font-family: Arial, sans-serif;
   background-color: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -14,7 +14,8 @@
 .badges {
   display: flex;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
+  justify-self: flex-end;
 }
 
 .badge {
@@ -25,7 +26,7 @@
   text-align: center;
 }
 
-.status.aberto {
+.status {
   background-color: #cce5ff;
   color: #004085;
 }
@@ -35,7 +36,7 @@
   color: #383d41;
 }
 
-.severity.alta {
+.severity {
   background-color: #f8d7da;
   color: #721c24;
 }
@@ -69,9 +70,11 @@
 }
 
 .details-link {
+  display: flex;
   font-size: 14px;
   color: #007bff;
   text-decoration: none;
+  justify-self: flex-end;
 }
 
 .details-link:hover {

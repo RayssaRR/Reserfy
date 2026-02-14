@@ -10,5 +10,4 @@ import { ResourceRequest } from '../../../../models/request/request.model';
   styleUrls: ['./history-card.component.scss'],
 })
 export class HistoryCardComponent {
-  @Input() request!: ResourceRequest; 
 }

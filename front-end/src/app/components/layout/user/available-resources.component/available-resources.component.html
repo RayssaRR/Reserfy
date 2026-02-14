@@ -23,8 +23,7 @@
       </td>
       <td>{{ resource.location }}</td>
       <td>
-        <button class="button-request"
-                [disabled]="resource.status !== 'DISPONIVEL'"
+        <button class="button-request" [ngClass]="{'btn-disabled': resource.status !== 'DISPONIVEL', 'btn-enabled': resource.status === 'DISPONIVEL'}"
                 (click)="openDetails(resource.id)">
           Solicitar
         </button>

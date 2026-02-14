@@ -1,11 +1,11 @@
 <div class="incident-card">
   <div class="badges">
-    <span class="badge status" [ngClass]="incident.status.toLowerCase()">{{incident.status}}</span>
-    <span class="badge severity" [ngClass]="incident.severity.toLowerCase()">Severidade {{ incident.severity }}</span>
+    <span class="badge status">Aberto</span>
+    <span class="badge severity">Severidade Alta</span>
   </div>
 
-  <h3 class="title">{{ incident.name }}</h3>
-  <p class="description">{{ incident.description }}</p>
-  <p class="date">Reportado em: {{incident.dateIncident }}</p>
+  <h3 class="title">Falha de conexão no servidor </h3>
+  <p class="description">Recurso afetado: Servidor de aplicações Lorem ipsum dolor sit amet, consectetur adipiscing elit....</p>
+  <p class="date">Reportado em: 02 de Outubro, 2025</p>
   <a href="#" class="details-link">Ver Detalhes</a>
 </div>
