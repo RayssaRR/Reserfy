@@ -1,5 +1,6 @@
 .card {
     background: #FFFFFF;
+    z-index: 0;
     padding: 26px 26px 22px 26px;
     border-radius: 16px;
     margin-bottom: 20px;
@@ -7,10 +8,10 @@
         0px 1.5px 3px rgba(0, 0, 0, 0.05),
         0px 4px 12px rgba(0, 0, 0, 0.06);
     position: relative;
+    z-index: -1;
 }
 
 .card h3 {
-    font-size: 18px;
     font-weight: 700;
     margin-bottom: 8px;
 }

@@ -54,7 +54,7 @@ tbody tr:last-child {
 }
   
   
-.status-em_manutencao, .status-alocado {
+.status-indisponivel {
   color: vars.$text-color;
   background-color: #D9E2EC;
 }
@@ -67,7 +67,7 @@ tbody tr:last-child {
   border: none;
 }
 
-.disabled{
+.btn-disabled{
   display: none;
 }
 

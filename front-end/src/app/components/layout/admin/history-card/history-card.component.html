@@ -1,33 +1,46 @@
 <div class="card">
-  <h3>{{ request.justification }}</h3>
+  <h3>Laptop 3</h3>
 
   <p>
     Solicitado por:
     <strong>
-      {{ request.user?.name || request.user?.email || 'Usuário não informado' }}
-    </strong>
-  </p>
-
-  <p>
-    Recurso:
-    <strong>
-      {{ request.resource?.name || 'Recurso não informado' }}
+      Jefferson Fernandes
     </strong>
   </p>
 
   <p>Período da Reserva:</p>
 
   <p>
-    {{ request.startDate | date: 'dd/MM/yyyy' }}
-    {{ request.startTime ? ('às ' + request.startTime) : '' }}
-    -
-    {{ request.endDate | date: 'dd/MM/yyyy' }}
-    {{ request.endTime ? ('às ' + request.endTime) : '' }}
+    23 de Outubro, 2025, 9:00 AM - 10:00 AM 
   </p>
 
-  <div class="badge" [ngClass]="request.status?.toLowerCase()">
-    {{ request.status || 'Status não informado' }}
+  <div class="actions">
+    <button class="reject">
+      Rejeitar
+    </button>
+
+    <button class="approve">
+      Aprovar
+    </button>
   </div>
+</div>
+
+
+<div class="card">
+  <h3>Laptop 10</h3>
+
+  <p>
+    Solicitado por:
+    <strong>
+      Jefferson Fernandes
+    </strong>
+  </p>
+
+  <p>Período da Reserva:</p>
+
+  <p>
+    23 de Outubro, 2025, 9:00 AM - 10:00 AM 
+  </p>
 
   <div class="actions">
     <button class="reject">

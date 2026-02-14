@@ -1,0 +1,34 @@
+<main class="container">
+  <h2>Reportar incidente</h2>
+  <h3 class="subtitle">Preencha o formulário abaixo para comunicar um incidente</h3>
+
+  <form [formGroup]="form">
+    <div class="label-input">
+      <label for="name">Nome do recurso</label>
+      <input id="name" type="text" formControlName="name" />
+    </div>
+
+    <div class="label-input">
+      <label for="description">Descreva o incidente</label>
+      <textarea id="description" rows="3" formControlName="description"></textarea>
+    </div>
+
+    <div class="label-input">
+      <label for="date">Data do incidente</label>
+      <input id="date" type="date" formControlName="date" />
+    </div>
+
+    <div class="label-input">
+      <label>Gravidade</label>
+      <div *ngFor="let g of gravities" class="severity">
+        <input type="radio" [value]="g" formControlName="severity" id="{{g}}" />
+        <label for="{{g}}">{{g}}</label>
+      </div>
+    </div>
+  </form>
+
+  <div class="buttons">
+    <button class="cancel" type="button" (click)="cancel()">Cancelar</button>
+    <button class="success" type="button" (click)="submit()">Reportar Incidente</button>
+  </div>
+</main>
